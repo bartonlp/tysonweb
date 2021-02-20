@@ -1,0 +1,166 @@
+/* This is the CSS for index.php */
+/* The DIV tabs for each sub section has its own id */
+
+div {
+        padding: 10px;
+}
+#searchforhomes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        text-align: center;
+        background-color: #d2d3cd;
+}
+#searchforhomes span {
+        padding: 4px 2px;
+        border: 1px solid black;
+}
+#searchforhomes img {
+        width: 200px;
+}
+
+#forclosures {
+        background-color: #b1ecec;
+        border: 1px solid black;
+}
+
+#freddiemac {
+        background-color: #FBF5E6;
+        border: 1px solid black;
+}
+
+#freddiemac h2 { text-align: center; }
+
+#downtownnewbern {
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+}
+#downtownnewbern iframe {
+        width: 600px;
+        height: 450px;
+}    
+#eventsdowntown p {
+        margin-left: 10px;
+}
+#greatplace ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border: 1px solid black;
+}
+
+#location {
+        margin-bottom: 10px;
+}
+/* map of new berm image */
+#mapnewbern {
+        width: 323px;
+}
+/* remodle image */
+#remodle {
+        margin-right: 10px;
+}
+/* gazebo image */
+#gazebo {
+        width: 465px;
+        margin-right: 10px;
+}
+/* images of sail boats and man fishing */
+.sailgroup {
+        width: 144px;
+        height: 140px;
+        margin-right: 10px;
+}
+/* airplane image */
+#airplain {
+        width: 160px;
+}
+/* cityhall image */
+#cityhall {
+        width: 160px;
+        margin-right: 10px;
+}
+/* parade image */
+#parade {
+        width: 200px;
+        margin-right: 10px;
+}
+/* palace image */
+#palace {
+        width: 200px;
+        margin-right: 10px;
+}
+/* hospital image */
+#hospital {
+        width: 336px;
+        margin-right: 10px;
+}
+
+#mortgagecalc iframe {
+        width: 100%;
+        height: 1050px;
+        border: 0;
+/* style="width: 100%; height: 1050px; border: 0;" */
+}
+#mortgagecalc img {
+        width: 589px;
+        height: 57px;
+}
+/* div with the affermation */
+#mortgagecalc div {
+        font-family: Arial;
+        height: 36px;
+        top: -36px;
+        padding: 0 8px 0 0;
+        text-align: right;
+        background: #f6f9f9;
+        border: 1px solid #ccc;
+        color: #868686;
+        line-height: 34px;
+        font-size: 12px;
+        position: relative;
+}
+#mortagecalc a {
+        color: #868686;
+}
+/* Freddie Mac tables stuff */  
+.md_summarytable {
+        border: 1px solid black;
+        width: 100%;
+        background-color: #faeddd;
+}
+.md_summarytable td {
+        border: 1px solid black;
+        padding-left: 10px;
+        padding-right: 10px;
+}
+.md_summarytable th {
+        border: 1px solid black;
+}
+.md_grouprow {
+        text-align: center;
+        font-weight: bold;
+}
+
+/* Media queries */
+@media (min-width: 1280px) {
+        #searchforhomes img { width: 400px; }
+}
+@media (max-width: 725px) {
+        #searchforhomes { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+        #downtownnewbern iframe { width: 280px; }
+        #downtownnewbern { width: 280px; height: 220px;}
+        #gazebo { width: 280px; }
+        #mortgagecalc img { width: 280px; height: 57px; }
+        #mapnewbern { width: 280px; }
+        #hospital { width: 280px; }
+        .md_summarytable thead { display: none }
+        .md_summarytable tbody td { display: none }
+        .md_summarytable tbody td:first-child,
+        .md_summarytable tbody td:nth-child(2),
+        .md_summarytable tbody td:nth-child(3) { display: table-cell; }
+}
+@media (max-width: 450px) {
+        #searchforhomes { grid-template-columns: 1fr; }
+}

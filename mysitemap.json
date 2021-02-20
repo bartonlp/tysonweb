@@ -1,0 +1,20 @@
+{
+  "siteDomain": "bartonlp.org",
+  "siteName": "Tyson Group",
+  "mainTitle": "Tyson Group",
+  "path": "/var/www/tysonweb",
+  "className": "SiteClass",
+  "copyright": "Tyson Group",
+  "author": "Steve Tyson",
+  "headFile": "includes/head.i.php",
+  "bannerFile": "includes/banner.i.php",
+  "footerFile": "includes/footer.i.php",
+  "nodb": true,
+  "noTrack": true,
+  "count": false,
+  "countMe": false,
+  "myUri": "https://bartonphillips.net/myUri.json",
+  "EMAILADDRESS": "bartonphillips@gmail.com",
+  "EMAILRETURN": "bartonphillips@gmail.com",
+  "EMAILFROM": "bartonphillips@gmail.com"
+}
