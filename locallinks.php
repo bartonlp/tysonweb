@@ -3,7 +3,6 @@
 
 $_site = require_once(getenv("SITELOADNAME"));
 ErrorClass::setDevelopment(true);
-ErrorClass::setNoEmailErrs(true);
 $S = new $_site->className($_site);
 
 $h->title = "Tyson Group";
@@ -20,7 +19,7 @@ $h->css = <<<EOF
 .grid {
         display: grid;
         grid-gap: 10px;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
         grid-auto-rows: 20px;
         margin-left: 60px;
 }
@@ -44,7 +43,7 @@ $top
 <a href="New-Bern-dining.php"><b>Dining</b></a>
 <a href="new-bern-weather.php"><b>Weather</b></a>
 <a href="http://www.craven.k12.nc.us"><b>Schools</b></a>
-<a href="Airport.php"><b>Costal Carolina Regional Airport</b></a>
+<a href="Airport.php"><b>Coastal Carolina Regional Airport</b></a>
 <a href="craven-county-government.php"><b>Craven County Government</b></a>
 <a href="Convention-Center.php"><b>Riverfront Convention Center</b></a>
 <a href="https://www.newbernsj.com/"><b>Sun Journal Newspaper</b></a>

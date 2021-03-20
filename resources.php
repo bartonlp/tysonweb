@@ -1,5 +1,5 @@
 <?php
-
+// BLP 2021-02-21 -- notedited
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
 

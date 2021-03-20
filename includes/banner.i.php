@@ -1,8 +1,10 @@
 <?php
 return <<<EOF
 <header id="header">
-  <img src="images/TGROUP-LONG.gif" alt="New Bern's number 1 website to search for homes and real estate"
+  <img id="logo" src="images/TGROUP-LONG.gif" alt="New Bern's number 1 website to search for homes and real estate"
     title="Steve and Jana Tyson are selling homes in New Bern every day."/>
+  <img id='dummy' src="tracker.php?page=normal&id=$this->LAST_ID">
+
 <!-- Nav bar for large screens -->
   <nav>
     <menu>
@@ -30,6 +32,9 @@ return <<<EOF
           <menuitem>
             <a href="newbernhistory.php">New Bern History</a>
           </menuitem>
+          <menuitem>
+            <a href="aboutwebsite.php">About Our Website</a>
+          </menuitem>
         </menu>
       </menuitem>
       <menuitem>
@@ -55,23 +60,21 @@ return <<<EOF
       <li><a href="Closing-Cost.php">Closing Costs</a></li>
       <li><a href="otherservices.php">Resources</a></li>
       <li><a href="newbernhistory.php">New Bern History</a></li>
+      <li><a href="aboutwebsite.php">About Our Website</a></li>
       <li><a href="aboutus.php">About Us</a></li>
       <li><a href="testimonials.php">Testimonials</a></li>
       <li><a href="contactus.php">Contact Us</a></li>
     </ul>
   </div>
 </div>
-
-<noscript id="noscript">
-<style>
-html {
-  display:block;
-}
-</style>
-<p>
+$mainTitle
+<noscript>
+<p style='color: red; background-color: #FFE4E1; padding: 10px'>
+<img src="tracker.php?page=noscript&id=$this->LAST_ID">
 Your browser either does not support <b>JavaScripts</b> or you have JavaScripts disabled, in either case your browsing
 experience will be significantly impaired. If your browser supports JavaScripts but you have it disabled consider enabaling
 JavaScripts conditionally if your browser supports that. Sorry for the inconvienence.</p>
 </noscript>
+</style>
 </header>
 EOF;

@@ -34,14 +34,13 @@ return <<<EOF
     <span></span>
   </a>
 </div>
-<!--
-  Normal footer
--->
+<!-- Normal footer -->
 <footer>
 <address>
   Copyright &copy; $this->copyright<br>
-  Last Modified: $lastmod
 </address>
+  $counterWigget
+  Last Modified: $lastmod
 </footer>
 {$arg['script']}
 </body>

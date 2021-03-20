@@ -1,5 +1,5 @@
 <?php
-
+// BLP 2021-02-21 -- notedited
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
 
@@ -35,7 +35,7 @@ img[src*="civil03.jpg"] {
         height: 97px;
         float: left;
 }
-img[src*="soilder1.JPG"] {
+img[src*="soilder1.jpg"] {
         width: 300px;
         float: left;
 }
@@ -51,12 +51,15 @@ div p {
         img[src*="civil02.png"] {
                 width: 100px;
         }
-        img[src*="soilder1.JPG"] {
+        img[src*="soilder1.jpg"] {
                 width: 100px;
         }
         img[src*="monument.jpg"] {
                 width: 100px;
         }
+}
+@media (max-width: 500px) {
+        img[src*="soilder1"], img[src*="monument"] { float: none; }
 }
 </style>
 EOF;
@@ -143,7 +146,7 @@ Confederate forces in the entire state of North Carolina now
 inhabited the town once called &quot;The Athens of the South.&quot;</p>
 
 <div>
-<img src="images/New%20Bern%20Confederate%20soilder1.JPG" alt="Cedar Grove Cemetery in New Bern NC">
+<img src="images/New%20Bern%20Confederate%20soilder1.jpg" alt="Cedar Grove Cemetery in New Bern NC">
 <img border="0" src="images/Mass monument.jpg" alt="Monument to the New Jersey soldiers buried in New Bern National cemetery">
 <p>Cedar Grove Cemetery, one of the oldest in North 
 Carolina, is located in downtown New Bern. The monument in the photo to the left was dedicated to the 

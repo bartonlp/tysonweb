@@ -11,7 +11,6 @@ I may want to change these later if we start doing tracking and other database f
 */
 $_site = require_once(getenv("SITELOADNAME"));
 ErrorClass::setDevelopment(true);
-ErrorClass::setNoEmailErrs(true);
 $S = new $_site->className($_site);
 
 $h->title = "Tyson Group";

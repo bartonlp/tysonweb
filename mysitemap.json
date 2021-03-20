@@ -1,20 +1,33 @@
+/*
+ * SPECIAL json for use by siteload.php. Normal json will not allow
+ * comments.
+ */
 {
-  "siteDomain": "bartonlp.org",
-  "siteName": "Tyson Group",
+  "siteDomain": "newbern-nc.info", // will change this once we get the domain name transfered
+  "siteName": "Tysonweb",
   "mainTitle": "Tyson Group",
   "path": "/var/www/tysonweb",
   "className": "SiteClass",
   "copyright": "Tyson Group",
   "author": "Steve Tyson",
+  "masterdb": "barton",
+  "dbinfo": { // if we start doing anything complex we will change this to 'tysonweb' maybe
+    "host": "localhost",
+    "user": "barton",
+    "password": "7098653",
+    "database": "barton",
+    "engine": "mysqli"
+  },
   "headFile": "includes/head.i.php",
   "bannerFile": "includes/banner.i.php",
   "footerFile": "includes/footer.i.php",
-  "nodb": true,
-  "noTrack": true,
-  "count": false,
-  "countMe": false,
-  "myUri": "https://bartonphillips.net/myUri.json",
-  "EMAILADDRESS": "bartonphillips@gmail.com",
+  "count": true,
+  "countMe": true,
+  "ctrmsg": "Counter Reset: March 1, 2021",
+  "reset": "2021-03-01",
+  "myUri": "https://bartonphillips.net/myUri.json", // may need to add to myUri.json for steve etc.
+  "trackerImg1": "https://www.newbern-nc.info/images/TGROUP-LONG.gif",
+  "EMAILADDRESS": "bartonphillips@gmail.com", // NEED to change to tyson group.
   "EMAILRETURN": "bartonphillips@gmail.com",
   "EMAILFROM": "bartonphillips@gmail.com"
 }

@@ -1,8 +1,7 @@
 <?php
-
+BLP 2021-02-21 -- notedited
 $_site = require_once(getenv("SITELOADNAME"));
 ErrorClass::setDevelopment(true);
-ErrorClass::setNoEmailErrs(true);
 $S = new $_site->className($_site);
 
 $h->title = "Tyson Group";

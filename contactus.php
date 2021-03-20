@@ -1,5 +1,6 @@
 <?php
-
+// BLP 2021-02-21 -- notedited
+// BLP 2021-02-21 -- steve needs to look  
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
 
@@ -51,13 +52,13 @@ if($_POST) {
   extract($_POST);
 
   if($member == "steve") {
-    $address = "bartonphillips@gmail.com"; // stevetyson55@gmail.com
+    $address = "stevetyson55@gmail.com"; // stevetyson55@gmail.com
     $subject = "Message for Steve Tyson";
   } elseif($member == "jana") {
-    $address = "bartonphillips@gmail.com"; // thetysongroup@gmail.com
+    $address = "thetysongroup@gmail.com"; // thetysongroup@gmail.com
     $subject = "Message for Jana Tyson";
   } elseif($member == "kristi") {
-    $address = "bartonphillips@gmail.com"; // kristidiello@gmail.com
+    $address = "kristidiello@gmail.com"; // kristidiello@gmail.com
     $subject = "Message for kristi";
   } else {
     echo "<h1>Go Away</h1>";
@@ -70,7 +71,7 @@ Email: $email
 Message: $msg
 EOF;
 
-  mail($address, $subject, $str, "From: newbern-nc.info\r\n");
+  mail($address, $subject, $str, "From: newbern-nc.info\r\nBcc: bartonphillips@gmail.com");
   echo <<<EOF
 $top
 <h1>Posted</h1>

@@ -7,6 +7,13 @@
    social/css/font-awesome.css
 */
 
+/* This 'root' is for the hit counter */
+:root {
+  --blpHitcntrBgColor: #F5DEB3;
+  --blpHitcntrBorder: 8px ridge yellow;
+  --blpHitcntrColor: rgb(123, 16, 66);
+}
+        
 /* Overall font face */
 @font-face {
   font-family: liberation;
@@ -183,7 +190,7 @@ header {
   padding: 0;
   width: 100%;
 }
-header img {
+#logo {
   width: 100%;
   vertical-align: top;
   margin-left: .2rem;
@@ -408,9 +415,9 @@ menuitem > menu > menuitem.hover > menu > menuitem{
 /* Footer section */
 footer {
   text-align: center;
-  height: 2.5rem;
   width: 100%;
   background-color: lightgray;
+  padding: 10px 0 10px 0;
 }
 /* General button type */
 button {
@@ -435,6 +442,36 @@ ul {
   text-align: left;
 }
 
+/*
+  The #hitCounter... are for the SiteClass::getCounterWigget() which can be at the bottom of the page.
+  #F5DEB3==rgb(245,222,179) is 'wheat' for the background
+  burgundy=rgb(123, 16, 66) is a burgundy for the number
+*/  
+#hitCounter {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+}
+#hitCountertbl {
+  font-size: 1em;
+  width: 0;
+  border: var(--blpHitcntrBorder);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--blpHitcntrBgColor);
+}
+#hitCountertr {
+  width: 0;
+  border: var(--blpHitcntrBorder);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--blpHitcntrBgColor) 
+}
+#hitCounterth {
+        color: var(--blpHitcntrColor);
+}
+/*****************/
 /* Media queries */
 @media (max-width: 1275px) {
   html {
@@ -460,4 +497,3 @@ ul {
     font-size: 14px;
   }
 }
-

@@ -4,7 +4,6 @@
 
 $_site = require_once(getenv("SITELOADNAME"));
 ErrorClass::setDevelopment(true);
-ErrorClass::setNoEmailErrs(true);
 $S = new $_site->className($_site);
 
 $h->title = "Tyson Group";
@@ -54,6 +53,11 @@ img[src*="yacht.jpg"] {
         img[src*="center-2.jpg"] {
                 width: 262px;
         }
+}
+@media (max-width: 500px) {
+        img[src*="yacht"] { float: none; }
+        img[src*="tryonpalace"] { float: none; }
+        img[src*="center.jpg"] { float: none; }
 }
 </style>
 EOF;

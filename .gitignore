@@ -1,6 +1,3 @@
 # Git ignore file for /var/www/tysonweb
 /Archive
-/_*
-/NB*
-/Havelock
-/nc-*
+

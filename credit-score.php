@@ -1,8 +1,7 @@
 <?php
-
+// BLP 2021-02-21 -- notedited
 $_site = require_once(getenv("SITELOADNAME"));
 ErrorClass::setDevelopment(true);
-ErrorClass::setNoEmailErrs(true);
 $S = new $_site->className($_site);
 
 $h->title = "Tyson Group";
@@ -82,11 +81,11 @@ the best interest rate possible for your new home. <b>Your Credit Score is very 
 <h2>8 Tips to improve your credit scores</h2>
 <ol>
 <li>Pay on time-not rocket science to understand this one.</li>
-<li>If you can&#39;t pay on time, notify your lender and work something out with 
+<li>If you can't pay on time, notify your lender and work something out with 
 them.</li>
 <li>Get current on past due accounts.</li>
 <li>Keep low balances relative to your credit limit.</li>
-<li>Don&#39;t open new accounts just to lower your credit capacity as having to 
+<li>Don't open new accounts just to lower your credit capacity as having to 
 much capacity is a risk also.</li>
 <li>Consider keeping old accounts open, keep it all within a short time frame 
 such as 14 days or less.</li>

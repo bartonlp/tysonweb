@@ -1,0 +1,5 @@
+#Protect Directory name: steve
+AuthName "Dialog prompt"
+AuthType Basic
+AuthUserFile /var/www/tysonweb/admin/.htpasswd
+Require valid-user

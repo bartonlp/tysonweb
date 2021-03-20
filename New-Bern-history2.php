@@ -1,8 +1,7 @@
 <?php
-
+// BLP 2021-02-21 -- notedited
 $_site = require_once(getenv("SITELOADNAME"));
 ErrorClass::setDevelopment(true);
-ErrorClass::setNoEmailErrs(true);
 $S = new $_site->className($_site);
 
 $h->title = "Tyson Group";
@@ -54,7 +53,7 @@ img[src*="soldiers.jpg"] {
         width: 229px;
         float: left;
 }
-img[src*="sailboat.JPG"] {
+img[src*="sailboat.jpg"] {
         width: 248px;
         float: left;
 }
@@ -303,7 +302,7 @@ in the area.</p>
 
 <h2>New Bern Today</h2>
 
-<img border="0" src="images/convention%20center%20&%20sailboat.JPG" alt="New Bern convention center.">
+<img border="0" src="images/convention%20center%20&%20sailboat.jpg" alt="New Bern convention center.">
 
 <p>Today New Bern is a very happening little town. With an 
 abundance of history, water, golf courses, favorable tax rates, 
