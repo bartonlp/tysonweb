@@ -1,4 +1,5 @@
 <?php
+// BLP 2021-03-22 -- Removed daycountwhat from daycounts. Added div class scrolling to most tables.
 // BLP 2018-01-07 -- changed tracker order by starttime to lasttime
 // BLP 2017-03-23 -- set up to work with https  
 
@@ -38,8 +39,10 @@ if(isset($_POST['submit'])) {
 }
 
 $h->link = <<<EOF
-  <link rel="stylesheet" href="https://bartonphillips.net/css/tablesorter.css">
-  <link rel="stylesheet" href="https://bartonphillips.net/css/webstats.css">
+<!--  <link rel="stylesheet" href="https://bartonphillips.net/css/tablesorter.css"> -->
+<!--  <link rel="stylesheet" href="https://bartonphillips.net/tablesorter-master/dist/css/theme.default.min.css"> -->
+  <link rel="stylesheet" href="https://bartonphillips.net/css/newtblsort.css">
+  <link rel="stylesheet" href="https://bartonphillips.net/css/webstats.css"> 
 EOF;
 
 $h->css = <<<EOF
@@ -66,7 +69,8 @@ $h->script = <<<EOF
   var thesite = "$S->siteName";
   var myIp = "$myIp";
 </script>
-<script src="https://bartonphillips.net/js/tablesorter/jquery.tablesorter.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>-->
+<script src="https://bartonphillips.net/tablesorter-master/dist/js/jquery.tablesorter.min.js"></script>
 <script src="https://bartonphillips.net/js/webstats.js"></script>
 EOF;
 
@@ -113,7 +117,7 @@ function getwebstats($S) {
 <hr/>
 </script>
 
-<h2>From table <i>blpip</i></h2>
+<h2>From table <i>myip</i></h2>
 <p>These are the IP Addresses used by the Webmaster. When these addresses appear in the other tables they are in
 <span style="color: red">RED</span>.</p>
 $tbl
@@ -127,11 +131,15 @@ EOF;
   "from $S->masterdb.logagent ".
          "where site='$S->siteName' and lasttime >= current_date() order by lasttime desc";
 
-  list($tbl) = $T->maketable($sql,
-                             array('callback'=>'blpip',
-                                   'attr'=>array('id'=>"logagent", 'border'=>"1")));
+  list($tbl) = $T->maketable($sql, array('callback'=>'blpip', 'attr'=>array('id'=>"logagent", 'border'=>"1")));
   if(!$tbl) {
     $tbl = "<h3 class='noNewData'>No New Data Today</h2>";
+  } else {
+    $tbl = <<<EOF
+<div class="scrolling">
+$tbl
+</div>
+EOF;
   }
 
   $page .= <<<EOF
@@ -198,12 +206,12 @@ EOF;
   // Get the footer line
   
   $sql = "select sum(`real`+bots) as Count, sum(`real`) as 'Real', sum(bots) as 'Bots', ".
-           "sum(members) as 'Members', sum(visits) as Visits " .
+           "sum(visits) as Visits " .
            "from $S->masterdb.daycounts ".
            "where site='$S->siteName' and lasttime >= current_date() - interval 6 day";
 
   $S->query($sql);
-  list($Count, $Real, $Bots, $Members, $Visits) = $S->fetchrow('num');
+  list($Count, $Real, $Bots, $Visits) = $S->fetchrow('num');
 
   // Use 'tracker' to get the number of Visitors ie unique ip accesses.
   // BLP 2018-01-07 -- changed order by from starttime to lasttime.
@@ -227,14 +235,6 @@ EOF;
     $Visitors += $n;
   }
   
-  if($Members) {
-    $memberfooter = "<th>$Members</th>";
-    $memberquery = ", members";
-  } else {
-    $memberfooter = '';
-    $memberquery = '';
-  }
-
   // Only show items that are not me.
   
   foreach($S->myUri as $v) {
@@ -259,12 +259,12 @@ EOF;
   }
 
   $ftr = "<tr><th>Totals</th><th>$Visitors</th><th>$Count</th><th>$Real</th>".
-         "<th>$jsenabled</th><th>$Bots</th>$memberfooter<th>$Visits</th></tr>";
+         "<th>$jsenabled</th><th>$Bots</th><th>$Visits</th></tr>";
 
   // Get the table lines
   
   $sql = "select date as Date, 'visitors' as Visitors, `real`+bots as Count, `real` as 'Real', 'AJAX', ".
-           "bots as 'Bots'$memberquery, visits as Visits ".
+           "bots as 'Bots', visits as Visits ".
            "from $S->masterdb.daycounts where site='$S->siteName' and ".
            "lasttime >= current_date() - interval 6 day order by lasttime desc";
 
@@ -283,15 +283,6 @@ EOF;
     $tbl = "<h3 class='noNewData'>No New Data Today</h2>";
   }
 
-  if(is_array($S->daycountwhat)) {
-    $counting = implode(", ", $S->daycountwhat);
-  } else {
-    $counting = $S->daycountwhat ? $S->daycountwhat : 'All files';
-  }
-  if(strtolower($counting) == 'all') {
-    $counting = "All files";
-  }
-
   $next = $S->memberTable ? "#table7a" : "#table7";
     
   $page .= <<<EOF
@@ -308,20 +299,8 @@ If you hit our site 10 times the sum of 'Real' and 'Bots' would be 10.<br>
 If you hit our site 5 time within 10 minutes you will have only one 'Visits'.<br>
 If you hit our site again after 10 minutes you would have two 'Visits'.</p>
 <a href="$next">Next</a>
-<p>Counting $counting.</p>
 $tbl
 EOF;
-
-  if($S->memberTable) {
-    $sql = "select * from memberpagecnt where lasttime >= current_date() - interval 7 day";
-    list($tbl) = $T->maketable($sql, array('attr'=>array('border'=>"1", 'id'=>"memberpagecnt")));
-
-    $page .= <<<EOF
-<h2 id="table7a">From table <i>memberpagecnt</i> for seven days</h2>
-<a href="#table7">Next</a>
-$tbl
-EOF;
-  }
   return $page;
 }
 
@@ -335,7 +314,7 @@ function blpipmake(&$row, &$rowdesc) {
   return false;
 }
 
-// If the ip address is in the $blpips array make the ip row say BARTON in red.
+// If the ip address is in the $blpips array make the row ip red.
 
 function blpip(&$row, &$rowdesc) {
   $blpips = $GLOBALS['blpips'];
@@ -386,16 +365,6 @@ function renderPage($S, $page) {
     $row['difftime'] = sprintf("%u:%02u:%02u", $hr, $min, $sec);
   }
 
-  /* // just for a test 
-  $sql = "select count(*) ".
-         "from $S->masterdb.tracker ".
-         "where site='$S->siteName' and starttime >= current_date() - interval 24 hour";
-         
-  $S->query($sql);
-  [$cc] = $S->fetchrow('num');
-  error_log("count: $cc");
-  */
-
   // BLP 2018-01-07 -- changed from order by starttime to lasttime
   
   $sql = "select ip, page, agent, starttime, endtime, difftime, isJavaScript as js, refid ".
@@ -406,6 +375,12 @@ function renderPage($S, $page) {
   list($tracker) = $T->maketable($sql, array('callback'=>'trackerCallback',
                                              'attr'=>array('id'=>'tracker', 'border'=>'1')));
 
+  $tracker = <<<EOF
+<div class="scrolling">
+$tracker
+</div>
+EOF;
+  
   function botsCallback(&$row, &$desc) {
     global $S;
 
@@ -421,6 +396,12 @@ function renderPage($S, $page) {
   list($bots) = $T->maketable($sql, array('callback'=>'botsCallback',
                                           'attr'=>array('id'=>'robots', 'border'=>'1')));
 
+  $bots = <<<EOF
+<div class="scrolling">
+$bots
+</div>
+EOF;
+  
   function bots2Callback(&$row, &$desc) {
     global $S;
 
@@ -435,6 +416,12 @@ function renderPage($S, $page) {
   list($bots2) = $T->maketable($sql, array('callback'=>'bots2Callback',
                                            'attr'=>array('id'=>'robots2', 'border'=>'1')));
 
+  $bots2 = <<<EOF
+<div class="scrolling">
+$bots2
+</div>
+EOF;
+  
   $date = date("Y-m-d H:i:s T");
 
   if($S->siteName != "Tysonweb") {
@@ -477,7 +464,7 @@ $form
 $page
 </div>
 
-<h2 id="table7">From table <i>tracker</i> (real time) for last 24 hours</h2>
+<h2 id="table7">From table <i>tracker</i> for last 24 hours</h2>
 <a href="#table8">Next</a>
 <h4>Only Showing $S->siteName</h4>
 <p>'js' is hex. 1, 2, 32(x20), 64(x40), 128(x80), 256(x100), 512(x200) and 4096(x1000) are done by 'webstats.js'.<br>

@@ -37,6 +37,7 @@ function Dot2LongIP($IPaddr) {
 
 // via file_get_contents('webstats.php?list=<iplist>
 // Given a list of ip addresses get a list of countries as $ar[$ip] = $name of country.
+
 if($list = $_POST['list']) {
   $S = new Database($_site);
   $list = json_decode($list);
