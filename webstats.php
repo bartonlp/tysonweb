@@ -1,5 +1,7 @@
 <?php
+// BLP 2021-03-24 -- latest version of tablesorter (not used in some other files!).
 // BLP 2021-03-22 -- Removed daycountwhat from daycounts. Added div class scrolling to most tables.
+// Special case for Tysonweb.
 // BLP 2018-01-07 -- changed tracker order by starttime to lasttime
 // BLP 2017-03-23 -- set up to work with https  
 
@@ -54,6 +56,8 @@ body { margin: 10px; }
 </style>
 EOF;
 
+// BLP 2021-03-22 special case for Tysonweb
+
 if($S->siteName == 'Tysonweb') {
   $h->css .= "\n<style>#robots2 td:nth-of-type(3), #robots2 th:nth-of-type(3) { display: none; }</style>";
 }
@@ -69,7 +73,7 @@ $h->script = <<<EOF
   var thesite = "$S->siteName";
   var myIp = "$myIp";
 </script>
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>-->
+<!-- BLP 2021-03-24 -- this is the latest version of tablesorter -->
 <script src="https://bartonphillips.net/tablesorter-master/dist/js/jquery.tablesorter.min.js"></script>
 <script src="https://bartonphillips.net/js/webstats.js"></script>
 EOF;
@@ -424,15 +428,17 @@ EOF;
   
   $date = date("Y-m-d H:i:s T");
 
+  // BLP 2021-03-22 special case for Tysonweb
+
   if($S->siteName != "Tysonweb") {
     $form = <<<EOF
 <form action="webstats.php" method="post">
   Select Site:
   <select name='site'>
     <option>Allnatural</option>
-    <option>Bartonlp</option>
     <option>BartonlpOrg</option>
     <option>Bartonphillips</option>
+    <option>Tysonweb</option>
   </select>
 
   <button type="submit" name='submit'>Submit</button>
