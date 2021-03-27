@@ -1,9 +1,5 @@
 <?php
-// BLP 2018-06-21 -- NOTE we are using PUG and this is ONLY used if the xxx.php is the url!
-//  See the pug/layout.pug!
-
-// Footer file
-// Render the Footer
+// footer.i.php is unique to tysoneweb
 
 $lastmod = date("M j, Y H:i", getlastmod());
 

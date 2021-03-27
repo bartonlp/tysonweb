@@ -1,4 +1,5 @@
 <?php
+// BLP 2021-03-27 -- remove myip table stuff.
 // BLP 2021-03-24 -- latest version of tablesorter (not used in some other files!).
 // BLP 2021-03-22 -- Removed daycountwhat from daycounts. Added div class scrolling to most tables.
 // Special case for Tysonweb.
@@ -68,6 +69,8 @@ if(is_array($S->myIp)) {
   $myIp = $S->myIp;
 }
 
+// Set up the javascript variables it needs from PHP
+
 $h->script = <<<EOF
 <script>
   var thesite = "$S->siteName";
@@ -103,18 +106,23 @@ exit();
 function getwebstats($S) {
   global $visitors, $jsEnabled;
   
-  $blpips = array();
-
   $T = new dbTables($S);
 
-  $sql = "select myip as 'BLP IP', createtime as Since from $S->masterdb.myip order by createtime desc";
-
-  list($tbl) = $T->maketable($sql, array('callback'=>'blpipmake', 'attr'=>array('id'=>'blpid','border'=>"1")));
-
-  if(!$tbl) {
-    $tbl = "<h3 class='noNewData'>No New Data Today</h2>";
+  // BLP 2021-03-27 -- replacedd myip table with this logic
+  
+  $tbl =<<<EOF
+<table id='blpid' border='1'>
+<thead>
+<tr><th>myIp</th></tr>
+</thead>
+<tbody>
+EOF;
+  foreach($S->myIp as $v) {
+    $tbl .= "<tr><td>$v</td></tr>";
   }
-
+  $tbl .= "</table>";
+  // end of BLP 2021-03-27
+  
   $creationDate = date("Y-m-d H:i:s T");
 
   $page = <<<EOF
@@ -127,15 +135,13 @@ function getwebstats($S) {
 $tbl
 EOF;
 
-  $n = $S->query("select id from $S->masterdb.logagent where site='$S->siteName' and id!=0 and lasttime >= current_date() limit 1");
-
-  $idfield = $n ? ", id as ID" : '';
-
-  $sql = "select ip as IP, agent as Agent$idfield, count as Count, lasttime as LastTime " .
+  $sql = "select ip as IP, agent as Agent, count as Count, lasttime as LastTime " .
   "from $S->masterdb.logagent ".
          "where site='$S->siteName' and lasttime >= current_date() order by lasttime desc";
 
-  list($tbl) = $T->maketable($sql, array('callback'=>'blpip', 'attr'=>array('id'=>"logagent", 'border'=>"1")));
+  // BLP 2021-03-27 -- removed callback to blpip along with all ref to blpips.
+  
+  list($tbl) = $T->maketable($sql, array('attr'=>array('id'=>"logagent", 'border'=>"1")));
   if(!$tbl) {
     $tbl = "<h3 class='noNewData'>No New Data Today</h2>";
   } else {
@@ -180,16 +186,9 @@ EOF;
 
   $today = date("Y-m-d");
 
-  // are there any members during this day
-  
-  $sql = "select members from $S->masterdb.counter2 ".
-         "where site='$S->siteName' and members!=0 and lasttime >= current_date() limit 1";
-
-  $memberquery = $S->query($sql) ? "members as Members," : '';
-
   // 'count' is actually the number of 'Real' vs 'Bots'. A true 'count' would be Real + Bots.
   
-  $sql = "select filename as Page, count as 'Real',$memberquery bots as Bots, lasttime as LastTime ".
+  $sql = "select filename as Page, count as 'Real', bots as Bots, lasttime as LastTime ".
            "from $S->masterdb.counter2 ".
            "where site='$S->siteName' and lasttime >= current_date() order by lasttime desc";
   
@@ -306,31 +305,6 @@ If you hit our site again after 10 minutes you would have two 'Visits'.</p>
 $tbl
 EOF;
   return $page;
-}
-
-// Call back functions
-// fill the $blpips array with the ip numbers
-
-function blpipmake(&$row, &$rowdesc) {
-  global $blpips;
-  $blpips[$row['BLP IP']] = 1;
-
-  return false;
-}
-
-// If the ip address is in the $blpips array make the row ip red.
-
-function blpip(&$row, &$rowdesc) {
-  $blpips = $GLOBALS['blpips'];
-  
-  if($blpips[$row['IP']]) {
-    $row['IP'] = "<span class='blp-row logagent-ip'>{$row['IP']}</span>";
-  } else {
-    $row['IP'] = "<span class='logagent-ip'>{$row['IP']}</span>";
-  }
-  $row['Agent'] = escapeltgt($row['Agent']);
-
-  return false;
 }
 
 // Display the page with the $page.

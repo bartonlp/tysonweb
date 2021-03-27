@@ -1,4 +1,6 @@
 <?php
+// banner.i.php is unique to tysonweb. We don't need the nodb logic because this needs a database
+
 return <<<EOF
 <header id="header">
   <img id="logo" src="images/TGROUP-LONG.gif" alt="New Bern's number 1 website to search for homes and real estate"

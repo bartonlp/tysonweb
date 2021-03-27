@@ -18,6 +18,7 @@
     "database": "barton",
     "engine": "mysqli"
   },
+  "defaultCss": "css/tyson.css",
   "headFile": "includes/head.i.php",
   "bannerFile": "includes/banner.i.php",
   "footerFile": "includes/footer.i.php",
