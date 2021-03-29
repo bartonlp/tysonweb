@@ -49,8 +49,10 @@ RewriteRule ^robots\.txt$ robots.php [L,NC]
 RewriteRule ^Sitemap\.xml$ sitemap.php [L,NC]
 
 # rewrite the address of csstest.css to tracker.php?csstest
-# RewriteRule ^csstest\.css(.*)(.*)$ tracker.php?$2&csstest [L,QSA]
 RewriteRule ^csstest-(.*)\.css$ tracker.php?id=$1&csstest [L,QSA]
+
+RewriteRule ^(\.git|Archive|other|script)/.*$ - [F,L]
+RewriteRule ^(\.gitignore|mysitemap\.json|sitemap-new\.txt)$  - [F,L]
 
 # Do compression of the followin types
 
