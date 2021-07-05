@@ -1,3 +1,4 @@
+/* For Churches-New-Bern.php */
 .grid {
   display: grid;
   grid-gap: 10px;
@@ -9,11 +10,6 @@
 .item {
   background-color: #eee2db;
 }
-
-.photothumb{
-  width: 100%;
-}
-
 .title {
   padding: 20px;
   background-color: lightgray;
@@ -24,20 +20,6 @@
   color: black;
   text-align: center;
 }
-/*
-.project .title {
-  background-color: #607D8B;
-}
-
-.blog .title {
-  background-color: #ff9800;
-}
-
-.photo .title {
-  background-color: #f44336;
-}
-
-*/
 .desc {
   padding: 10px 10px 5px 10px;
 }

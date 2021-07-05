@@ -3,9 +3,11 @@
 
 return <<<EOF
 <header id="header">
-  <img id="logo" src="images/TGROUP-LONG.gif" alt="New Bern's number 1 website to search for homes and real estate"
+  <!-- 'logo' is replace my trackerImg1 which should be tysongroup-logo.jpg. This is the 'script' image -->
+  <img id="logo" data-image="$this->trackerImg1" src="images/tysongroup-logo.jpg" alt="New Bern's number 1 website to search for homes and real estate"
     title="Steve and Jana Tyson are selling homes in New Bern every day."/>
-  <img id='dummy' src="tracker.php?page=normal&id=$this->LAST_ID">
+  <!-- 'dummy' will use the default for trackerImg2 which is a one px image -->
+  <img id='dummy' src="https://bartonphillips.net/tracker.php?page=normal&id=$this->LAST_ID">
 
 <!-- Nav bar for large screens -->
   <nav>
@@ -17,19 +19,19 @@ return <<<EOF
         <a>Links</a>
         <menu>
           <menuitem>
-            <a href="locallinks.php">Local Links</a>
-          </menuitem>
-          <menuitem>
             <a href="credit-score.php">Credit Score</a>
           </menuitem>
           <menuitem>
             <a href="Closing-Cost.php">Closing Costs</a>
           </menuitem>
           <menuitem>
-            <a href="resources.php">Local Services</a>
+            <a href="Churches-New-Bern.php">Churches In New Bern</a>
           </menuitem>
           <menuitem>
-            <a href="otherservices.php">Resources</a>
+            <a href="resources.php">Resources</a>
+          </menuitem>
+          <menuitem>
+            <a href="locallinks.php">Local Links</a>
           </menuitem>
           <menuitem>
             <a href="newbernhistory.php">New Bern History</a>
@@ -57,10 +59,11 @@ return <<<EOF
 
     <ul id="smenu">
       <li><a href="index.php">Home</a></li>
-      <li><a href="locallinks.php">Local Links</a></li>
       <li><a href="credit-score.php">Credit Score</a></li>
       <li><a href="Closing-Cost.php">Closing Costs</a></li>
-      <li><a href="otherservices.php">Resources</a></li>
+      <li><a href="Churches-New-Bern.php">Churches In New Bern</a></li>
+      <li><a href="resources.php">Resources</a></li>
+      <li><a href="locallinks.php">Local Links</a></li>
       <li><a href="newbernhistory.php">New Bern History</a></li>
       <li><a href="aboutwebsite.php">About Our Website</a></li>
       <li><a href="aboutus.php">About Us</a></li>

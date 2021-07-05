@@ -149,24 +149,6 @@ Office Phone: (252) 675-9595
 </form><br>
 </div>
 </div>
-<!--/*
-Ashleigh Howell
-843-271-5707
-ashleighhowell2007@gmail.com
-
-Valerie Valbuena
-760-898-4001
-valerie@valerievalbuena.com
-
-Jan Burke
-252-422-7777
-jancburke@yahoo.com
-
-John Wiliams
-252-876-7599
-sellingnewbern@gmail.com
-
-*/-->
 <hr>
 $footer
 EOF;

@@ -21,21 +21,6 @@ EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h);
 
-// Use Dom to scrape rate table from www.mortgagenewsdaily.com
-// We get the table and then 1) remove width, 2) add text 'Rate' to the header, 3) change the 'MBA'
-// line to a full text of the acronim.
-/*
-use PHPHtmlParser\Dom;
-
-$dom = new Dom;
-$dom->loadFromUrl("http://www.mortgagenewsdaily.com/data/freddiemac-fhfa-mba.aspx");
-$table = $dom->find("#CommonContentInner table");
-$table->setAttribute("width", "");
-$table->find("thead th")->firstChild()->setText("Rate");
-$table->find("td")->firstChild()->setText("Mortgage Bankers Association (MBA)");
-*/
-// now $table has the table that I want.
-
 echo <<<EOF
 $top
 
@@ -64,43 +49,20 @@ $top
   <span><a href="Homes-Progress-Energy.php">Duke Energy Homes<br><img src="images/duke-2014.jpg"  alt="Duke Electric will save you money" title="Duke Energy is the low cost electric provider in the New Bern area."></a></span>                   
 </div>
 
-<div id="freddiemac">
+<div id="info">
   <h2><a href="New-Bern-Home-Values.php">What is my home worth?</a></h2>
   <h2><a href="New-Bern-taxes.php">New Bern and Craven County tax rates</a></h2>
-</div>
-
-<hr>
-
-<div id="mortgagecalc">
-  <p class="center"><a href="https://www.mortgagecalculator.org/">
-    <img src="https://www.mortgagecalculator.org/images/mortgage-calculator-logo.png"
-      alt="MortgageCalculator.org" target="_blank"></a></p>
-      <iframe src="https://www.mortgagecalculator.org/webmasters/?downpayment=50000&homevalue=300000&loanammount=250000&interestrate=4&loanterm=30&propertytax=2400&pmi=1&homeinsurance=1000&monthlyhoa=0">
-      </iframe>
-  <div id="affermation">
-    <a href="https://www.mortgagecalculator.org/free-tools/javascript-mortgage-calculator.php"
-      target="_blank">Javascript Mortgage Calculator</a> by MortgageCalculator.org
-  </div>
+  <h2><a href="https://www.mortgagecalculator.org/">Morgage Calculator</a></h2>
 </div>
 
 <div id="downtownnewbern">
   <iframe src="https://bbemaildelivery.com/bbext/?p=vidEmbed&id=53eb5e3a-8763-4dc6-948f-3b197d534894"
     frameborder="0" scrolling="no" allowfullscreen></iframe>
-<!--
-  <iframe width="1280" height="720" src="https://www.youtube.com/embed/Od0a12TDEBo"
-    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
-    clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-  <iframe width="1280" height="720" src="https://www.youtube.com/embed/WNGAuQhTZ9o"
-    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
-    clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
--->
 </div>
-
 <hr>
 
 <div id="greatplace">
-  <h3>What makes New Bern such a great place to live?</h3>
+  <h2 class="center">What makes New Bern such a great place to live?</h2>
   <p>Many things but most of all, it is the people -
     people from all walks of life and from all parts of the country.
     Many people who have moved here give back to the community by
@@ -117,15 +79,11 @@ $top
   <p>New Bern is a great place to call home. Read what others are saying about the area.</p>
   <ul>
     <li><a href="https://patch.com/north-carolina/charlotte/north-carolina-named-best-towns-retirement-list">Southern Living</a></li>	
-    <li><a href="http://www.msnbc.msn.com/id/7204492/">MSNBC</a></li>	
     <li><a href="http://www.newbernsj.com/news/20170608/website-names-new-bern-most-beautiful-in-nc">Culture Trip - Most Beautiful Town in NC</a></li>	
     <li><a href="http://www.topretirements.com/blog/great-towns/affordable-places-to-retire-on-the-coast-part-2.html">Top Retirement.Com</a></li>
-    <!--<li><a href="http://query.nytimes.com/gst/fullpage.html?res=9D00E5D8113CF935A15757C0A96E958260">New York Times</a></li>-->
     <li><a href="http://www.marketwatch.com/story/10-coastal-towns-where-you-can-afford-to-retire-2015-04-16">10 Coastal Towns Where You Can Afford to Retire.</a></li>
     <li><a href="http://www.onlyinyourstate.com/north-carolina/visit-new-bern-nc/">Why You Must Visit This Coastal NC Town</a></li>
     <li><a href="http://www.cruisingworld.com/destination-new-bern-north-carolina">You Don't Want to Miss This Coastal Town</a></li>
-<!--    <li><a href="http://www.horizontravelamerica.com/new-bern/">Travel America</a></li> -->
-    <li><a href="http://www.travelmag.com/articles/most-charming-towns-north-carolina/">Travel Mag</a></li>
     <li><a href="http://www.boston.com/travel/articles/2010/11/14/a_weeks_happy_ending/?page=3">Boston Globe</a></li>
     <li><a href="http://www.onlyinyourstate.com/north-carolina/visit-new-bern-nc/">You Must Visit This Coastal NC Town</a></li>
     <li><a href="http://www.travelmag.com/articles/most-charming-towns-north-carolina/">Travel Mag</a></li>

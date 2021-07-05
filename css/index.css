@@ -15,7 +15,7 @@ div {
         border: 1px solid black;
 }
 #searchforhomes img {
-        width: 200px;
+        width: 180px;
 }
 
 #forclosures {
@@ -23,21 +23,22 @@ div {
         border: 1px solid black;
 }
 
-#freddiemac {
+#info {
         background-color: #FBF5E6;
         border: 1px solid black;
 }
 
-#freddiemac h2 { text-align: center; }
+#info h2 { text-align: center; }
 
 #downtownnewbern {
         width: 600px;
+        height: 460px;
         margin-left: auto;
         margin-right: auto;
 }
 #downtownnewbern iframe {
         width: 600px;
-        height: 450px;
+        height: 460px;
 }    
 #eventsdowntown p {
         margin-left: 10px;
@@ -94,34 +95,6 @@ div {
         width: 336px;
         margin-right: 10px;
 }
-
-#mortgagecalc iframe {
-        width: 100%;
-        height: 1050px;
-        border: 0;
-/* style="width: 100%; height: 1050px; border: 0;" */
-}
-#mortgagecalc img {
-        width: 589px;
-        height: 57px;
-}
-/* div with the affermation */
-#mortgagecalc div {
-        font-family: Arial;
-        height: 36px;
-        top: -36px;
-        padding: 0 8px 0 0;
-        text-align: right;
-        background: #f6f9f9;
-        border: 1px solid #ccc;
-        color: #868686;
-        line-height: 34px;
-        font-size: 12px;
-        position: relative;
-}
-#mortagecalc a {
-        color: #868686;
-}
 /* Freddie Mac tables stuff */  
 .md_summarytable {
         border: 1px solid black;
@@ -147,12 +120,9 @@ div {
 }
 @media (max-width: 725px) {
         #searchforhomes { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 700px) {
-        #downtownnewbern iframe { width: 280px; }
         #downtownnewbern { width: 280px; height: 220px;}
+        #downtownnewbern iframe { width: 280px; height: 220px; }
         #gazebo { width: 280px; }
-        #mortgagecalc img { width: 280px; height: 57px; }
         #mapnewbern { width: 280px; }
         #hospital { width: 280px; }
         .md_summarytable thead { display: none }
@@ -161,6 +131,4 @@ div {
         .md_summarytable tbody td:nth-child(2),
         .md_summarytable tbody td:nth-child(3) { display: table-cell; }
 }
-@media (max-width: 450px) {
-        #searchforhomes { grid-template-columns: 1fr; }
-}
+

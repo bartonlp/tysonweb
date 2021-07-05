@@ -11,13 +11,6 @@ $h->desc = "Tyson Group";
 $h->css = <<<EOF
 <style>
   .list { list-style-type: disc; }
-  div {
-    font-style: italic;
-    margin-left: 20px;
-    margin-right: 20px;
-    background-color: #faf1f3;
-  }
-  .bold { font-weight: bold; }
 </style>
 EOF;
 
@@ -25,7 +18,7 @@ list($top, $footer) = $S->getPageTopBottom($h);
 
 echo <<<EOF
 $top
-<h1 class="blod center">New Bern Homes For Sale Electrified by</h1> 
+<h1 class="center">New Bern Homes For Sale Electrified by</h1> 
 <p class="center"><img src="images/Duke-11.png" title="Homes on Duke Energy will save you money"></p>
 
 <h2>Hunters Ridge</h2>

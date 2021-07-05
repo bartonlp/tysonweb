@@ -3,7 +3,7 @@
  * comments.
  */
 {
-  "siteDomain": "newbern-nc.info", // will change this once we get the domain name transfered
+  "siteDomain": "newbern-nc.info",
   "siteName": "Tysonweb",
 //  "mainTitle": "Tyson Group", // NO mainTitle
   "path": "/var/www/tysonweb",
@@ -15,11 +15,11 @@
     "host": "localhost",
     "user": "barton",
     "password": "7098653",
-    "database": "barton",
+    "database": "barton", // for now just generic barton.
     "engine": "mysqli"
   },
-  "defaultCss": "css/tyson.css",
-  "headFile": "includes/head.i.php",
+  "defaultCss": "css/tyson.css", // The symlink below uses 'defaultCss' as the css to use
+  "headFile": "includes/head.i.php", // This is a symlink to baronphillips.com/includes/head.i.php
   "bannerFile": "includes/banner.i.php",
   "footerFile": "includes/footer.i.php",
   "count": true,
@@ -27,7 +27,8 @@
   "ctrmsg": "Counter Reset: March 1, 2021",
   "reset": "2021-03-01",
   "myUri": "https://bartonphillips.net/myUri.json", // may need to add to myUri.json for steve etc.
-  "trackerImg1": "https://www.newbern-nc.info/images/TGROUP-LONG.gif",
+  "trackerImg1": "https://www.newbern-nc.info/images/tysongroup-logo.jpg", // Full url for the image under tysonweb
+  // trackerImg2 will use the default 1px image for 'normal'
   "EMAILADDRESS": "bartonphillips@gmail.com", // NEED to change to tyson group.
   "EMAILRETURN": "bartonphillips@gmail.com",
   "EMAILFROM": "bartonphillips@gmail.com"

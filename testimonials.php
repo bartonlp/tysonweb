@@ -78,7 +78,7 @@ We then bought and sold another home with them. We were completely satisfied wit
 <hr>
 <p><b>Donald Arthur</b></p>
 <p>I have known Steve Tyson for over 30 years so when I decided to 
-sell a piece of commercial property I already knew who to list with. In the mist 
+sell a piece of commercial property I already knew who to list with. In the midst
 of the worst recession since the depression he got it sold in less than 2 
 months. Thank you Steve for a job well done. I would recommend you to anyone.</p>
 

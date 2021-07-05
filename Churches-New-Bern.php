@@ -7,7 +7,7 @@ $S = new $_site->className($_site);
 $h->title = "Tyson Group";
 $h->desc = "Tyson Group";
 $h->link = <<<EOF
-    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="css/churches.css">
 EOF;
 
 $b->script = <<<EOF
@@ -18,7 +18,7 @@ function resizeGridItem(item){
   rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
   rowSpan =
   Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap - 2));
-  console.log("height: "+rowHeight+", gap: "+rowGap+", span: "+rowSpan);
+  //console.log("height: "+rowHeight+", gap: "+rowGap+", span: "+rowSpan);
   item.style.gridRowEnd = "span "+rowSpan;
 }
 
@@ -36,11 +36,6 @@ function resizeInstance(instance){
 
 window.onload = resizeAllGridItems();
 window.addEventListener("resize", resizeAllGridItems);
-
-//allItems = document.getElementsByClassName("item");
-//for(x=0;x<allItems.length;x++) {
-//  imagesLoaded(allItems[x], resizeInstance);
-//}
 </script>
 EOF;
 

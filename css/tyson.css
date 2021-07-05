@@ -473,18 +473,31 @@ ul {
 }
 /*****************/
 /* Media queries */
-@media (max-width: 1275px) {
-  html {
-    font-size: 20px;
+
+/* hover and pointer seem to work on most browsers */
+@media (hover: none) and (pointer: coarse) {
+  #header nav {
+    display: none;
+  }
+  #smallnavbar {
+    display: inline-block;
   }
 }
-@media (max-width: 933px) {
+/* Even if we can hover and the pointer is fine we still need to use the smallnavbar under 800px */
+@media (hover: hover) and (pointer: fine) and (max-width: 800px) {
   #header nav {
         display: none;
   }
   #smallnavbar {
     display: inline-block;
   }
+}
+@media (max-width: 1275px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media (max-width: 933px) {
   html {
     font-size: 16px;
   }

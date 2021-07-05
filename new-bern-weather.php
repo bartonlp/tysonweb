@@ -51,7 +51,10 @@ EOF;
 list($top, $footer) = $S->getPageTopBottom($h);
 echo <<<EOF
 $top
-<h1><a href="http://www.weatherunderground.com/cgi-bin/findweather/getForecast?query=28560">New Bern NC Weather</a></h1>
+<div class="center">
+<h1>New Bern Weather</h1>
+<h3 class="center"><a href="http://www.weatherunderground.com/cgi-bin/findweather/getForecast?query=28560">New Bern Weather Forcast</a></h3>
+</div>
 
 <img src="images/New%20Bern%20NC%20city%20hall.jpg" alt="Historic New Bern City Hall"></a>
 <p><b>New Bern, NC</b> has a mild climate with four distinct seasons. While summers can be hot, they are probably not much 
