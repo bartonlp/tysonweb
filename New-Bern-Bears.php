@@ -28,7 +28,7 @@ $top
 <h1><br>New Bern Bears</h1>
 <h2>2010 Was The Year Of The Bear</h2>
 <p><b>At Least For The 300th Anniversary New Bern Bear</b></p>
-<img src="images/newbern-300-bears.jpg" alt="New Bern's 300th Anniversary Bears" title="Steve and Jana Tyson are New Bern's local real estate experts." />
+<img src="/images/newbern-300-bears.jpg" alt="New Bern's 300th Anniversary Bears" title="Steve and Jana Tyson are New Bern's local real estate experts." />
 </div>
 <p>New Bern celebrated it's 
    300th birthday in 2010 and part of the celebration 

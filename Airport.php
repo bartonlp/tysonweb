@@ -25,7 +25,7 @@ list($top, $footer) = $S->getPageTopBottom($h);
 echo <<<EOF
 $top
 <h1 class="center">Coastal Carolina Regional Airport</h1>
-<img border="0" src="images/New-Bern-Airport.jpg">
+<img border="0" src="/images/New-Bern-Airport.jpg">
 <p><b>New Bern</b> 
 and the surrounding areas are fortunate to have a regional airport located only 
 minutes from the historic downtown area.
@@ -89,7 +89,7 @@ Worldwide Reservations (800) 227-7368
 <hr>
 <p><b>Need a place to stay while in New Bern?</b></p>
 <p>Stay at the Zig, owned by Steve and Jana Tyson, 
-New Bern's iconic <a href="http://www.newbernzig.com">Ziegler Hotel</a>.<br>
+New Bern's iconic <a href="/zeigler.php">Ziegler Hotel</a>.<br>
 (252) 638-6868
 </p>
 </div>

@@ -493,7 +493,7 @@ American Idol. West New Bern Recreation Center. Call 252 639 2912 or 639 2902
 for more information. </p>
 <p>
 <h2>New Bern is looking for volunteers</h2>
-<p><img border="0" src="images/volunteer.jpg" width="121" height="121" alt="New Bern NC needs volunteers. Sign up today."></p>
+<p><img border="0" src="/images/volunteer.jpg" width="121" height="121" alt="New Bern NC needs volunteers. Sign up today."></p>
 <p>
 <b>
 What makes New Bern such a special 

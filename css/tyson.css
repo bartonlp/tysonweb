@@ -67,6 +67,9 @@
 .icon-facebook:before {
   content: "\f09a";
 }
+.icon-github:before {
+  content: "\f09b";
+}
 .icon-button {
 	background-color: white;
 	border-radius: 2.6em;
@@ -110,6 +113,9 @@
 .facebook span {
 	background-color: #3B5998;
 }
+.github span {
+  background-color: #3B5998;
+}
 .icon-button i {
 	background: none;
 	color: white;
@@ -131,8 +137,12 @@
 .icon-button .icon-facebook {
 	color: #3B5998;
 }
+.icon-button .icon-github {
+  color: #3B5998;
+}
 .icon-button:hover .icon-twitter,
-.icon-button:hover .icon-facebook {
+.icon-button:hover .icon-facebook,
+.icon-button:hover .icon-github {
 	color: white;
 }
 
@@ -484,7 +494,7 @@ ul {
   }
 }
 /* Even if we can hover and the pointer is fine we still need to use the smallnavbar under 800px */
-@media (hover: hover) and (pointer: fine) and (max-width: 800px) {
+@media (hover: hover) and (pointer: fine) and (max-width: 1000px) {
   #header nav {
         display: none;
   }

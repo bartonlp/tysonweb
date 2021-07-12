@@ -49,7 +49,7 @@ $top
 <h1><br>Tryon Palace</h1>
 <h2>New Bern NC's Historic Treasure</h2>
 </div>
-<img src="images/tryon_palace.jpg" alt="Tryon Palace-New Bern's crowning jewel">
+<img src="/images/tryon_palace.jpg" alt="Tryon Palace-New Bern's crowning jewel">
 <p>The Tryon Palace certainly stands out in a city known for 
 its outstanding historic homes and buildings. The original 
 buildings were built in the late 1760s. New Bern served as the 
@@ -62,7 +62,7 @@ few in the colonies at the time. In addition to the Palace,
 Hawks was involved in many other works in New Bern and the 
 surrounding areas.</p>
 <br class="clear">
-<img src="images/tryon.jpg">
+<img src="/images/tryon.jpg">
 <p>Governor Tryon, his wife Margaret Wake 
 Tryon and their daughter Margaret lived in 
 the Palace for just over a year. They left 
@@ -71,13 +71,13 @@ was appointed to the governorship of New
 York. </p>
 
 <br class="clear">
-<img src="images/Govenor-Martin.jpg">
+<img src="/images/Govenor-Martin.jpg">
 <p>Revolutionary patriots made the Palace their capitol and the 
 first sessions of the General Assembly were held there. A 
 total of four North Carolina governors used the Palace as 
 their residences.</p>
 <br class="clear"><br>
-<img src="images/raleigh.jpg">
+<img src="/images/raleigh.jpg">
 <p>Raleigh, named after Sir 
 Walter Raleigh shown in the picture above, became the 
 capital of NC in 1794. Other than being rented out on 
@@ -104,7 +104,7 @@ to maintain and operate the restoration when the Palace opened to
 the public. Part of the restoration project was the Palace 
 gardens shown below.</p>
 <br class="clear"><br>
-<img src="images/Tryon-3.jpg">
+<img src="/images/Tryon-3.jpg">
 <p>Mrs. Latham died in 1951, shortly before 
 reconstruction of the Palace began. Her 
 daughter, Mae Gordon Kellenberger, took 

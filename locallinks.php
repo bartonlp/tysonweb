@@ -46,6 +46,7 @@ $top
 <a href="craven-county-government.php"><b>Craven County Government</b></a>
 <a href="Convention-Center.php"><b>Riverfront Convention Center</b></a>
 <a href="https://www.newbernsj.com/"><b>Sun Journal Newspaper</b></a>
+<a href="ziegler.php"><b>The Zeigler Suites</b></a>
 </div>
 
 <br>

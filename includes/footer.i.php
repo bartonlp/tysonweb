@@ -20,15 +20,22 @@ return <<<EOF
   directory. FontAwesome has gliphs for the social media companies. XXX
 -->
 <div class="social">
-  <a href="http://twitter.com" class="icon-button twitter">
+  <a href="https://twitter.com/@Realtor_NewBern" title="Follow on Twitter"
+    class="icon-button twitter">
     <i class="icon-twitter"></i>
     <span></span>
   </a>
-  <a href="https://www.facebook.com/tysongroup/"
+  <a href="https://www.facebook.com/tysongroup/" title="Follow on Facebook"
     class="icon-button facebook">
     <i class="icon-facebook"></i>
     <span></span>
   </a>
+  <a href="https://github.com/bartonlp" title="Follow on Github"
+    class="icon-button github">
+    <i class="icon-github"></i>
+    <span></span>
+  </a>
+
 </div>
 <!-- Normal footer -->
 <footer>

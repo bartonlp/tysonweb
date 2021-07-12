@@ -19,7 +19,7 @@ list($top, $footer) = $S->getPageTopBottom($h);
 echo <<<EOF
 $top
 <h1 class="center">New Bern Homes For Sale Electrified by</h1> 
-<p class="center"><img src="images/Duke-11.png" title="Homes on Duke Energy will save you money"></p>
+<p class="center"><img src="/images/Duke-11.png" title="Homes on Duke Energy will save you money"></p>
 
 <h2>Hunters Ridge</h2>
 <p>One of the most sought-after neighborhoods in the New Bern area, it is a newer

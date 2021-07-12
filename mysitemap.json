@@ -5,7 +5,8 @@
 {
   "siteDomain": "newbern-nc.info",
   "siteName": "Tysonweb",
-//  "mainTitle": "Tyson Group", // NO mainTitle
+//  "mainTitle": "Tyson Group", // NO mainTitle as this is used for
+//  both newbern-nc.info and newbernzig.com
   "path": "/var/www/tysonweb",
   "className": "SiteClass",
   "copyright": "Tyson Group",
@@ -18,16 +19,19 @@
     "database": "barton", // for now just generic barton.
     "engine": "mysqli"
   },
-  "defaultCss": "css/tyson.css", // The symlink below uses 'defaultCss' as the css to use
+  "defaultCss": "/css/tyson.css", // The symlink below uses 'defaultCss' as the css to use
   "headFile": "includes/head.i.php", // This is a symlink to baronphillips.com/includes/head.i.php
-  "bannerFile": "includes/banner.i.php",
-  "footerFile": "includes/footer.i.php",
+  "bannerFile": "includes/banner.i.php", // NOTE: the *File must NOT HAVE a preceeding slash
+  "footerFile": "includes/footer.i.php", // because they are file_get_contents() loaded
+  // and that would mean they are in the ROOT directory. They would
+  // need a full path like /var/www/tysonweb/ to work.
   "count": true,
   "countMe": true,
   "ctrmsg": "Counter Reset: March 1, 2021",
   "reset": "2021-03-01",
   "myUri": "https://bartonphillips.net/myUri.json", // may need to add to myUri.json for steve etc.
   "trackerImg1": "https://www.newbern-nc.info/images/tysongroup-logo.jpg", // Full url for the image under tysonweb
+  // the trackerImg should have a slash before or a full url.
   // trackerImg2 will use the default 1px image for 'normal'
   "EMAILADDRESS": "bartonphillips@gmail.com", // NEED to change to tyson group.
   "EMAILRETURN": "bartonphillips@gmail.com",

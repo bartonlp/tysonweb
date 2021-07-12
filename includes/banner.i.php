@@ -48,6 +48,9 @@ return <<<EOF
         <a href="testimonials.php">Testimonials</a>
       </menuitem>
       <menuitem>
+        <a href="/ziegler.php">The Ziegler Suites</a>
+      </menuitem>
+      <menuitem>
         <a href="contactus.php">Contact Us</a>
       </menuitem>
     </menu>
@@ -58,17 +61,18 @@ return <<<EOF
     <input type="checkbox" id="smallmenu" role="button">
 
     <ul id="smenu">
-      <li><a href="index.php">Home</a></li>
-      <li><a href="credit-score.php">Credit Score</a></li>
-      <li><a href="Closing-Cost.php">Closing Costs</a></li>
-      <li><a href="Churches-New-Bern.php">Churches In New Bern</a></li>
-      <li><a href="resources.php">Resources</a></li>
-      <li><a href="locallinks.php">Local Links</a></li>
-      <li><a href="newbernhistory.php">New Bern History</a></li>
-      <li><a href="aboutwebsite.php">About Our Website</a></li>
-      <li><a href="aboutus.php">About Us</a></li>
-      <li><a href="testimonials.php">Testimonials</a></li>
-      <li><a href="contactus.php">Contact Us</a></li>
+      <li><a href="/index.php">Home</a></li>
+      <li><a href="/credit-score.php">Credit Score</a></li>
+      <li><a href="/Closing-Cost.php">Closing Costs</a></li>
+      <li><a href="/Churches-New-Bern.php">Churches In New Bern</a></li>
+      <li><a href="/resources.php">Resources</a></li>
+      <li><a href="/locallinks.php">Local Links</a></li>
+      <li><a href="/newbernhistory.php">New Bern History</a></li>
+      <li><a href="/aboutwebsite.php">About Our Website</a></li>
+      <li><a href="/aboutus.php">About Us</a></li>
+      <li><a href="/testimonials.php">Testimonials</a></li>
+      <li><a href="/ziegler.php">The Ziegler Suites</a></li>
+      <li><a href="/contactus.php">Contact Us</a></li>
     </ul>
   </div>
 </div>

@@ -7,7 +7,7 @@ $S = new $_site->className($_site);
 $h->title = "Tyson Group";
 $h->desc = "Tyson Group";
 $h->link = <<<EOF
-    <link rel="stylesheet" href="css/churches.css">
+    <link rel="stylesheet" href="/css/churches.css">
 EOF;
 
 $b->script = <<<EOF
@@ -51,7 +51,7 @@ $top
         <h3>Catholic</h3>
       </div>
       <div class="desc"> 
-        <img src="images/St.Pauls.jpg" >
+        <img src="/images/St.Pauls.jpg" >
         <p>St Paul Roman Catholic Church<br>
         252-638-1984</p>
         <p>Roman Catholic Parish<br>
@@ -139,7 +139,7 @@ $top
         <h3>Episcopal</h3>
       </div>
       <div class="desc">
-<img src="images/Christ.jpg" >
+<img src="/images/Christ.jpg" >
 <p>Christ Episcopal Church<br>
 252-633-2109</p>
 <p>Peace Church<br>
@@ -166,7 +166,7 @@ $top
         <h3>Baptist</h3>
       </div>
       <div class="desc">
-<img src="images/First-Baptist.jpg" >
+<img src="/images/First-Baptist.jpg" >
 <p>First Baptist Church<br>
 252-638-5691</p>
 <p>Calvary Baptist Church<br>
@@ -188,7 +188,7 @@ $top
 <p>Mt. Calvary Missionary Baptist<br>
 252-637-3985</p>
 
-<img src="images/Mt.-Shiloah.jpg" >
+<img src="/images/Mt.-Shiloah.jpg" >
 <p>Mt. Shiloh Missionary Baptist<br>
 252-638-1866</p>
 <p>NC Baptist Foundation Eastern OFC<br>
@@ -216,7 +216,7 @@ $top
         <h3>Baptist Free Will</h3>
       </div>
       <div class="desc">
-<img src="images/St-Marys.jpg" >
+<img src="/images/St-Marys.jpg" >
 <p>St. Mary's Free Will Baptist Church, (shown above)<br>
 252-637-3485</p>
 <p>Antioch Free Will Baptist Church<br>
@@ -364,7 +364,7 @@ $top
 <h3>Disciples of Christ</h3>
       </div>
       <div class="desc">
-<img src="images/Broad-Street.jpg" >
+<img src="/images/Broad-Street.jpg" >
 <p>Broad Street Christian Church, (shown above)<br>
 252-638-1216</p>
 <p>Highland Park Christian Church<br>
@@ -477,7 +477,7 @@ Church<br>
       <div class="desc">
 <p>St. Andrew Lutheran Church<br>
 252-637-5879</p>
-<img src="images/St.Pauls-Lutheran.jpg" >
+<img src="/images/St.Pauls-Lutheran.jpg" >
 <p>St. Paul Lutheran Church LCMS<br>
 252-446-3826</p>
       </div>
@@ -502,14 +502,14 @@ Church<br>
 <h3> United Methodist</h3>
       </div>
       <div class="desc">
-<img src="images/Centenary.jpg" >
+<img src="/images/Centenary.jpg" >
 <p>Centenary United Methodist Church<br>
 252-637-4181</p>
 <p>Bridgeton United Methodist Church<br>
 252-637-7737</p>
 <p>Faith United Methodist Church<br>
 252-633-6826</p>
-<img src="images/New%20Song.jpg" >
+<img src="/images/New%20Song.jpg" >
 <p>New Song Church</p>
 <p>252-635-2621</p>
 <p>Garber United Methodist Church<br>

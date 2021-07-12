@@ -69,7 +69,7 @@ list($top, $footer) = $S->getPageTopBottom($h);
 echo <<<EOF
 $top
 <h1 class="center">The Battle of New Bern</h1>
-<img  src="images/civil01.jpg" alt="The Battle of New Bern-Civil War">
+<img  src="/images/civil01.jpg" alt="The Battle of New Bern-Civil War">
  
 <p>In the Civil War's first year, thousands of North Carolinian's trained and 
 fought for the Confederacy in Virginia. In 1861 Union Major General George 
@@ -84,7 +84,7 @@ But Union activity on the North Carolina coast did not concern the high
 command of the Confederacy as long as the Union army was threatening the Confederate capital in Richmond Virginia.</p>
 
 <div>
-<img src="images/burnside.jpg" alt="General Burnside-Union General-Civil War">
+<img src="/images/burnside.jpg" alt="General Burnside-Union General-Civil War">
 
 <p>With the new year, Union action in North Carolina heightened. In February 
 1862, Roanoke Island was captured by a joint effort of the Union army and navy, 
@@ -99,7 +99,7 @@ Reno, and John G. Parke, deployed to shore with a battery of six boat howitzers
 and two rifled wizards and began the march toward New Bern.</p>
 </div>
 
-<img src="images/branch.jpg" alt="General Branch defended New Bern During the Civil War">
+<img src="/images/branch.jpg" alt="General Branch defended New Bern During the Civil War">
  
 <p>Awaiting the Union force in New Bern was Confederate General Lawrence O&#39;Bryan Branch, a 
 politician with virtually no military expertise and an estimated 4,500 untrained 
@@ -108,7 +108,7 @@ yet been issued military uniforms and most were armed with second-class muskets,
 antiquated flintlocks, and assorted sporting rifles and shotguns.</p>
 
 <div>
-<img  src= "images/civil02.png" alt="The battle of New Bern only lasted 1 day">
+<img  src= "/images/civil02.png" alt="The battle of New Bern only lasted 1 day">
 
 <p>The Union troops were armed for the most part with "modern" Springfield rifled muskets 
 and English Enfield rifles, both of which utilized the deadly "mini" ball 
@@ -118,7 +118,7 @@ the troops below with fiery fragments of iron and wood. The early hours of March
 14, 1862, proved to be a fatal test of combat for the Rebel forces. </p>
 </div>
 
-<img src="images/civil03.jpg" alt="New Bern Battle plans are discussed">
+<img src="/images/civil03.jpg" alt="New Bern Battle plans are discussed">
 
 <p>Under-equipped and outgunned by a force almost three times their size, the 
 Confederates fought for almost four hours before being forced to retreat from the 
@@ -146,8 +146,8 @@ Confederate forces in the entire state of North Carolina now
 inhabited the town once called &quot;The Athens of the South.&quot;</p>
 
 <div>
-<img src="images/New%20Bern%20Confederate%20soilder1.jpg" alt="Cedar Grove Cemetery in New Bern NC">
-<img border="0" src="images/Mass monument.jpg" alt="Monument to the New Jersey soldiers buried in New Bern National cemetery">
+<img src="/images/New%20Bern%20Confederate%20soilder1.jpg" alt="Cedar Grove Cemetery in New Bern NC">
+<img border="0" src="/images/Mass monument.jpg" alt="Monument to the New Jersey soldiers buried in New Bern National cemetery">
 <p>Cedar Grove Cemetery, one of the oldest in North 
 Carolina, is located in downtown New Bern. The monument in the photo to the left was dedicated to the 
 Confederate soldiers killed in the <b>Battle of New Bern</b>. Beneath the monument 

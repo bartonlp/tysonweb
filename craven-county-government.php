@@ -30,7 +30,7 @@ $top
 
 <h1 class="center">Craven County Government</h1>
 <p> <b>Craven County was named after William, Earl of Craven</b>:</p>
-<img src="images/earl-craven.jpg">
+<img src="/images/earl-craven.jpg">
 <p><b>Craven County Government</b>: In North Carolina, 
 county government is the level that directly 
 impacts every citizen. County governments were originally 
@@ -166,7 +166,7 @@ landfill director, hired
 by the authority, makes sure it is disposed of in a manner that 
 meets all state and federal requirements. </p>
 
-<img src="images/New%20Bern%20NC%20city%20hall.jpg">
+<img src="/images/New%20Bern%20NC%20city%20hall.jpg">
 <a href="http://www.cravencounty.com/">More Information About Craven County Services</a></p>
 
 <br class="clear">
