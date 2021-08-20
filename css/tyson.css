@@ -200,11 +200,17 @@ header {
   padding: 0;
   width: 100%;
 }
+#logoadd {
+  display: none;
+  text-align: center;
+  margin-top: -25px;
+}
 #logo {
   width: 100%;
   vertical-align: top;
   margin-left: .2rem;
 }
+#smallnavbar { padding: 10px; }
 header > div {
   display: inline-block;
 }
@@ -217,16 +223,6 @@ header ul:first-of-type {
   margin-left: 5px;
   font-size: .8rem;
 }
-header ul:first-of-type >li {
-  background: url('https://bartonphillips.net/images/header-bg.png') right top no-repeat;
-  background-size: 3px;
-}
-header ul:first-of-type >li:last-of-type {
-  background-image: none;
-}
-/*header a {
-  text-decoration: none;
-}*/
 header ul:first-of-type li a, .dropbtn {
   display: block;
   z-index: 100;
@@ -399,15 +395,15 @@ menuitem > menu > menuitem.hover > menu > menuitem{
 #smenu {
   display: none;
   position: absolute;
-  text-decoration: none;
+  text-decoration: none; 
   font-size: 1rem;
   color: white;
-  background-color: gray;
   list-style: none;
-  padding: 0.625rem;
   margin-top: 2px;
+  z-index: 100; 
+  background-color: gray;
+  padding: 0.625rem;
   line-height: 2rem;
-  z-index: 100;
 }
 #smenu a, #smenu:visited {
   color: white;

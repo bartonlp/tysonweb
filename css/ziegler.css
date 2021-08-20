@@ -1,0 +1,18 @@
+/* CSS for the Ziegler Suites */
+
+#logoadd {
+  display: block;
+}
+@media (hover: none) and (pointer: coarse) {
+  #content { width: 100%; }
+  #mylogo img { width: 150px; }
+  #logoadd {
+    margin-top: -15px;
+    margin-bottom: 5px;
+  }
+  .grid-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-section img { width: 150px; }
+  .suite { width: 100%; }
+}

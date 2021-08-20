@@ -1,6 +1,10 @@
 /* This is the CSS for index.php */
 /* The DIV tabs for each sub section has its own id */
 
+/* make ALL div's padding: 10px; This will also make the 'header div' 10px but we also have it in
+ * tyson.css as 'header div'
+ */
+
 div {
         padding: 10px;
 }
@@ -95,24 +99,6 @@ div {
         width: 336px;
         margin-right: 10px;
 }
-/* Freddie Mac tables stuff */  
-.md_summarytable {
-        border: 1px solid black;
-        width: 100%;
-        background-color: #faeddd;
-}
-.md_summarytable td {
-        border: 1px solid black;
-        padding-left: 10px;
-        padding-right: 10px;
-}
-.md_summarytable th {
-        border: 1px solid black;
-}
-.md_grouprow {
-        text-align: center;
-        font-weight: bold;
-}
 
 /* Media queries */
 @media (min-width: 1280px) {
@@ -123,12 +109,7 @@ div {
         #downtownnewbern { width: 280px; height: 220px;}
         #downtownnewbern iframe { width: 280px; height: 220px; }
         #gazebo { width: 280px; }
-        #mapnewbern { width: 280px; }
-        #hospital { width: 280px; }
-        .md_summarytable thead { display: none }
-        .md_summarytable tbody td { display: none }
-        .md_summarytable tbody td:first-child,
-        .md_summarytable tbody td:nth-child(2),
-        .md_summarytable tbody td:nth-child(3) { display: table-cell; }
+        #mapnewbern { width: 180px; }
+        #hospital { width: 180px; }
 }
 

@@ -42,6 +42,8 @@ RewriteRule ^(\.gitignore|mysitemap\.json|sitemap-new\.txt)$  - [F,L]
 
 # have this shtml goto the php
 RewriteRule ^Tyson-Group-Value-Proposition.shtml.*$ aboutus.php [L]
+# This site is all php. Also newbernzig.com will look for html files which are now php files.
+RewriteRule ^(.*)\.html $1.php [l]
 # END REWRITE SECTION
 
 # ADD SECTIONS

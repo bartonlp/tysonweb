@@ -64,7 +64,7 @@ list($top, $footer) = $S->getPageTopBottom($h);
 
 echo <<<EOF
 $top
-<h1 class="center">New Bern NC History</h1>
+<h1 class="center">New Bern History</h1>
 
 <img src="/images/Sir%20Walter%20Raleigh.jpg" alt="The founder of North Carolina-Sir Walter Raleigh" align="left">
 

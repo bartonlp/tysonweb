@@ -8,7 +8,9 @@ return <<<EOF
     title="Steve and Jana Tyson are selling homes in New Bern every day."/>
   <!-- 'dummy' will use the default for trackerImg2 which is a one px image -->
   <img id='dummy' src="https://bartonphillips.net/tracker.php?page=normal&id=$this->LAST_ID">
-
+  <div id="logoadd">
+    Steve and Jana are the owners of the Ziegler Suites
+  </div>
 <!-- Nav bar for large screens -->
   <nav>
     <menu>
@@ -48,7 +50,7 @@ return <<<EOF
         <a href="testimonials.php">Testimonials</a>
       </menuitem>
       <menuitem>
-        <a href="/ziegler.php">The Ziegler Suites</a>
+        <a href="http://www.newbernzig.com">The Ziegler Suites</a>
       </menuitem>
       <menuitem>
         <a href="contactus.php">Contact Us</a>
@@ -58,7 +60,7 @@ return <<<EOF
 <!-- Nav bar for small screens -->
   <div id="smallnavbar">
     <label for="smallmenu" class="xicon-menu">Menu</label>
-    <input type="checkbox" id="smallmenu" role="button">
+    <input type="checkbox" id="smallmenu">
 
     <ul id="smenu">
       <li><a href="/index.php">Home</a></li>
@@ -71,7 +73,7 @@ return <<<EOF
       <li><a href="/aboutwebsite.php">About Our Website</a></li>
       <li><a href="/aboutus.php">About Us</a></li>
       <li><a href="/testimonials.php">Testimonials</a></li>
-      <li><a href="/ziegler.php">The Ziegler Suites</a></li>
+      <li><a href="http://www.newbernzig.com">The Ziegler Suites</a></li>
       <li><a href="/contactus.php">Contact Us</a></li>
     </ul>
   </div>

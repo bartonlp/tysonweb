@@ -39,6 +39,8 @@ img[src*="tennis54.gif"] {
 img[src*="100.gif"] {
         width: 300px;
 }
+img[src*="harbour Towne.jpg"] { width: 40%; }
+img[src*="Riverbend 005.jpg"] { width: 45%; }
 </style>
 EOF;
 
@@ -47,8 +49,8 @@ list($top, $footer) = $S->getPageTopBottom($h);
 echo <<<EOF
 $top
 <h1 class="center">New Bern NC Tennis</h1>
-<img border="0" src="/images/harbour%20Towne.jpg" alt="New Bern best tennis facility">
-<img border="0" src="/images/Riverbend%20005.jpg" alt="The club house offers a place to relax after a tough tennis match">
+<img src="/images/harbour Towne.jpg" alt="New Bern best tennis facility">
+<img src="/images/Riverbend 005.jpg" alt="The club house offers a place to relax after a tough tennis match">
 <p class="justify"><b>Harbour Towne Racket Club</b><br>
 Located in Riverbend, Harbour Towne Racket Club is the area's largest organized Tennis Club.
 Founded in 1976 Harbour Towne offers six har-tru tennis courts, four are lighted, and a club house which offers showers and a full kitchen. 

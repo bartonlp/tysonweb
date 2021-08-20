@@ -27,6 +27,8 @@
   // need a full path like /var/www/tysonweb/ to work.
   "count": true,
   "countMe": true,
+  "favicon": "/favicon.ico", // we can specify a favicon here or $h->favicon or
+//  the default in bartonphillips.net
   "ctrmsg": "Counter Reset: March 1, 2021",
   "reset": "2021-03-01",
   "myUri": "https://bartonphillips.net/myUri.json", // may need to add to myUri.json for steve etc.
