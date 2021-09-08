@@ -1,14 +1,8 @@
 <?php
-// BLP 2021-01-31 -- edited
-/*
-I have set mysitemap.json:
-nodb: true
-noTrace: true
-count: false
-countMe: false
-and no dbinfo structure.
-I may want to change these later if we start doing tracking and other database functions.
-*/
+// Main page for Tyson Group
+// BLP 2021-08-21 -- replace all www.ncmove.com with www.findnewbernhomes.com. www.ncmove.com is
+// http ONLY while the new url is https.
+
 $_site = require_once(getenv("SITELOADNAME"));
 ErrorClass::setDevelopment(true);
 $S = new $_site->className($_site);
@@ -32,20 +26,20 @@ $top
 <h2 class="center">Search For Homes In New Bern And The Surrounding Area</h2>
 
 <div id="searchforhomes">
-  <span><a href="http://www.ncmove.com/listings/areas/7920,7921/propertytype/SINGLE,CONDO/listingtype/Resale+New,Foreclosure+Bank+Owned,Short+Sale/waterfront/1/">Waterfront Homes<br><img src="/images/waterfront-homes-2014.jpg" alt="Waterfront homes in the New Bern area" title="We are your waterfront experts."></a></span>
-  <span><a href="http://www.ncmove.com/listings/areas/7903,7920,7921,133551,135816,139157/subdivision/NEW+BERN+DOWNTOWN+HISTORIC/propertytype/SINGLE,CONDO,MULTI,LAND,FARM,MOBILE,INCOME,COM,RENTAL/listingtype/Resale+New,Foreclosure+Bank+Owned,Short+Sale,Lease+Rent/">Historic District Homes<br><img src="/images/historic-2014.jpg"  alt="Historic Homes in the New Bern area" title="New Bern was settled in 1710 and has many historic homes"></a></span>
-  <span><a href="http://www.ncmove.com/listings/areas/7923/propertytype/SINGLE/">Oriental Homes<br><img src="/images/oriental-2014.jpg"  alt="" title=""></a></span>
-  <span><a href="http://www.ncmove.com/listings/areas/7920,7921/minyearbuilt/2014/maxyearbuilt/2015/propertytype/SINGLE,CONDO/listingtype/Resale+New/">New-Home Construction<br><img src="/images/new-construction-2014.jpg" alt="Steve Tyson is a general contractor and knows the best builders in the area." title="Steve built homes for over 15 years"></a></span>
-  <span><a href="http://www.ncmove.com/listings/lulat/35.08957/lulong/-77.51129/rllat/34.85607/rllong/-76.87340/zoom/11/propertytype/SINGLE,CONDO/cb4-0/SINGLE/cb4-1/CONDO/minprice/150,000/maxprice/300,000/listingtype/Resale%20New,Foreclosure%20Bank%20Owned,Short%20Sale,Lease%20Rent/cb1-0/Resale%20New/cb1-1/Foreclosure%20Bank%20Owned/cb1-2/Short%20Sale/cb1-3/Lease%20Rent/">Homes Near Cherry Point<br><img src="/images/cherry-point-2014.jpg"  alt="Steve Tyson built new homes for 15 years and knows the best builders in the area." title="Steve built homes for over 15 years"></a></span>
-  <span><a href="http://www.ncmove.com/listings/areas/7903,7904,7920,7921,133551,135816,139157/propertytype/LAND/listingtype/Resale+New,Foreclosure+Bank+Owned,Short+Sale,Lease+Rent/waterfront/1/">Waterfront Lots-New Bern"<br><img src="/images/waterfront-lots.jpg" alt="Cherry Point Marine Air Station." title="Steve is a 3rd generation veteran."></a></span>
-  <span><a href="http://www.ncmove.com/listings/areas/7920,7921/minprice/100000/maxprice/200000/propertytype/SINGLE/listingtype/Resale+New/">$100,000-200,000 Homes<br><img src="/images/100.jpg"  alt="Homes for sale $100,000-$200,000" title="Homes for sale under $200,000."></a></span>
-  <span><a href="http://www.ncmove.com/listings/areas/7920,7921/minprice/200001/maxprice/300000/propertytype/SINGLE/listingtype/Resale+New/">$200,000-300,000 Homes<br><img src="/images/200-300.jpg"  alt="Steve and Jana Tyson have sold over $150 million in Real Estate" title="Homes for sale under $200,000-$300,000."></a></span>
-  <span><a href="http://www.ncmove.com/listings/propertytype/SINGLE/minprice/300001/maxprice/400000/areas/7920,7921/">$300,000-400,000 Homes<br><img src="/images/300-400.jpg"  alt="There are many great neighborhoods to choose from in New Bern" title="For this price you can even get on the water"></a></span>
-  <span><a href="http://www.ncmove.com/listings/propertytype/SINGLE/minprice/400001/maxprice/500000/areas/7920,7921/">$400,000-500,000 Homes<br><img src="/images/400-500.jpg"  alt="In this price range you can buy a waterfront home or a house on a nice upscale golf course" title="New Bern is only 35 minutes from the beach"></a></span>
-  <span><a href="http://www.ncmove.com/listings/propertytype/SINGLE/minprice/500001/maxprice/700000/areas/7920,7921/">$500,000-700,000 Homes</font><br><img src="/images/500-700.jpg"  alt="The real estate market bottemed out in New Bern late 2013" title="Luxury homes in this price range"></a></span>
-  <span><a href="http://www.ncmove.com/listings/propertytype/SINGLE/minprice/700001/maxprice/3000000/areas/7920,7921/">Over $700,000 Homes</font><br><img src="/images/700-plus.jpg"  alt="Luxury homes in the New Bern area" title="Homes in New Bern over $700,000"></a></span>
-  <span><a href="http://www.ncmove.com/listings/propertytype/SINGLE/beds/4/areas/7920,7921/">4+ Bedroom Homes <br><img src="/images/4BR.jpg"  alt="The Tyson Group are New Bern's number 1 Realtors" title="New Bern has plenty of 4 and 5 bedroom homes for sale"></a></span>               
-  <span><a href="http://www.ncmove.com/listings/areas/7903,7920,7921,7923,133551,139157,139952/propertytype/CONDO/listingtype/Resale+New,Foreclosure+Bank+Owned,Short+Sale/">Condos and Townhomes<br><img src="/images/condos-2014.jpg"  alt="Condos and townhomes for sale" title="We are your condo experts."></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/areas/7920,7921/propertytype/SINGLE,CONDO/listingtype/Resale+New,Foreclosure+Bank+Owned,Short+Sale/waterfront/1/">Waterfront Homes<br><img src="/images/waterfront-homes-2014.jpg" alt="Waterfront homes in the New Bern area" title="We are your waterfront experts."></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/areas/7903,7920,7921,133551,135816,139157/subdivision/NEW+BERN+DOWNTOWN+HISTORIC/propertytype/SINGLE,CONDO,MULTI,LAND,FARM,MOBILE,INCOME,COM,RENTAL/listingtype/Resale+New,Foreclosure+Bank+Owned,Short+Sale,Lease+Rent/">Historic District Homes<br><img src="/images/historic-2014.jpg"  alt="Historic Homes in the New Bern area" title="New Bern was settled in 1710 and has many historic homes"></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/areas/7923/propertytype/SINGLE/">Oriental Homes<br><img src="/images/oriental-2014.jpg"  alt="" title=""></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/areas/7920,7921/minyearbuilt/2014/maxyearbuilt/2015/propertytype/SINGLE,CONDO/listingtype/Resale+New/">New-Home Construction<br><img src="/images/new-construction-2014.jpg" alt="Steve Tyson is a general contractor and knows the best builders in the area." title="Steve built homes for over 15 years"></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/lulat/35.08957/lulong/-77.51129/rllat/34.85607/rllong/-76.87340/zoom/11/propertytype/SINGLE,CONDO/cb4-0/SINGLE/cb4-1/CONDO/minprice/150,000/maxprice/300,000/listingtype/Resale New,Foreclosure Bank Owned,Short Sale,Lease Rent/cb1-0/Resale New/cb1-1/Foreclosure Bank Owned/cb1-2/Short Sale/cb1-3/Lease Rent/">Homes Near Cherry Point<br><img src="/images/cherry-point-2014.jpg"  alt="Steve Tyson built new homes for 15 years and knows the best builders in the area." title="Steve built homes for over 15 years"></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/areas/7903,7904,7920,7921,133551,135816,139157/propertytype/LAND/listingtype/Resale+New,Foreclosure+Bank+Owned,Short+Sale,Lease+Rent/waterfront/1/">Waterfront Lots-New Bern"<br><img src="/images/waterfront-lots.jpg" alt="Cherry Point Marine Air Station." title="Steve is a 3rd generation veteran."></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/areas/7920,7921/minprice/100000/maxprice/200000/propertytype/SINGLE/listingtype/Resale+New/">$100,000-200,000 Homes<br><img src="/images/100.jpg"  alt="Homes for sale $100,000-$200,000" title="Homes for sale under $200,000."></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/areas/7920,7921/minprice/200001/maxprice/300000/propertytype/SINGLE/listingtype/Resale+New/">$200,000-300,000 Homes<br><img src="/images/200-300.jpg"  alt="Steve and Jana Tyson have sold over $150 million in Real Estate" title="Homes for sale under $200,000-$300,000."></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/propertytype/SINGLE/minprice/300001/maxprice/400000/areas/7920,7921/">$300,000-400,000 Homes<br><img src="/images/300-400.jpg"  alt="There are many great neighborhoods to choose from in New Bern" title="For this price you can even get on the water"></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/propertytype/SINGLE/minprice/400001/maxprice/500000/areas/7920,7921/">$400,000-500,000 Homes<br><img src="/images/400-500.jpg"  alt="In this price range you can buy a waterfront home or a house on a nice upscale golf course" title="New Bern is only 35 minutes from the beach"></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/propertytype/SINGLE/minprice/500001/maxprice/700000/areas/7920,7921/">$500,000-700,000 Homes</font><br><img src="/images/500-700.jpg"  alt="The real estate market bottemed out in New Bern late 2013" title="Luxury homes in this price range"></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/propertytype/SINGLE/minprice/700001/maxprice/3000000/areas/7920,7921/">Over $700,000 Homes</font><br><img src="/images/700-plus.jpg"  alt="Luxury homes in the New Bern area" title="Homes in New Bern over $700,000"></a></span>
+  <span><a href="https://www.findnewbernhomes.com/listings/propertytype/SINGLE/beds/4/areas/7920,7921/">4+ Bedroom Homes <br><img src="/images/4BR.jpg"  alt="The Tyson Group are New Bern's number 1 Realtors" title="New Bern has plenty of 4 and 5 bedroom homes for sale"></a></span>               
+  <span><a href="https://www.findnewbernhomes.com/listings/areas/7903,7920,7921,7923,133551,139157,139952/propertytype/CONDO/listingtype/Resale+New,Foreclosure+Bank+Owned,Short+Sale/">Condos and Townhomes<br><img src="/images/condos-2014.jpg"  alt="Condos and townhomes for sale" title="We are your condo experts."></a></span>
   <span><a href="Homes-Progress-Energy.php">Duke Energy Homes<br><img src="/images/duke-2014.jpg"  alt="Duke Electric will save you money" title="Duke Energy is the low cost electric provider in the New Bern area."></a></span>                   
 </div>
 
@@ -151,7 +145,7 @@ $top
       to southern Florida. New Bern has four seasons and not just one long hot summer like Florida.
     </div>
 
-    <span class="clear"></span>
+    <br class="clear"><br>
     <img id="airplane" class="floatleft" src="/images/New Bern airport.jpg" alt="Be home in no time" Title="New Bern is home to a wonderful regional airport"></a>
     <div class="imagetext">
       New Bern has the exceptional Coastal Carolina Regional Airport (EWN) with daily direct flights to Atlanta and Charlotte.
@@ -161,7 +155,7 @@ $top
       <a href="Airport.php">Airport Information</a> 
     </div>
 
-    <span class="clear"></span>
+    <br class="clear">
     <img id="hospital" class="floatleft" src="/images/hospital-small.jpg" title="New Bern Hospital" alt="New Bern Homes for sale">
     <div class="imagetext">
       New Bern has an excellent regional hospital with over 340 beds and 200 physicians.
@@ -181,4 +175,3 @@ $top
 
 $footer
 EOF;
-
