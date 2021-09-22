@@ -28,10 +28,10 @@
   "count": true,
   "countMe": true,
   "favicon": "/favicon.ico", // we can specify a favicon here or $h->favicon or
-//  the default in bartonphillips.net
+  // the default in bartonphillips.net
   "ctrmsg": "Counter Reset: March 1, 2021",
   "reset": "2021-03-01",
-  "myUri": "https://bartonphillips.net/myUri.json", // may need to add to myUri.json for steve etc.
+  //"myUri": "https://bartonphillips.net/myUri.json", // may need to add to myUri.json for steve etc.
   "trackerImg1": "https://www.newbern-nc.info/images/tysongroup-logo.jpg", // Full url for the image under tysonweb
   // the trackerImg should have a slash before or a full url.
   // trackerImg2 will use the default 1px image for 'normal'
