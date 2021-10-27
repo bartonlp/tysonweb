@@ -1,5 +1,6 @@
 <?php
 // Main page for Tyson Group
+// BLP 2021-10-07 -- fingerprint and geo.
 // BLP 2021-08-21 -- replace all www.ncmove.com with www.findnewbernhomes.com. www.ncmove.com is
 // http ONLY while the new url is https.
 
@@ -13,7 +14,13 @@ $h->link = <<<EOF
   <link rel="stylesheet" href="/css/index.css"/>
 EOF;
 
-list($top, $footer) = $S->getPageTopBottom($h);
+$b->script = <<<EOF
+<script src="bartonphillips.net/js/geo.js"></script>
+EOF;
+
+list($top, $footer) = $S->getPageTopBottom($h, $b);
+
+// Render Page
 
 echo <<<EOF
 $top

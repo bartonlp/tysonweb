@@ -1,7 +1,6 @@
 <?php
 // footer.i.php is unique to tysoneweb
-
-$lastmod = date("M j, Y H:i", getlastmod());
+// BLP 2021-10-24 -- counterWidget and lastmod are passed in form getPageFooter() 
 
 return <<<EOF
 <style>
@@ -43,9 +42,9 @@ return <<<EOF
   Copyright &copy; $this->copyright<br>
 </address>
   $counterWigget
-  Last Modified: $lastmod
+  $lastmod
 </footer>
-{$arg['script']}
+{$b->script}
 </body>
 </html>
 EOF;

@@ -129,7 +129,7 @@
 	     -o-transition: all 0.3s;
 	        transition: all 0.3s;
 	width: 2.6em;
-	z-index: 10;
+  z-index: 10;
 }
 .icon-button .icon-twitter {
 	color: #4099ff;
