@@ -13,9 +13,10 @@ $h->desc = "Tyson Group";
 $h->link = <<<EOF
   <link rel="stylesheet" href="/css/index.css"/>
 EOF;
-
+$FINGER_TOKEN = require_once("/var/www/bartonphillipsnet/PASSWORDS/finger-token");
 $b->script = <<<EOF
-<script src="bartonphillips.net/js/geo.js"></script>
+<script>var FINGER_TOKEN = "$FINGER_TOKEN"; </script>
+<script src="https://bartonphillips.net/js/geo.js"></script>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h, $b);
