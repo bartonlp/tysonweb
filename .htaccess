@@ -1,11 +1,9 @@
 # .htaccess for newbern-nc.info, The Tyson Group
 
 Header set Access-Control-Allow-Origin *
-Order Allow,Deny
-Allow from All
+Require all granted
 
 # SET ENV VARIABLES
-SetEnv SITELOAD /var/www/vendor/bartonlp/site-class/includes
 SetEnv SITELOADNAME /var/www/vendor/bartonlp/site-class/includes/siteload.php
 # END ENV
 
