@@ -16,7 +16,6 @@
   "dbinfo": { // if we start doing anything complex we will change this to 'tysonweb' maybe
     "host": "localhost",
     "user": "barton",
-    "password": "7098653",
     "database": "tysonweb", // use a custom database
     "engine": "mysqli"
   },
