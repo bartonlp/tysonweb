@@ -1,7 +1,7 @@
 /*
  * SPECIAL json for use by siteload.php. Normal json will not allow
  * comments.
- * BLP 2021-10-27 -- add database: tysonweb.
+ * BLP 2022-01-18 -- added the emails table to database 'tysonweb'
  */
 {
   "siteDomain": "newbern-nc.info",
@@ -11,7 +11,7 @@
   "path": "/var/www/tysonweb",
   "className": "SiteClass",
   "copyright": "Tyson Group",
-  "author": "Steve Tyson",
+  "author": "Steve Tyson and Barton Phillips",
   "masterdb": "barton",
   "dbinfo": { // if we start doing anything complex we will change this to 'tysonweb' maybe
     "host": "localhost",

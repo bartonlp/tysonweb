@@ -7,13 +7,12 @@
    social/css/font-awesome.css
 */
 
-/* This 'root' is for the hit counter */
-:root {
-  --blpHitcntrBgColor: #F5DEB3;
-  --blpHitcntrBorder: 8px ridge yellow;
-  --blpHitcntrColor: rgb(123, 16, 66);
+@import url('https://bartonphillips.net/css/hitcounter.css');
+
+/* Add box-sizing BLP 2021-12-08 -- */
+* {
+  box-sizing: border-box;
 }
-        
 /* Overall font face */
 @font-face {
   font-family: liberation;
@@ -22,7 +21,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 /* Font Face for the Menu ICON */
 @font-face {
   font-family: 'icomoon';
@@ -44,8 +42,7 @@
   font-weight: normal;
   font-style: normal;
 }
-
-/* icon */
+/* icons for twitter, facebook and github */
 [class^="icon-"],
 [class*=" icon-"] {
   font-family: FontAwesome;
@@ -145,9 +142,8 @@
 .icon-button:hover .icon-github {
 	color: white;
 }
-
-/* End twitter, facebook, g+ */
-
+/* End of icons for  twitter, facebook, github */
+/* Some gereral classes */
 .center {
         text-align: center;
 }
@@ -166,10 +162,7 @@
 .clear {
         clear: both;
 }
-
-* {
-  box-sizing: border-box;
-}
+/* Define overall look */
 html {
   font-size: 25px;
   font-family: liberation;
@@ -180,7 +173,6 @@ body {
   background-color: #EBECE4;
   margin: 10px;
 }
-
 #noscript p {
   color: red;
   background-color: #FFE4E1;
@@ -267,7 +259,6 @@ header .dropdown-content a:hover {
 header .dropdown:hover .dropdown-content {
   display: block;
 }
-
 /* HTML Nav Styles */
 nav menuitem {
    position: relative;
@@ -347,7 +338,6 @@ nav > menu > menuitem > a + menu:after{
    top: 20px;
    left: -180px;
 }*/
-
 nav > menu > menuitem > menu > menuitem{
    opacity: 0;
 }
@@ -355,7 +345,6 @@ nav > menu > menuitem:hover > menu > menuitem,
 nav > menu > menuitem.hover > menu > menuitem{
    opacity: 1;
 }
-
 menuitem > menu > menuitem > menu > menuitem{
    opacity: 0;
 } 
@@ -363,10 +352,8 @@ menuitem > menu > menuitem:hover > menu > menuitem,
 menuitem > menu > menuitem.hover > menu > menuitem{  
    opacity: 1;
 }
-/* End of Nav */
-
+/* End of Nav styles */
 /* This is the icon.fonts for the menu icon. Small menu */
-
 .xicon-menu {
   position: relative;
   font-family: 'icomoon';
@@ -387,11 +374,9 @@ menuitem > menu > menuitem.hover > menu > menuitem{
 .xicon-menu:before {
   content: '\e600';
 }
-
 #smallnavbar {
   display: none;
 }
-
 #smenu {
   display: none;
   position: absolute;
@@ -408,16 +393,36 @@ menuitem > menu > menuitem.hover > menu > menuitem{
 #smenu a, #smenu:visited {
   color: white;
 }
-
 #smallnavbar input[type=checkbox] {
   display: none;
   background-color: gray;
 }
-
 #smallnavbar input[type=checkbox]:checked ~ #smenu {
   display: block;
 }
-
+/* End of small menue */
+/* General button type in a form*/
+form button {
+  border-radius: .5rem;
+  padding: .2rem;
+  font-size: 1rem;
+}
+/* General input type in a form */
+form input {
+  font-size: 1rem;
+  padding: 0 .1rem;
+}
+/* Genreal textarea type in a form */
+form textarea {
+  height: 3rem;
+  font-size: 1rem;
+  padding: 0 .1rem;
+}
+/* General ul type has NO style. If you need a style redefine this in your module */
+ul {
+  list-style-type: none;
+  text-align: left;
+}
 /* Footer section */
 footer {
   text-align: center;
@@ -425,61 +430,8 @@ footer {
   background-color: lightgray;
   padding: 10px 0 10px 0;
 }
-/* General button type */
-button {
-  border-radius: .5rem;
-  padding: .2rem;
-  font-size: 1rem;
-}
-/* General input type */
-input {
-  font-size: 1rem;
-  padding: 0 .1rem;
-}
-/* Genreal textarea type */
-textarea {
-  height: 3rem;
-  font-size: 1rem;
-  padding: 0 .1rem;
-}
-
-ul {
-  list-style-type: none;
-  text-align: left;
-}
-
-/*
-  The #hitCounter... are for the SiteClass::getCounterWigget() which can be at the bottom of the page.
-  #F5DEB3==rgb(245,222,179) is 'wheat' for the background
-  burgundy=rgb(123, 16, 66) is a burgundy for the number
-*/  
-#hitCounter {
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  text-align: center;
-}
-#hitCountertbl {
-  font-size: 1em;
-  width: 0;
-  border: var(--blpHitcntrBorder);
-  margin-left: auto;
-  margin-right: auto;
-  background-color: var(--blpHitcntrBgColor);
-}
-#hitCountertr {
-  width: 0;
-  border: var(--blpHitcntrBorder);
-  margin-left: auto;
-  margin-right: auto;
-  background-color: var(--blpHitcntrBgColor) 
-}
-#hitCounterth {
-        color: var(--blpHitcntrColor);
-}
 /*****************/
 /* Media queries */
-
 /* hover and pointer seem to work on most browsers */
 @media (hover: none) and (pointer: coarse) {
   #header nav {
@@ -492,7 +444,7 @@ ul {
 /* Even if we can hover and the pointer is fine we still need to use the smallnavbar under 800px */
 @media (hover: hover) and (pointer: fine) and (max-width: 1000px) {
   #header nav {
-        display: none;
+    display: none;
   }
   #smallnavbar {
     display: inline-block;

@@ -1,6 +1,20 @@
 <?php
 // BLP 2021-02-21 -- notedited
-// BLP 2021-02-21 -- steve needs to look  
+// BLP 2021-02-21 -- steve needs to look
+/*
+BLP 2022-01-18 -- Add a table for emails.
+
+CREATE TABLE `emails` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `address` varchar(256) DEFAULT NULL,
+  `subject` text,
+  `message` text,
+  `created` date DEFAULT NULL,
+  `lasttime` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+*/
+
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
 
@@ -72,13 +86,16 @@ Message: $msg
 EOF;
 
   mail($address, $subject, $str, "From: newbern-nc.info\r\nBcc: bartonphillips@gmail.com");
+  $S->query("insert into emails (address, subject, message, created, lasttime) values('$address', '$subject', '$str', now(), now())");
+
+  header( "refresh:5;url=index.php" );
+
   echo <<<EOF
 $top
 <h1>Posted</h1>
 <p>This page will redirect to <a href="index.php"><b>The Tyson Group</b></a> in five seconds.</p>
 $footer
 EOF;
-  header( "refresh:5;url=index.php" );
 
   exit();
 }
