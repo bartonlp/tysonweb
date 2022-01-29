@@ -1,1 +1,1 @@
-../../includes/head.i.php
+../../bartonphillips.com/includes/head.i.php
