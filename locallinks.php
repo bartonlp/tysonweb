@@ -41,7 +41,7 @@ $top
 <a href="tennis.php"><b>Tennis</b></a> 
 <a href="New-Bern-dining.php"><b>Dining Out</b></a>
 <a href="new-bern-weather.php"><b>Weather</b></a>
-<a href="http://www.craven.k12.nc.us"><b>Schools</b></a>
+<a href="https://www.craven.k12.nc.us"><b>Schools</b></a>
 <a href="Airport.php"><b>Coastal Carolina Regional Airport</b></a>
 <a href="craven-county-government.php"><b>Craven County Government</b></a>
 <a href="Convention-Center.php"><b>Riverfront Convention Center</b></a>

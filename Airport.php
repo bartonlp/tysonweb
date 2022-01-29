@@ -25,7 +25,7 @@ list($top, $footer) = $S->getPageTopBottom($h);
 echo <<<EOF
 $top
 <h1 class="center">Coastal Carolina Regional Airport</h1>
-<img border="0" src="/images/New-Bern-Airport.jpg">
+<img border="0" src="images/New-Bern-Airport.jpg">
 <p><b>New Bern</b> 
 and the surrounding areas are fortunate to have a regional airport located only 
 minutes from the historic downtown area.

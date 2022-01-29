@@ -113,7 +113,7 @@ Office Phone: (252) 675-9595
 
 <div class="grid">
 <div class="item">
-<img src="/images/steve.png">
+<img src="images/steve.png">
 <p><b>Steve Tyson</b><br>
 (252) 514-9157 Cell</p>
 <br class="clear">
@@ -131,7 +131,7 @@ Office Phone: (252) 675-9595
 </div>
 
 <div class="item">
-<img src="/images/jana2.jpg">
+<img src="images/jana2.jpg">
 <p><b>Jana Tyson</b><br>
 (252) 670-1184 Cell</p>
 <br class="clear">
@@ -150,7 +150,7 @@ Office Phone: (252) 675-9595
 
 <div class="item">
 
-<img src="/images/kristie.jpg">
+<img src="images/kristie.jpg">
 <p><b>Kristi Diello</b><br>
 (252) 259-4130 Cell</p>
 <br class="clear">

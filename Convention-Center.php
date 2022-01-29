@@ -67,10 +67,10 @@ list($top, $footer) = $S->getPageTopBottom($h);
 echo <<<EOF
 $top
 <h1 class="center">New Bern Riverfront Convention Center</h1>
-<div id="imgdiv"><img src="/images/new-bern-convention-center-2.jpg"
+<div id="imgdiv"><img src="images/new-bern-convention-center-2.jpg"
 alt="New Bern is a happenning city with special events held year around"></div>
 
-<img src="/images/New-Bern-Convention-Center1.jpg">
+<img src="images/New-Bern-Convention-Center1.jpg">
 <p>The <b>New Bern Riverfront Convention Center </b>is located on 
 the waterfront in historic downtown <b>New Bern,</b> within walking 
 distance of hotels, restaurants and shopping. In a hurry and need to fly in 
@@ -96,7 +96,7 @@ major hotels are only a few miles away.</p>
 <li>Audio, visual and production capabilities
 </ul>
 
-<img src="/images/new-bern-convention-center.jpg" alt="The New Bern Convention Center is located on the Trent River">
+<img src="images/new-bern-convention-center.jpg" alt="The New Bern Convention Center is located on the Trent River">
 <p>In August of 2008 the North Carolina Association of County 
 Commissioners held their annual convention at the Riverfront Convention 
 Center in New Bern. The general consensus was that New Bern had the finest 
@@ -105,7 +105,7 @@ convention facility in North Carolina. </p>
 <br class="clear"><br>
 
 <a href="http://www.tryonpalace.org/">
-<img src="/images/tryonpalace.jpeg" alt="Historic Tryon Palace located in downtown New Bern"></a>
+<img src="images/tryonpalace.jpeg" alt="Historic Tryon Palace located in downtown New Bern"></a>
 <p><b>What to do after the convention?</b><br>
 Of course, everyone should see the Tryon Palace.
 New Bern was settled in 1710 and is full of history. Take a tour of the historic 
@@ -117,7 +117,7 @@ that often worked on homes in the off season.</p>
 
 <br class="clear">
 <hr>
-<img border="0" src="/images/yacht.jpg">
+<img border="0" src="images/yacht.jpg">
 
 <p><b>Take a river cruise or rent a boat.</b><br>
 An enjoyable way to spend a few hours is by taking a river cruise. You will see 

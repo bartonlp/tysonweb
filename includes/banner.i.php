@@ -2,6 +2,7 @@
 // banner.i.php is unique to tysonweb. We don't need the nodb logic because this needs a database
 
 return <<<EOF
+<!-- BANNER -->
 <header id="header">
   <!-- 'logo' is replace my trackerImg1 which should be tysongroup-logo.jpg. This is the 'script' image -->
   <img id="logo" data-image="$this->trackerImg1" src="images/tysongroup-logo.jpg" alt="New Bern's number 1 website to search for homes and real estate"

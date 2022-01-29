@@ -6,8 +6,8 @@
 {
   "siteDomain": "newbern-nc.info",
   "siteName": "Tysonweb",
-//  "mainTitle": "Tyson Group", // NO mainTitle. Banner is set in
-//  individual files.
+  "mainTitle": "",  // NO mainTitle. Banner is set in
+                    // individual files.
   "path": "/var/www/tysonweb",
   "className": "SiteClass",
   "copyright": "Tyson Group",
@@ -19,7 +19,7 @@
     "database": "tysonweb", // use a custom database
     "engine": "mysqli"
   },
-  "defaultCss": "/css/tyson.css", // The symlink below uses 'defaultCss' as the css to use
+  "defaultCss": "css/tyson.css", // The symlink below uses 'defaultCss' as the css to use
   "headFile": "includes/head.i.php", // This is a symlink to baronphillips.com/includes/head.i.php
   "bannerFile": "includes/banner.i.php", // NOTE: the *File must NOT HAVE a preceeding slash
   "footerFile": "includes/footer.i.php", // because they are file_get_contents() loaded
@@ -27,6 +27,8 @@
   // need a full path like /var/www/tysonweb/ to work.
   "count": true,
   "countMe": true,
+  "base": "<base src='https://www.bartonphillips.org/tysonweb'>",
+  //"noGeo" : true, // BLP 2022-01-28 -- new
   "favicon": "/favicon.ico", // we can specify a favicon here or $h->favicon or
   // the default in bartonphillips.net
   "ctrmsg": "Counter Reset: March 1, 2021",

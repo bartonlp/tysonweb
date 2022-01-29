@@ -45,7 +45,7 @@ relationships with our clients, motivating them to recommend us
 to friends and family.</p>
 
 <h3>What are home prices doing in New Bern?</h3>
-<img src="/images/home-value.png">
+<img src="images/home-value.png">
 
 <p>Like much of the country, foreclosures and the worst recession since the Great
 Depression had a devastating effect on real estate prices.
@@ -64,7 +64,7 @@ It's accurate, it's free, and there are no obligations on your part.</p>
 
 
 <h3>What is the most accurate way to determine what your home is worth?</h3>
-<img src="/images/appraiser.jpg" alt="New Bern Real Estate Appraisers"
+<img src="images/appraiser.jpg" alt="New Bern Real Estate Appraisers"
   title="Steve Tyson will be glad to do a no obligation professional market analysis for you. Just give him a call.">
 
 <p>By hiring a licensed professional Real Estate Appraiser. 

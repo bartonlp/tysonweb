@@ -3,11 +3,13 @@
 // BLP 2022-01-18 -- $b-noGeo added.
 // BLP 2021-10-24 -- counterWidget and lastmod are passed in form getPageFooter() 
 
-if($b->noGeo !== true) {
+/*if($b->noGeo !== true) {
   $geo = "<script src='https://bartonphillips.net/js/geo.js'></script>";
 }
+*/
 
 return <<<EOF
+<!-- FOOTER -->
 <style>
 .social {
   text-align: center;

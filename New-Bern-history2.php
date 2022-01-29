@@ -66,7 +66,7 @@ echo <<<EOF
 $top
 <h1 class="center">New Bern History</h1>
 
-<img src="/images/Sir%20Walter%20Raleigh.jpg" alt="The founder of North Carolina-Sir Walter Raleigh" align="left">
+<img src="images/Sir%20Walter%20Raleigh.jpg" alt="The founder of North Carolina-Sir Walter Raleigh" align="left">
 
 <p> Elizabeth I granted a charter to Sir Walter Raleigh for land in 
 present-day North Carolina. Raleigh established two colonies on the coast in 
@@ -83,7 +83,7 @@ had vanished. The Lost Colony remains one of the great
 mysteries of American history and is unsolved to this day. <p> 
 
 <br><br class="clear">
-<img src="/images/King-Charles.jpg" alt="King Charles the 2nd, Early New Bern ">
+<img src="images/King-Charles.jpg" alt="King Charles the 2nd, Early New Bern ">
 
 <p>A &quot;<b>Carolina Charter</b>&quot; was issued by King Charles II after he 
 was restored to the throne in 1660 granting his loyal supporters and 
@@ -101,7 +101,7 @@ transportation and fishing. Hunting the
 bountiful deer and other game native to the area provided early settlers 
 with much needed food.</p>
 
-<img src="/images/John-Lawson.jpg" alt="John Lawson-New Bern founder">
+<img src="images/John-Lawson.jpg" alt="John Lawson-New Bern founder">
 
 <p>John Lawson was a English explorer, naturalist, and writer. He was instrumental in the 
 exploration and eventual settlement of New Bern, NC.
@@ -112,7 +112,7 @@ naturalist. Thirty of the specimens that Lawson sent back to Petiver still
 survive in the Sloane collection at the British Museum.</p>
 
 <br class="clear"><br>
-<img src="/images/Tall-ship.jpg" alt="New Bern NC History">
+<img src="images/Tall-ship.jpg" alt="New Bern NC History">
 
 <p class="up">On May 1,  1700, Lawson was granted free passage on a ship headed for New 
 York. In August he set sail for Charles Town (now Charleston, S.C.). On Dec. 
@@ -128,7 +128,7 @@ now know as New Bern. Chattoka means &quot;where the fish are taken out&quot;.
 In 1705 he was appointed deputy surveyor for the Lords Proprietor of 
 Carolina.</p>
 
-<img border="0" src="/images/lawson-book.jpg" alt="Lawson's first trip to NC led to the eventual settlement of New Bern">
+<img border="0" src="images/lawson-book.jpg" alt="Lawson's first trip to NC led to the eventual settlement of New Bern">
 
 <p>In 1709 Lawson returned to London to oversee 
 the publication of a book he had written about his 
@@ -148,7 +148,7 @@ Shortly thereafter, tensions between Indians and settlers
 erupted into a bloody conflict known as the Tuscarora War. </p>
 
 <br><br class="clear">
-<img src="/images/DeGraffenreid.jpg" alt="The founder of New Bern NC bust is prominently displayed in front of city hall">
+<img src="images/DeGraffenreid.jpg" alt="The founder of New Bern NC bust is prominently displayed in front of city hall">
 
 <p class="up">Christoph Von Graffenreid (1661-1743) was born 
 in the canton of Bern Switzerland.&nbsp; Von Graffenreid studied at 
@@ -179,7 +179,7 @@ financial problems and was forced to sell most of his land to <b>Col.
 Thomas Pollock</b>, a wealthy landowner and future Governor of North Carolina 
 from 1712-1714.</p>
 
-<img border="0" src="/images/Indian.jpg" alt="Indian raids were common in early New Bern history from1711-1718">
+<img border="0" src="images/Indian.jpg" alt="Indian raids were common in early New Bern history from1711-1718">
 
 <p>In September of 1711 Tuscarora Indians, fed up with the treatment they had 
 received from the white men attacked the settlement and destroyed 
@@ -203,7 +203,7 @@ south around the Cape Fear River (Wilmington) and to the north around the Albema
 Bern being centrally located between the two larger regions, became one of the 
 meeting places for the colonial assembly in 1737.</p>
 
-<img src="/images/Colonial-Assembly.jpg" alt="New Bern NC history is rich and varied">
+<img src="images/Colonial-Assembly.jpg" alt="New Bern NC history is rich and varied">
 
 <p class="justify">In 1754 Governor Dobbs established his residence in New Bern and all sessions of the assembly were 
 held in New Bern during his four year stay. This acted as a stimulus for trade 
@@ -217,7 +217,7 @@ did much to enhance the reputation of New Bern as a growing town, and Davis
 argued frequently that New Bern should be declared the capital of the 
 colony.</p>
 
-<img border="0" src="/images/Tryon%20Palace.jpg" alt="New Bern's Tryon Palace was the residence for Governor Tryon">
+<img border="0" src="images/Tryon%20Palace.jpg" alt="New Bern's Tryon Palace was the residence for Governor Tryon">
 
 <p>The year 1765 proved to be an important one for New Bern. 
 Governor Dobbs died, and his replacement Governor William Tryon, found New 
@@ -268,7 +268,7 @@ industrial growth which continued until the Civil War intervened.</p>
 
 <h2 class="clear">The Civil War years</h2>
 
-<img border="0" src="/images/Civil%20War%20soldiers.jpg" alt="New Bern NC was one of the first cities to fall to the Union Army">
+<img border="0" src="images/Civil%20War%20soldiers.jpg" alt="New Bern NC was one of the first cities to fall to the Union Army">
 
 <p>Because the Battle of New Bern took place several miles away 
 across the Trent River the town was spared from any major damage. Union 
@@ -302,7 +302,7 @@ in the area.</p>
 
 <h2>New Bern Today</h2>
 
-<img border="0" src="/images/convention%20center%20&%20sailboat.jpg" alt="New Bern convention center.">
+<img border="0" src="images/convention%20center%20&%20sailboat.jpg" alt="New Bern convention center.">
 
 <p>Today New Bern is a very happening little town. With an 
 abundance of history, water, golf courses, favorable tax rates, 

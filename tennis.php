@@ -49,8 +49,8 @@ list($top, $footer) = $S->getPageTopBottom($h);
 echo <<<EOF
 $top
 <h1 class="center">New Bern NC Tennis</h1>
-<img src="/images/harbour Towne.jpg" alt="New Bern best tennis facility">
-<img src="/images/Riverbend 005.jpg" alt="The club house offers a place to relax after a tough tennis match">
+<img src="images/harbour Towne.jpg" alt="New Bern best tennis facility">
+<img src="images/Riverbend 005.jpg" alt="The club house offers a place to relax after a tough tennis match">
 <p class="justify"><b>Harbour Towne Racket Club</b><br>
 Located in Riverbend, Harbour Towne Racket Club is the area's largest organized Tennis Club.
 Founded in 1976 Harbour Towne offers six har-tru tennis courts, four are lighted, and a club house which offers showers and a full kitchen. 
@@ -73,7 +73,7 @@ New Bern, NC,28562<br>
 For membership information, call (252) 636-5652.</p>
 
 <hr class="clear">
-<img border="0" src="/images/tennis-17.gif" title="Tennis is a popular sport in Fairfield Harbour">
+<img border="0" src="images/tennis-17.gif" title="Tennis is a popular sport in Fairfield Harbour">
 <p><b>Fairfield Harbour</b></p>
 <p>This adult, gated community has plenty of tennis courts so 
 you should not have any problems finding a place to play on or finding someone to play with. You 
@@ -84,7 +84,7 @@ The center costs around $300 a year and offers tennis, indoor pool, outdoor pool
 For membership information, call (252) 633-5550.</p>
 
 <hr>
-<img border="0" src="/images/tennis-23.gif" alt="New Bern's oldest and finest country club">
+<img border="0" src="images/tennis-23.gif" alt="New Bern's oldest and finest country club">
 <p><b>New Bern Golf and Country Club</b></p>
 <p>New Bern Golf and Country Club has an excellent tennis 
 facility complete with six har-tru courts, two hard courts, a full-time and an assistant tennis pro, a tennis club house and a very 
@@ -93,12 +93,12 @@ In addition to tennis, NBGCC offers a swimming pool, 18-hole golf course and a f
 For membership information, call (252) 637-6201.</p>
 
 <hr>
-<img border="0" src="/images/tennis4.gif" title="Riverbend offers tennis, golf and boating">
+<img border="0" src="images/tennis4.gif" title="Riverbend offers tennis, golf and boating">
 <p><b>Riverbend Golf and Country Club</b></p>
 <p>Riverbend Country Club has three lighted hard courts that are available to members only.<br>
 For membership information, call (252) 638-2819.</p>
 <hr>
-<img border="0" src="/images/tennis-08.gif" title="The Emerald is located in the center of New Bern"
+<img border="0" src="images/tennis-08.gif" title="The Emerald is located in the center of New Bern"
   alt="Golf, tennis, swimming, and lots of pedestrian friendly roadways.">
 <p><b>Emerald Golf and Country Club</b></p>
 <p>The Emerald Golf Club has six lighted har-tru courts and an active group of men and women players. 
@@ -106,13 +106,13 @@ You must be a member to play, but social memberships are available.<br>
 For membership information, call (252) 633-4440.</p>  
 
 <hr>
-<img border="0" src="/images/tennis54.gif" title="New Bern High School courts are open to the public">
+<img border="0" src="images/tennis54.gif" title="New Bern High School courts are open to the public">
 <p><b>New Bern High School</b></p>
 <p>New Bern High School is located off Highway 17 South and has 
 several hard courts that are available to the public.</p>
 
 <hr>
-<img border="0" src="/images/100.gif" title="New Bern Recreation Center is ocated in the center of town.">
+<img border="0" src="images/100.gif" title="New Bern Recreation Center is ocated in the center of town.">
 <p><b>West New Bern Recreation Center</b></p> 
 <p>New Bern's largest recreation center has four hard tennis courts 
 that are open to the public. Two  are lighted.<br>
