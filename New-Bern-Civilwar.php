@@ -3,11 +3,7 @@
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
 
-$h->title = "Tyson Group Links";
-$h->desc = "Tyson Group Links";
-
 $h->css = <<<EOF
-<style>
 img { margin-right: 10px; }
 img[src*="civil01.jpg"] {
         width: 150px;
@@ -61,7 +57,6 @@ div p {
 @media (max-width: 500px) {
         img[src*="soilder1"], img[src*="monument"] { float: none; }
 }
-</style>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h);

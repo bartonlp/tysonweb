@@ -1,14 +1,10 @@
 <?php
 // BLP 2021-02-21 -- notedited
+
 $_site = require_once(getenv("SITELOADNAME"));
-ErrorClass::setDevelopment(true);
 $S = new $_site->className($_site);
 
-$h->title = "Tyson Group";
-$h->desc = "Tyson Group";
-
 $h->css = <<<EOF
-<style>
   img[src*="tryon_palace.jpg"] {
           width: 219px;
           height: 219px;
@@ -38,7 +34,6 @@ $h->css = <<<EOF
           float: left;
           margin-right: 10px;
   }
-</style>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h);

@@ -5,11 +5,8 @@
 // http ONLY while the new url is https.
 
 $_site = require_once(getenv("SITELOADNAME"));
-ErrorClass::setDevelopment(true);
 $S = new $_site->className($_site);
-
-$h->title = "Tyson Group";
-$h->desc = "Tyson Group";
+$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
 $h->link = <<<EOF
   <link rel="stylesheet" href="css/index.css"/>
 EOF;
@@ -22,7 +19,7 @@ echo <<<EOF
 $top
 
 <p>Steve and Jana Tyson have sold over $400 million in real estate over their careers.
-  Yes, that is nearly a half-billion in real estate experience! They know the local real estate market like no one else.
+  Yes, that is nearly a half-billion in real estate experience! They know the local real estate market like no one else.<br>
   The Tyson Group is <b>Leading The Market, Sign up to Sign Down.</b>
 </p>
 

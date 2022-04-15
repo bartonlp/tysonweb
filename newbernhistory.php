@@ -1,11 +1,8 @@
 <?php
 // BLP 2021-02-21 -- notedited
-$_site = require_once(getenv("SITELOADNAME"));
-ErrorClass::setDevelopment(true);
-$S = new $_site->className($_site);
 
-$h->title = "Tyson Group";
-$h->desc = "Tyson Group";
+$_site = require_once(getenv("SITELOADNAME"));
+$S = new $_site->className($_site);
 
 list($top, $footer) = $S->getPageTopBottom($h);
 

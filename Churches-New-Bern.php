@@ -1,17 +1,13 @@
 <?php
 // BLP 2021-02-21 -- notedited
 $_site = require_once(getenv("SITELOADNAME"));
-ErrorClass::setDevelopment(true);
 $S = new $_site->className($_site);
 
-$h->title = "Tyson Group";
-$h->desc = "Tyson Group";
 $h->link = <<<EOF
-    <link rel="stylesheet" href="css/churches.css">
+<link rel="stylesheet" href="css/churches.css">
 EOF;
 
-$b->script = <<<EOF
-<script>
+$b->inlineScript = <<<EOF
 function resizeGridItem(item){
   grid = document.getElementsByClassName("grid")[0];
   rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
@@ -36,7 +32,6 @@ function resizeInstance(instance){
 
 window.onload = resizeAllGridItems();
 window.addEventListener("resize", resizeAllGridItems);
-</script>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h, $b);
@@ -599,5 +594,4 @@ Church<br>
 </div>
 <hr>
 $footer
-
 EOF;

@@ -1,15 +1,7 @@
 <?php
 // footer.i.php is unique to tysoneweb
-// BLP 2022-01-18 -- $b-noGeo added.
-// BLP 2021-10-24 -- counterWidget and lastmod are passed in form getPageFooter() 
-
-/*if($b->noGeo !== true) {
-  $geo = "<script src='https://bartonphillips.net/js/geo.js'></script>";
-}
-*/
 
 return <<<EOF
-<!-- FOOTER -->
 <style>
 .social {
   text-align: center;
@@ -19,7 +11,6 @@ return <<<EOF
   font-size: 1.5em;
 }
 </style>
-
 <!--
   This div has the 'twitter', 'facebook' icons and links.
   It uses "FontAwesome" from the "https://bartonphillips.net/css/allnatural/social/font/"
@@ -43,16 +34,17 @@ return <<<EOF
   </a>
 
 </div>
-<!-- Normal footer -->
 <footer>
+<!-- Tysonweb Footer -->
 <address>
-  Copyright &copy; $this->copyright<br>
+$b->copyright
 </address>
-  $counterWigget
-  $lastmod
+$counterWigget
+$lastmod
 </footer>
 $geo
-{$b->script}
+$b->script
+$b->inlineScript
 </body>
 </html>
 EOF;

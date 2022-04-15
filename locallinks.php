@@ -2,13 +2,9 @@
 // BLP 2021-02-06 -- edited  
 
 $_site = require_once(getenv("SITELOADNAME"));
-ErrorClass::setDevelopment(true);
 $S = new $_site->className($_site);
-
-$h->title = "Tyson Group";
-$h->desc = "Tyson Group";
+$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
 $h->css = <<<EOF
-<style>
 .frame {
         text-align: center;
 }
@@ -29,7 +25,6 @@ $h->css = <<<EOF
                 height: 310px;
         }
 }
-</style>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h);

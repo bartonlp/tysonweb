@@ -1,16 +1,12 @@
 <?php
 // BLP 2021-02-21 -- notedited
+
 $_site = require_once(getenv("SITELOADNAME"));
-ErrorClass::setDevelopment(true);
 $S = new $_site->className($_site);
 
-$h->title = "Tyson Group";
-$h->desc = "Tyson Group";
 $h->css = <<<EOF
-<style>
   .list { list-style-type: disc; }
   .list li { line-height: 1.5rem }  
-</style>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h);

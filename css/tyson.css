@@ -9,7 +9,6 @@
 
 @import url('https://bartonphillips.net/css/hitcounter.css');
 
-/* Add box-sizing BLP 2021-12-08 -- */
 * {
   box-sizing: border-box;
 }
@@ -191,11 +190,6 @@ header {
   border-bottom: 1px solid black;
   padding: 0;
   width: 100%;
-}
-#logoadd {
-  display: none;
-  text-align: center;
-  margin-top: -25px;
 }
 #logo {
   width: 100%;

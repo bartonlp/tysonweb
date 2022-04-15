@@ -1,14 +1,10 @@
 <?php
 // BLP 2021-02-21 -- notedited
+
 $_site = require_once(getenv("SITELOADNAME"));
-ErrorClass::setDevelopment(true);
 $S = new $_site->className($_site);
 
-$h->title = "Tyson Group";
-$h->desc = "Tyson Group";
-
 $h->css = <<<EOF
-<style>
 .up { margin-top: -8px; }
 .justify { text-align: justify; }
 img { margin-right: 10px; }
@@ -57,7 +53,6 @@ img[src*="sailboat.jpg"] {
         width: 248px;
         float: left;
 }
-</style>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h);

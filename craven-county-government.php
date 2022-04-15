@@ -1,14 +1,10 @@
 <?php
 // BLP 2021-02-21 -- notedited
+
 $_site = require_once(getenv("SITELOADNAME"));
-ErrorClass::setDevelopment(true);
 $S = new $_site->className($_site);
 
-$h->title = "Tyson Group";
-$h->desc = "Tyson Group";
-
 $h->css = <<<EOF
-<style>
 img { margin-right: 10px; }
 img[src*="earl-craven.jpg"] {
         width: 260px;
@@ -21,7 +17,6 @@ img[src*="hall.jpg"] {
 @media (max-width: 500px) {
         img[src*="earl-craven.jpg"] { float: none; }
 }
-</style>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h);

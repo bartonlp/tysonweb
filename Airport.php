@@ -2,14 +2,11 @@
 // BLP 2021-01-31 -- edited
 
 $_site = require_once(getenv("SITELOADNAME"));
-ErrorClass::setDevelopment(true);
 $S = new $_site->className($_site);
 
-$h->title = "Tyson Group";
-$h->desc = "Tyson Group";
+$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
 
 $h->css = <<<EOF
-<style>
 img[src*="Airport"] {
         width: 280px;
         float: left;
@@ -18,7 +15,6 @@ img[src*="Airport"] {
 @media (max-width: 500px) {
         img[src*="Airport"] { float: none; }
 }        
-</style>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h);

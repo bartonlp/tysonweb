@@ -2,16 +2,10 @@
 // BLP 2021-01-31 -- edited
 
 $_site = require_once(getenv("SITELOADNAME"));
-ErrorClass::setDevelopment(true);
 $S = new $_site->className($_site);
-
-$h->title = "Tyson Group";
-$h->desc = "Tyson Group";
-
+$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
 $h->css = <<<EOF
-<style>
   .list { list-style-type: disc; }
-</style>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h);

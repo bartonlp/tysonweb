@@ -2,16 +2,10 @@
 // banner.i.php is unique to tysonweb. We don't need the nodb logic because this needs a database
 
 return <<<EOF
-<!-- BANNER -->
 <header id="header">
-  <!-- 'logo' is replace my trackerImg1 which should be tysongroup-logo.jpg. This is the 'script' image -->
-  <img id="logo" data-image="$this->trackerImg1" src="images/tysongroup-logo.jpg" alt="New Bern's number 1 website to search for homes and real estate"
-    title="Steve and Jana Tyson are selling homes in New Bern every day."/>
-  <!-- 'dummy' will use the default for trackerImg2 which is a one px image -->
-  <img id='dummy' src="https://bartonphillips.net/tracker.php?page=normal&id=$this->LAST_ID">
-  <div id="logoadd">
-    Steve and Jana are the owners of the Ziegler Suites
-  </div>
+<!-- Tysonweb BANNER -->
+$image1
+$image2
 <!-- Nav bar for large screens -->
   <nav>
     <menu>
@@ -82,11 +76,10 @@ return <<<EOF
 $mainTitle
 <noscript>
 <p style='color: red; background-color: #FFE4E1; padding: 10px'>
-<img src="tracker.php?page=noscript&id=$this->LAST_ID">
+$image3
 Your browser either does not support <b>JavaScripts</b> or you have JavaScripts disabled, in either case your browsing
 experience will be significantly impaired. If your browser supports JavaScripts but you have it disabled consider enabaling
 JavaScripts conditionally if your browser supports that. Sorry for the inconvienence.</p>
 </noscript>
-</style>
 </header>
 EOF;

@@ -1,14 +1,10 @@
 <?php
 // BLP 2021-02-21 -- notedited
+
 $_site = require_once(getenv("SITELOADNAME"));
-ErrorClass::setDevelopment(true);
 $S = new $_site->className($_site);
 
-$h->title = "Tyson Group";
-$h->desc = "Tyson Group";
-
 $h->css = <<<EOF
-<style>
 ul {
         list-style-type: disc;
         font-size: .8rem;
@@ -31,12 +27,9 @@ ul {
 @media (max-width: 600px) {
         .grid { grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); }
 }
-
-</style>
 EOF;
 
-$b->script = <<<EOF
-<script>
+$b->inlineScript = <<<EOF
 function resizeGridItem(item){
   grid = document.getElementsByClassName("grid")[0];
   rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
@@ -65,8 +58,6 @@ window.addEventListener("resize", resizeAllGridItems);
 //for(x=0;x<allItems.length;x++) {
 //  imagesLoaded(allItems[x], resizeInstance);
 //}
-
-</script>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h, $b);

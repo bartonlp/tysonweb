@@ -10,14 +10,26 @@
                     // individual files.
   "path": "/var/www/tysonweb",
   "className": "SiteClass",
+  "base": "https://www.bartonphillips.org/tysonweb",
   "copyright": "Tyson Group",
   "author": "Steve Tyson and Barton Phillips",
+  "title": "The Tyson Group", // BLP 2022-02-07 -- add title and desc as they are always the same.
+  "desc": "Tyson Group Realtors and Property Managment",
   "masterdb": "barton",
   "dbinfo": { // if we start doing anything complex we will change this to 'tysonweb' maybe
     "host": "localhost",
     "user": "barton",
-    "database": "tysonweb", // use a custom database
+    "database": "barton",
     "engine": "mysqli"
+  },
+  "errorMode": {
+    "development": true, // development automatically sets email to true.
+                         // If development is true then noEmail will be
+                         // set to true unless noEmail is set to false!
+                         // Only false not null or just missing.
+    "noEmail": null,   // Set it to null will not affect the true above which sets it to true also.
+    "noHtml": false,
+    "noOutput": false
   },
   "defaultCss": "css/tyson.css", // The symlink below uses 'defaultCss' as the css to use
   "headFile": "includes/head.i.php", // This is a symlink to baronphillips.com/includes/head.i.php
@@ -27,13 +39,10 @@
   // need a full path like /var/www/tysonweb/ to work.
   "count": true,
   "countMe": true,
-  "base": "<base src='https://www.bartonphillips.org/tysonweb'>",
   //"noGeo" : true, // BLP 2022-01-28 -- new
-  "favicon": "/favicon.ico", // we can specify a favicon here or $h->favicon or
-  // the default in bartonphillips.net
+  "favicon": "/favicon.ico", // we can specify a favicon here or $h->favicon
   "ctrmsg": "Counter Reset: March 1, 2021",
   "reset": "2021-03-01",
-  //"myUri": "https://bartonphillips.net/myUri.json", // may need to add to myUri.json for steve etc.
   "trackerImg1": "https://www.newbern-nc.info/images/tysongroup-logo.jpg", // Full url for the image under tysonweb
   // the trackerImg should have a slash before or a full url.
   // trackerImg2 will use the default 1px image for 'normal'
