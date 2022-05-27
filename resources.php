@@ -3,7 +3,7 @@
 
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
-
+$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
 $h->css = <<<EOF
 ul {
         list-style-type: disc;
@@ -82,23 +82,23 @@ $top
 
 <div class="item">
 <div class="content">
-<h2 class="center">Plummers</h2>
+<h2 class="center">Plumbers</h2>
 <ul>
-<li>Pipeworks 244 0196</li>
-<li>Conner Spear 633 1606</li>
-<li>Benjamin Plumbing 636 1897</li>
-<li>Twin Rivers Plumbing 745 4071</li>
-<li>Cayton and Associates 637 9389</li>
-<li>A 1 Sewer and Drain cleaning 635 1115</li>
-<li>Action Service 635 1521</li>
-<li>After Hours Plumbing Repairs 745 4038</li>
-<li>Beatty's Plumbing 637 3079</li>
-<li>Bennett Plumbing 637 0844</li>
-<li>Eastern Plumbing 514 0002</li>
-<li>Roto Rooter Plumbing 633 3883</li>
-<li>Royal Flush 636 0327</li>
-<li>Scott Plumbing 745 5135</li>
-<li>Soltow Plumbing 633 4300</li>
+<li>Pipeworks (252) 244-0196</li>
+<li>Conner Spear (252) 633-1606</li>
+<li>Benjamin Plumbing (252) 636-1897</li>
+<li>Twin Rivers Plumbing (252) 745-4071</li>
+<li>Cayton and Associates (252) 637-9389</li>
+<li>A1 Sewer and Drain Cleaning (252) 635-1115</li>
+<li>Action Service (252) 635-1521</li>
+<li>After Hours Plumbing Repairs (252) 745-4038</li>
+<li>Beatty's Plumbing (252) 637-3079</li>
+<li>Bennett Plumbing (252) 637-0844</li>
+<li>Eastern Plumbing (252) 514-0002</li>
+<li>Roto Rooter Plumbing (252) 633-3883</li>
+<li>Royal Flush (252) 636-0327</li>
+<li>Scott Plumbing (252) 745-5135</li>
+<li>Soltow Plumbing (252) 633-4300</li>
 </ul>
 </div>
 </div>
@@ -196,7 +196,7 @@ $top
 
 <div class="item">
 <div class="content">
-<h2 class="center">Photogrphers</h2>
+<h2 class="center">Photographers</h2>
 <ul>
 <li>Images by Rodger (252) 229-1390</li>
 <li>New Bern Photography (252) 349-2441</li>

@@ -34,7 +34,7 @@ $image2
             <a href="newbernhistory.php">New Bern History</a>
           </menuitem>
           <menuitem>
-            <a href="aboutwebsite.php">About Our Website</a>
+            <a href="https://bartonphillips.net/aboutwebsite.php?site=$this->siteName&domain=$this->siteDomain">About Our Website</a>
           </menuitem>
         </menu>
       </menuitem>
@@ -65,7 +65,7 @@ $image2
       <li><a href="/resources.php">Resources</a></li>
       <li><a href="/locallinks.php">Local Links</a></li>
       <li><a href="/newbernhistory.php">New Bern History</a></li>
-      <li><a href="/aboutwebsite.php">About Our Website</a></li>
+      <li><a href="https://bartonphillips.net/aboutwebsite.php?site=$this->siteName&domain=$this->siteDomain">About Our Website</a></li>
       <li><a href="/aboutus.php">About Us</a></li>
       <li><a href="/testimonials.php">Testimonials</a></li>
       <li><a href="http://www.newbernzig.com">The Ziegler Suites</a></li>

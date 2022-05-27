@@ -121,6 +121,7 @@ Email: $email
 Message: $msg
 EOF;
 
+  $msg = $S->escape($msg);
   $verify = $retAr['success'] == "1" ? 1 : "0";
   $reason = $retAr['error-codes'][0];
   

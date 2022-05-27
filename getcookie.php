@@ -1,1 +1,1 @@
-../bartonphillips.com/getcookie.php
+../bartonphillipsnet/getcookie.php

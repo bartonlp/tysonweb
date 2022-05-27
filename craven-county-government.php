@@ -3,7 +3,7 @@
 
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
-
+$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
 $h->css = <<<EOF
 img { margin-right: 10px; }
 img[src*="earl-craven.jpg"] {
@@ -38,7 +38,7 @@ peace to oversee them and carry out the state's mandated policies
 and services.</p>
 <p>After the Civil War, the new NC Constitution gave citizens more input into 
 electing their local leaders. Citizens were given the power to 
-elect a sheriff, county coroner, register of deeds, clerk of court 
+elect a sheriff, county coroner, registrar of deeds, clerk of court 
 and board of commissioners. The commissioners 
 replaced justices of the peace and were given the 
 responsibility for overseeing county finances and setting the property 
@@ -85,8 +85,8 @@ another important source of revenue and provide
 about 20 percent of Craven County revenue. The county shares 
 the sales taxes with all the municipalities within its bounties 
 and the state government. Charges for certain services, such as 
-building permits, copies at the register of deeds, fire 
-protection and various tests at the health department, account for 
+building permits, copies at the registrar of deeds, fire 
+protection and various tests at the health department account for 
 15 percent of the county's revenue. The balance mostly comes 
 from the state or federal government in the form of pass-through
 or grant money to furnish services mandated by those governments.</p>
@@ -134,7 +134,7 @@ service, paying off money the county has borrowed, accounts for 2
 percent.</p>
 
 <p>There are several types of services the county is required to provide: register of deeds (elected by the 
-citizens), mental health care, health department, agricultural extension, 
+citizens), mental healthcare, health department, agricultural extension, 
 building inspections, social services and the sheriff's office. 
 The state allows the counties to provide other services if they 
 so desire. Examples: public libraries, water and sewer, airport, hospital and parks 
