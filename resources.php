@@ -132,7 +132,7 @@ $top
 </ul>
 </div>
 </div>
-
+<!--
 <div class="item">
 <div class="content">
 <h2 class="center">Carpet Companies</h2>
@@ -145,7 +145,7 @@ $top
 </ul>
 </div>
 </div>
-
+-->
 <div class="item">
 <div class="content">
 <h2 class="center">Dentists</h2>

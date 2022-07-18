@@ -18,8 +18,8 @@ list($top, $footer) = $S->getPageTopBottom($h, $b);
 echo <<<EOF
 $top
 
-<p>Steve and Jana Tyson have sold over $400 million in real estate over their careers.
-  Yes, that is nearly a half-billion in real estate experience! They know the local real estate market like no one else.<br>
+<p>Steve and Jana Tyson have sold over $500 million in real estate over their careers.
+  Yes, that is over half-billion in real estate experience! They know the local real estate market like no one else.<br>
   The Tyson Group is <b>Leading The Market, Sign up to Sign Down.</b>
 </p>
 
@@ -73,16 +73,16 @@ $top
   <p>New Bern is a great place to call home. Read what others are saying about the area.</p>
   <ul>
     <li><a href="https://patch.com/north-carolina/charlotte/north-carolina-named-best-towns-retirement-list">Southern Living</a></li>	
-    <li><a href="http://www.newbernsj.com/news/20170608/website-names-new-bern-most-beautiful-in-nc">Culture Trip - Most Beautiful Town in NC</a></li>	
     <li><a href="http://www.topretirements.com/blog/great-towns/affordable-places-to-retire-on-the-coast-part-2.html">Top Retirement.Com</a></li>
+    <li><a href="http://www.newbernsj.com/news/20170608/website-names-new-bern-most-beautiful-in-nc">Culture Trip - Most Beautiful Town in NC</a></li>	
     <li><a href="http://www.marketwatch.com/story/10-coastal-towns-where-you-can-afford-to-retire-2015-04-16">10 Coastal Towns Where You Can Afford to Retire.</a></li>
-    <li><a href="http://www.onlyinyourstate.com/north-carolina/visit-new-bern-nc/">Why You Must Visit This Coastal NC Town</a></li>
     <li><a href="http://www.cruisingworld.com/destination-new-bern-north-carolina">You Don't Want to Miss This Coastal Town</a></li>
+    <li><a href="http://www.onlyinyourstate.com/north-carolina/visit-new-bern-nc/">Why You Must Visit This Coastal NC Town</a></li>
     <li><a href="http://www.boston.com/travel/articles/2010/11/14/a_weeks_happy_ending/?page=3">Boston Globe</a></li>
     <li><a href="http://www.onlyinyourstate.com/north-carolina/visit-new-bern-nc/">You Must Visit This Coastal NC Town</a></li>
     <li><a href="http://www.travelmag.com/articles/most-charming-towns-north-carolina/">Travel Mag</a></li>
     <li><a href="http://www.boatus.com/magazine/2013/June/10-great-boating-towns-slideshow.asp">10 Best Boating Cities to Retire, Play and Thrive</a></li>
-    <li><a href="http://www.frontdoor.com/places/what-its-like-to-live-in-new-bern-nc">Front Door.Com</font></font></a></li>
+<!--    <li><a href="http://www.frontdoor.com/places/what-its-like-to-live-in-new-bern-nc">Front Door.Com</font></font></a></li>-->
     <li><a href="https://www.planning.org/greatplaces/streets/2010/middlestreet.htm">Best Middle Street in America</a></li>
     <li><a href="http://livability.com/nc/new-bern/real-estate/why-new-bern-nc-is-a-great-place-to-live">Livability</a></li>
   </ul> 
@@ -175,3 +175,9 @@ $top
 
 $footer
 EOF;
+
+/*
+Make morgage calc an iframe.
+Move Culture Trip under Soutern Living.
+in resources.php remove the Carpet Companies.
+*/

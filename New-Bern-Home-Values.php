@@ -40,17 +40,19 @@ to friends and family.</p>
 <h3>What are home prices doing in New Bern?</h3>
 <img src="images/home-value.png">
 
-<p>Like much of the country, foreclosures and the worst recession since the Great
-Depression had a devastating effect on real estate prices.
-Home values in the New Bern area are currently stable and trending upward.
-It is our opinion that this trend will continue as the local ecomony is doing well.
-Most of the larger industries in the area are hiring and the retirement industry has never been better.</p>
+<p>
+Home values in the New Bern area are have been raising at a rapid rate in the past two years.
+It is our opinion that this trend will likely continue as the local ecomony is doing well.
+Most of the larger industries in the area are hiring and the retirement industry has never been better.
+New Bern's unique history, beautiful rivers and creeks, close proximity to the incredable beaches and resonable tax rate make
+it hightly desirable for businesses and retirees.
+</p>
 
 <br class="clear">
 <h3>Can a Real Estate Broker tell me what my home is worth?</h3>
 
 <p>Sure -- an experienced Real Estate Broker can give you a very accurate accounting of what your home is worth.
-Call The Tyson Group, with over 45 years combined experience in real estate sales in the New Bern-Havelock-Oriental markets.
+Call The Tyson Group, with over 50 years combined experience in real estate sales in the New Bern-Havelock-Oriental markets.
 They will perform a no-obligation, Comparable Market Analysis for you.
 They do this by analyzing recent home sales in your neighborhood and adjusting the house for upgrades, condition, etc.
 It's accurate, it's free, and there are no obligations on your part.</p>
