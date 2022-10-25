@@ -36,12 +36,12 @@ $top
 <a href="tennis.php"><b>Tennis</b></a> 
 <a href="New-Bern-dining.php"><b>Dining Out</b></a>
 <a href="new-bern-weather.php"><b>Weather</b></a>
-<a href="https://www.craven.k12.nc.us"><b>Schools</b></a>
+<a href="https://www.cravenk12.org/"><b>Craven County Schools</b></a>
 <a href="Airport.php"><b>Coastal Carolina Regional Airport</b></a>
 <a href="craven-county-government.php"><b>Craven County Government</b></a>
 <a href="Convention-Center.php"><b>Riverfront Convention Center</b></a>
 <a href="https://www.newbernsj.com/"><b>Sun Journal Newspaper</b></a>
-<a href="ziegler.php"><b>The Zeigler Suites</b></a>
+<a href="https://www.newbernzig.com"><b>The Zeigler Suites</b></a>
 </div>
 
 <br>

@@ -35,7 +35,7 @@ CREATE TABLE `contact_emails` (
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
 
-$recaptcha = require_once("/var/www/bartonphillipsnet/PASSWORDS/tysonweb-recaptcha.php");
+$recaptcha = require_once("/var/www/PASSWORDS/tysonweb-recaptcha.php"); // This is an assoc array
 
 $h->css = <<<EOF
 .item hr { display: none; }

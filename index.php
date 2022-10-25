@@ -19,7 +19,7 @@ echo <<<EOF
 $top
 
 <p>Steve and Jana Tyson have sold over $500 million in real estate over their careers.
-  Yes, that is over half-billion in real estate experience! They know the local real estate market like no one else.<br>
+  Yes, that is over half-billion in real estate experience! They know the local real estate market like no one else.
   The Tyson Group is <b>Leading The Market, Sign up to Sign Down.</b>
 </p>
 
