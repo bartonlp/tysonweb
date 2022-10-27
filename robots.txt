@@ -1,9 +1,9 @@
-User-agent: *
-Disallow: /Archive/
-Disallow: /webstats.php
-Disallow: /mysitemap.json
-Disallow: /other/
-Disallow: /script/
-Disallow: /fonts/
+user-agent: *
+disallow: /Archive/
+disallow: /webstats.php
+disallow: /mysitemap.json
+disallow: /other/
+disallow: /script/
+disallow: /fonts/
 
-Sitemap: http://www.newbern-nc.info/Sitemap.xml
+Sitemap: https://www.newbern-nc.info/Sitemap.xml

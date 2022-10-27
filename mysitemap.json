@@ -10,7 +10,7 @@
                     // individual files.
   "path": "/var/www/tysonweb",
   "className": "SiteClass",
-  "base": "https://www.bartonphillips.org/tysonweb",
+  //"base": "https://www.bartonphillips.org/tysonweb",
   "copyright": "Tyson Group",
   "author": "Steve Tyson and Barton Phillips",
   "title": "The Tyson Group", // BLP 2022-02-07 -- add title and desc as they are always the same.
