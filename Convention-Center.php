@@ -4,8 +4,8 @@
 
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
-$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
-$h->css = <<<EOF
+$S->meta = "<meta name='Editor' content='Bonnie Burch'>";
+$S->css = <<<EOF
 ul { list-style-type: disc; }
 img { margin-right: 10px; }
 #imgdiv {
@@ -56,7 +56,7 @@ img[src*="yacht.jpg"] {
 }
 EOF;
 
-list($top, $footer) = $S->getPageTopBottom($h);
+[$top, $footer] = $S->getPageTopBottom();
 
 echo <<<EOF
 $top

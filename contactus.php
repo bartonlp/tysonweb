@@ -37,7 +37,7 @@ $S = new $_site->className($_site);
 
 $recaptcha = require_once("/var/www/PASSWORDS/tysonweb-recaptcha.php"); // This is an assoc array
 
-$h->css = <<<EOF
+$S->css = <<<EOF
 .item hr { display: none; }
 .grid {
         display: grid;
@@ -71,11 +71,11 @@ button {
 }
 EOF;
 
-$h->script = <<<EOF
+$S->h_script = <<<EOF
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 EOF;
 
-list($top, $footer) = $S->getPageTopBottom($h);
+[$top, $footer] = $S->getPageTopBottom();
 
 // Is this a post?
 
@@ -84,17 +84,27 @@ if($_POST) {
  
   extract($_POST);
   
-  $post['response'] = $_POST['g-recaptcha-response'];
-  $post['secret'] = $recaptcha['secretKey']; // google grcapcha key
-  
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
-  curl_setopt($ch, CURLOPT_POST, true);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-  $ret = curl_exec($ch);
-  //vardump('ret', $ret);
+  $response = $_POST['g-recaptcha-response'];
+  $secret = $recaptcha['secretKey']; // google grcaptcha key
+
+  $options = ['http' => [
+                         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                         'method'  => 'POST',
+                         'content' => http_build_query(["response"=>$response, "secret"=>$secret])
+                        ]
+             ];
+
+  // Now we create a context from the options
+
+  $context  = stream_context_create($options);
+
+  // Now this is going to do a POST!
+  // NOTE we must have the full url with https!
+  // If we are doing a post that does not need to return anything we can avoid the assignment.
+
+  $ret = file_get_contents("https://www.google.com/recaptcha/api/siteverify", false, $context);
   $retAr = json_decode($ret, true);
+
   //vardump("retAr", $retAr);
 
   //error_log("tysonweb/contactus.php: " . print_r($retAr, true));
@@ -122,15 +132,14 @@ Message: $msg
 EOF;
 
   $msg = $S->escape($msg);
-  $verify = $retAr['success'] == "1" ? 1 : "0";
+
+  $verify = empty($retAr['success']) ? 0 : 1; // BLP 2023-02-01 - could be empty rather than 1 or zero.
   $reason = $retAr['error-codes'][0];
   
-//  $S->query("insert into emails (address, subject, message, verify, reason, created, lasttime) values('$address', '$subject', '$str', '$verify', '$reason', now(), now())");
-
   $S->query("insert into $S->masterdb.contact_emails (site, ip, agent, subject, message, verify, reason, created, lasttime) ".
             "values('$S->siteName', '$S->ip', '$agent', '$subject', '$msg', '$verify', '$reason', now(), now())");
   
-  if($verify != "1") {
+  if($verify !== true) {
     header( "refresh:2;url=contactus.php" );
 
     echo <<<EOF

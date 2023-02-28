@@ -3,8 +3,8 @@
 
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
-$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
-$h->css = <<<EOF
+$S->meta = "<meta name='Editor' content='Bonnie Burch'>";
+$S->css = <<<EOF
   table {
     width: 100%;
     border: 1px solid black;
@@ -18,7 +18,7 @@ $h->css = <<<EOF
   }
 EOF;
 
-list($top, $footer) = $S->getPageTopBottom($h);
+[$top, $footer] = $S->getPageTopBottom();
 
 echo <<<EOF
 $top

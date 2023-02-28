@@ -3,8 +3,8 @@
 
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
-$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
-$h->css = <<<EOF
+$S->meta = "<meta name='Editor' content='Bonnie Burch'>";
+$S->css = <<<EOF
 ul {
         list-style-type: disc;
         font-size: .8rem;
@@ -29,7 +29,7 @@ ul {
 }
 EOF;
 
-$b->inlineScript = <<<EOF
+$S->b_inlineScript = <<<EOF
 function resizeGridItem(item){
   grid = document.getElementsByClassName("grid")[0];
   rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
@@ -60,7 +60,7 @@ window.addEventListener("resize", resizeAllGridItems);
 //}
 EOF;
 
-list($top, $footer) = $S->getPageTopBottom($h, $b);
+[$top, $footer] = $S->getPageTopBottom();
 
 echo <<<EOF
 $top

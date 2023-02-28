@@ -2,8 +2,8 @@
 // BLP 2021-02-06 -- edited
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
-$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
-$h->css = <<<EOF
+$S->meta = "<meta name='Editor' content='Bonnie Burch'>";
+$S->css = <<<EOF
   img[src*="bears.jpg"] {
         width: 899px;
 }
@@ -14,7 +14,7 @@ img[src*="bears.jpg"] {
 }
 EOF;
 
-list($top, $footer) = $S->getPageTopBottom($h);
+[$top, $footer] = $S->getPageTopBottom();
 
 echo <<<EOF
 $top

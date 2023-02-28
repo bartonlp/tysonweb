@@ -4,12 +4,12 @@
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
 
-$h->css = <<<EOF
+$S->css = <<<EOF
   .list { list-style-type: disc; }
   .list li { line-height: 1.5rem }  
 EOF;
 
-list($top, $footer) = $S->getPageTopBottom($h);
+[$top, $footer] = $S->getPageTopBottom();
 
 echo <<<EOF
 $top

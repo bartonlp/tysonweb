@@ -4,7 +4,7 @@
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
 
-$h->css = <<<EOF
+$S->css = <<<EOF
   img[src*="tryon_palace.jpg"] {
           width: 219px;
           height: 219px;
@@ -36,7 +36,7 @@ $h->css = <<<EOF
   }
 EOF;
 
-list($top, $footer) = $S->getPageTopBottom($h);
+[$top, $footer] = $S->getPageTopBottom();
 
 echo <<<EOF
 $top

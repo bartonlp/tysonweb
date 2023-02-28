@@ -4,7 +4,7 @@
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
 
-$h->css = <<<EOF
+$S->css = <<<EOF
 img {
         margin-right: 10px;
 }
@@ -22,7 +22,7 @@ img[src*="Lincoln.jpg" {
 }
 EOF;
 
-list($top, $footer) = $S->getPageTopBottom($h);
+[$top, $footer] = $S->getPageTopBottom();
 
 echo <<<EOF
 $top

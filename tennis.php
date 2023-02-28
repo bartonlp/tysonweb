@@ -3,8 +3,8 @@
 
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
-$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
-$h->css = <<<EOF
+$S->meta = "<meta name='Editor' content='Bonnie Burch'>";
+$S->css = <<<EOF
 .justify { text-align: justify; }  
 img { margin-right: 10px; }
 img[src*="Towne.jpg"] {
@@ -38,7 +38,7 @@ img[src*="harbour Towne.jpg"] { width: 40%; }
 img[src*="Riverbend 005.jpg"] { width: 45%; }
 EOF;
 
-list($top, $footer) = $S->getPageTopBottom($h);
+[$top, $footer] = $S->getPageTopBottom();
 
 echo <<<EOF
 $top

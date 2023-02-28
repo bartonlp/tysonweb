@@ -6,12 +6,12 @@
 
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
-$h->meta = "<meta name='Editor' content='Bonnie Burch'>";
-$h->link = <<<EOF
+$S->meta = "<meta name='Editor' content='Bonnie Burch'>";
+$S->link = <<<EOF
   <link rel="stylesheet" href="css/index.css"/>
 EOF;
 
-list($top, $footer) = $S->getPageTopBottom($h, $b);
+[$top, $footer] = $S->getPageTopBottom();
 
 // Render Page
 
