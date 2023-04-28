@@ -17,7 +17,7 @@ img[src*="Airport"] {
 }        
 EOF;
 
-[top, $footer] = $S->getPageTopBottom();
+[$top, $footer] = $S->getPageTopBottom();
 
 echo <<<EOF
 $top

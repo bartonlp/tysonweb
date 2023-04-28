@@ -49,10 +49,10 @@ $top
   <h2><a href="https://www.mortgagecalculator.org/">Morgage Calculator</a></h2>
 </div>
 
-<div id="downtownnewbern">
+<!--<div id="downtownnewbern">
   <iframe src="https://bbemaildelivery.com/bbext/?p=vidEmbed&id=53eb5e3a-8763-4dc6-948f-3b197d534894"
     frameborder="0" scrolling="no" allowfullscreen></iframe>
-</div>
+</div>-->
 <hr>
 
 <div id="greatplace">
