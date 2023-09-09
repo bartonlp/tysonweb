@@ -191,7 +191,7 @@ header {
   padding: 0;
   width: 100%;
 }
-#logo {
+#logo img {
   width: 100%;
   vertical-align: top;
   margin-left: .2rem;
@@ -435,7 +435,7 @@ footer {
     display: inline-block;
   }
 }
-/* Even if we can hover and the pointer is fine we still need to use the smallnavbar under 800px */
+/* Even if we can hover and the pointer is fine we still need to use the smallnavbar under 1000px */
 @media (hover: hover) and (pointer: fine) and (max-width: 1000px) {
   #header nav {
     display: none;
@@ -443,6 +443,7 @@ footer {
   #smallnavbar {
     display: inline-block;
   }
+  #logo img { width: 390px; }
 }
 @media (max-width: 1275px) {
   html {

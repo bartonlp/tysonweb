@@ -1,10 +1,19 @@
 <?php
 // banner.i.php is unique to tysonweb. We don't need the nodb logic because this needs a database
 
+// BLP 2023-09-07 - added to let me know if someone calls this directly.
+ 
+if(!class_exists("SiteClass")) {
+  $ip = $_SERVER['REMOTE_ADDR'];
+  error_log("bartonphillips.com/banner.i.php: Called directly: $ip");
+  echo "<h1>Not Authorized</h1><p>This file is not to be run directly, rather it is used by another file</p>";
+  exit();
+}
+
 return <<<EOF
 <header id="header">
 <!-- Tysonweb BANNER -->
-$image1
+<a></a>
 $image2
 <!-- Nav bar for large screens -->
   <nav>

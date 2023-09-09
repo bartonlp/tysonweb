@@ -40,11 +40,10 @@
   "count": true,
   //"noGeo" : true, // BLP 2022-01-28 -- new
   "favicon": "/favicon.ico", // we can specify a favicon here or $h->favicon
-  "ctrmsg": "Counter Reset: March 1, 2021",
-  "reset": "2021-03-01",
+  "ctrmsg": "Counter Reset: June 13, 2023",
   "trackerImg1": "https://www.newbern-nc.info/images/tysongroup-logo.jpg", // Full url for the image under tysonweb
   // the trackerImg should have a slash before or a full url.
-  // trackerImg2 will use the default 1px image for 'normal'
+  "trackerImg2": null, // will use the default 1px image for 'normal'
   "EMAILADDRESS": "bartonphillips@gmail.com", // NEED to change to tyson group.
   "EMAILRETURN": "bartonphillips@gmail.com",
   "EMAILFROM": "bartonphillips@gmail.com"
