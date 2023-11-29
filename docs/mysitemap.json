@@ -1,0 +1,50 @@
+/*
+ * SPECIAL json for use by siteload.php. Normal json will not allow
+ * comments.
+ * BLP 2022-01-18 -- added the emails table to database 'tysonweb'
+ */
+{
+  "siteDomain": "github.com/bartonlp/tysonweb",
+  "siteName": "TysonwebPage",
+  "mainTitle": "",  // NO mainTitle. Banner is set in
+                    // individual files.
+  "path": "/var/www/tysonweb/docs",
+  "className": "SiteClass",
+  //"base": "https://www.bartonphillips.org/tysonweb",
+  "copyright": "Tyson Group",
+  "author": "Steve Tyson and Barton Phillips",
+  "title": "The Tyson Group", // BLP 2022-02-07 -- add title and desc as they are always the same.
+  "desc": "Tyson Group Realtors and Property Managment",
+  "masterdb": "barton",
+  "dbinfo": { // if we start doing anything complex we will change this to 'tysonweb' maybe
+    "host": "localhost",
+    "user": "barton",
+    "database": "barton",
+    "engine": "mysqli"
+  },
+  "errorMode": {
+    "development": true, // development automatically sets email to true.
+                         // If development is true then noEmail will be
+                         // set to true unless noEmail is set to false!
+                         // Only false not null or just missing.
+    "noEmail": null,   // Set it to null will not affect the true above which sets it to true also.
+    "noHtml": false,
+    "noOutput": false
+  },
+  "defaultCss": "../css/tyson.css", // The symlink below uses 'defaultCss' as the css to use
+  "headFile": "../includes/head.i.php", // use standard head
+  "bannerFile": "../includes/banner.i.php", // NOTE: the *File must NOT HAVE a preceeding slash
+  "footerFile": "../includes/footer.i.php", // because they are file_get_contents() loaded
+  // and that would mean they are in the ROOT directory. They would
+  // need a full path like /var/www/tysonweb/ to work.
+  "count": true,
+  //"noGeo" : true, // BLP 2022-01-28 -- new
+  "favicon": "../favicon.ico", // we can specify a favicon here or $h->favicon
+  "ctrmsg": "Counter Reset: June 13, 2023",
+  "trackerImg1": "https://www.newbern-nc.info/images/tysongroup-logo.jpg", // Full url for the image under tysonweb
+  // the trackerImg should have a slash before or a full url.
+  "trackerImg2": null, // will use the default 1px image for 'normal'
+  "EMAILADDRESS": "bartonphillips@gmail.com", // NEED to change to tyson group.
+  "EMAILRETURN": "bartonphillips@gmail.com",
+  "EMAILFROM": "bartonphillips@gmail.com"
+}
