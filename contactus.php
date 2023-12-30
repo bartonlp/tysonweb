@@ -90,7 +90,7 @@ if($_POST) {
   $options = ['http' => [
                          'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
                          'method'  => 'POST',
-                         'content' => http_build_query(["response"=>$response, "secret"=>$secret])
+                         'content' => http_build_sql(["response"=>$response, "secret"=>$secret])
                         ]
              ];
 
@@ -136,7 +136,7 @@ EOF;
   $verify = empty($retAr['success']) ? 0 : 1; // BLP 2023-02-01 - could be empty rather than 1 or zero.
   $reason = $retAr['error-codes'][0];
   
-  $S->query("insert into $S->masterdb.contact_emails (site, ip, agent, subject, message, verify, reason, created, lasttime) ".
+  $S->sql("insert into $S->masterdb.contact_emails (site, ip, agent, subject, message, verify, reason, created, lasttime) ".
             "values('$S->siteName', '$S->ip', '$agent', '$subject', '$msg', '$verify', '$reason', now(), now())");
   
   if($verify !== true) {
