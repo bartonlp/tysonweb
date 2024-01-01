@@ -1,0 +1,3 @@
+[submodule "docs/site-class"]
+path = docs/site-class
+url = https://github.com/bartonlp/git@github.com:bartonlp/site-class.git
