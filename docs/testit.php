@@ -22,3 +22,8 @@ $_site = json_decode(stripComments(file_get_contents("./mysitemap.json")));
 $S = new SiteClass($_site);
 
 vardump("S", $S);
+echo "Class=".$S->__toString()."<br>";
+echo "SiteClass=".$S->getVersion()."<br>";
+echo "Database=".Database::getVersion()."<br>";
+echo "dbMysqli=".dbMysqli::getVersion()."<br>";
+echo "helper=".getVersion()."<br>";
