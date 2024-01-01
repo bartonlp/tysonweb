@@ -90,7 +90,7 @@ if($_POST) {
   $options = ['http' => [
                          'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
                          'method'  => 'POST',
-                         'content' => http_build_sql(["response"=>$response, "secret"=>$secret])
+                         'content' => http_build_query(["response"=>$response, "secret"=>$secret])
                         ]
              ];
 

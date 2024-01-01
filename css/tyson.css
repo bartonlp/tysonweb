@@ -191,7 +191,7 @@ header {
   padding: 0;
   width: 100%;
 }
-#logo img {
+#logo {
   width: 100%;
   vertical-align: top;
   margin-left: .2rem;
