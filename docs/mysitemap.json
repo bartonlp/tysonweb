@@ -4,7 +4,7 @@
  * BLP 2022-01-18 -- added the emails table to database 'tysonweb'
  */
 {
-  "siteDomain": "github.com/bartonlp/tysonweb",
+  "siteDomain": "bartonlp.github.io/tysonweb/",
   "siteName": "TysonwebPage",
   "mainTitle": "",  // NO mainTitle. Banner is set in
                     // individual files.
@@ -16,11 +16,11 @@
   "title": "The Tyson Group", // BLP 2022-02-07 -- add title and desc as they are always the same.
   "desc": "Tyson Group Realtors and Property Managment",
   "masterdb": "barton",
-  "dbinfo": { // if we start doing anything complex we will change this to 'tysonweb' maybe
+  "dbinfo": { // I nned this for testit.php
     "host": "localhost",
     "user": "barton",
     "database": "barton",
-    "engine": "mysqli"
+    "engine": "mysql"
   },
   "errorMode": {
     "development": true, // development automatically sets email to true.
@@ -32,7 +32,7 @@
     "noOutput": false
   },
   "defaultCss": "../css/tyson.css", // The symlink below uses 'defaultCss' as the css to use
-  "headFile": "../includes/head.i.php", // use standard head
+  "headFile": "/var/www/bartonphillips.com/includes/head.i.php", // use standard head
   "bannerFile": "../includes/banner.i.php", // NOTE: the *File must NOT HAVE a preceeding slash
   "footerFile": "../includes/footer.i.php", // because they are file_get_contents() loaded
   // and that would mean they are in the ROOT directory. They would

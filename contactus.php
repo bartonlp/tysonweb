@@ -38,6 +38,12 @@ $S = new $_site->className($_site);
 $recaptcha = require_once("/var/www/PASSWORDS/tysonweb-recaptcha.php"); // This is an assoc array
 
 $S->css = <<<EOF
+#error { color: red; animation: fadeOut 10s linear; animation-fill-mode: forwards; }
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; display: none; }
+}
+
 .item hr { display: none; }
 .grid {
         display: grid;
@@ -80,10 +86,44 @@ EOF;
 // Is this a post?
 
 if($_POST) {
-  //vardump("POST", $_POST);
- 
+  $s_name = $s_email = $s_msg = '';
+  $j_name = $j_email = $j_msg = '';
+  $k_name = $k_email = $k_msg = '';
+
   extract($_POST);
-  
+
+  switch($member) {
+    case "steve":
+      $s_name = $name; // $x_name variable are for the form at the bottom.
+      $s_email = $email;
+      $s_msg = $msg;
+      $address = "stevetyson55@gmail.com"; // stevetyson55@gmail.com
+      $subject = "Message for Steve Tyson";
+      break;
+    case "jana":
+      $j_name = $name;
+      $j_email = $email;
+      $j_msg = $msg;
+      $address = "thetysongroup@gmail.com"; // thetysongroup@gmail.com
+      $subject = "Message for Jana Tyson";
+      break;
+    case "kristie":
+      $k_name = $name;
+      $k_email = $email;
+      $k_msg = $msg;
+      $address = "kristidiello@gmail.com"; // kristidiello@gmail.com
+      $subject = "Message for kristie";
+      break;
+    default:
+      echo "<h1>Go Away</h1>";
+      exit();
+  }
+
+  if(empty($name) || empty($email) || empty($msg)) {
+    $err = "<h2>You must supply a name, email and message.</h2>";
+    goto POST_END;
+  }
+
   $response = $_POST['g-recaptcha-response'];
   $secret = $recaptcha['secretKey']; // google grcaptcha key
 
@@ -109,50 +149,37 @@ if($_POST) {
 
   //error_log("tysonweb/contactus.php: " . print_r($retAr, true));
 
-  if($member == "steve") {
-    $address = "stevetyson55@gmail.com"; // stevetyson55@gmail.com
-    $subject = "Message for Steve Tyson";
-  } elseif($member == "jana") {
-    $address = "thetysongroup@gmail.com"; // thetysongroup@gmail.com
-    $subject = "Message for Jana Tyson";
-  } elseif($member == "kristie") {
-    $address = "kristidiello@gmail.com"; // kristidiello@gmail.com
-    $subject = "Message for kristie";
-  } else {
-    echo "<h1>Go Away</h1>";
-    exit();
-  }
+  $agent = $S->agent; //substr($S->agent, 0, 254); // keep it small
 
-  $agent = substr($S->agent, 0, 254); // keep it small
+  $msgStr = str_replace("'", "\\'", $msg);
   
-  $msg = <<<EOF
-Name: $name
-Email: $email
-Message: $msg
-EOF;
+  $msgEmail = str_replace("\r\n", "<br>", $msg);
 
-  $msg = $S->escape($msg);
+  $msg = "Name: $name<br>Email: $email<br>Message: $msg";
 
-  $verify = empty($retAr['success']) ? 0 : 1; // BLP 2023-02-01 - could be empty rather than 1 or zero.
+  //echo "msg=$msg, msgStr=$msgStr<br>";
+  
+  $verify = empty($retAr['success']) ? false : true; // BLP 2023-02-01 - could be empty rather than 1 or zero.
   $reason = $retAr['error-codes'][0];
-  
+
   $S->sql("insert into $S->masterdb.contact_emails (site, ip, agent, subject, message, verify, reason, created, lasttime) ".
-            "values('$S->siteName', '$S->ip', '$agent', '$subject', '$msg', '$verify', '$reason', now(), now())");
+            "values('$S->siteName', '$S->ip', '$agent', '$subject', '$msgStr', '$verify', '$reason', now(), now())");
   
   if($verify !== true) {
-    header( "refresh:2;url=contactus.php" );
-
-    echo <<<EOF
-$top
-<h1>Failed Verification. Try Again.</h1>
-<p>$reason</p>
-<p>This page will redirect to <a href="contactus.php"><b>Contact Us</b></a> in two seconds.</p>
-$footer
+    $err = <<<EOF
+<h2>Failed Captcha Verification. Try Again.<br>
+$reason</h2>
 EOF;
-    exit();
+    goto POST_END;
   }
- 
-  mail($address, $subject, $msg, "From: TysonGroup@newbern-nc.info\r\nBcc: bartonphillips@gmail.com", "-fbarton@bartonphillips.com");
+
+  $header = "From: TysonGroup@newbern-nc.info\r\nBcc: bartonphillips@gmail.com\r\n";
+  $header .= "MIME-Version: 1.0\r\n";
+  $header .= "Content-type: text/html; charset=UTF-8\r\n";
+
+  //$address = "bartonphillips@gmail.com";
+  
+  mail($address, $subject, $msgEmail, $header, "-fbarton@bartonphillips.com");
 
   header( "refresh:5;url=index.php" );
 
@@ -162,11 +189,16 @@ $top
 <p>This page will redirect to <a href="index.php"><b>The Tyson Group</b></a> in five seconds.</p>
 $footer
 EOF;
-
+  
   exit();
+  
+POST_END:
+
 }
 
 // Render First Page
+
+$key = $recaptcha['siteKey'];
 
 echo <<<EOF
 $top
@@ -175,6 +207,8 @@ $top
 2301 Grace Ave. New Bern, NC 28562<br>
 Office Phone: (252) 675-9595<br>
 </p>
+
+<div id="error">$err</div>
 
 <div class="grid">
 <div class="item">
@@ -185,12 +219,12 @@ Office Phone: (252) 675-9595<br>
 <h3>Send Steve an Email</h3>
 <form id="steve" action="contactus.php" method="post">
 <label for="name1">Your name</label><br>
-<input type="text" id="name1" name="name"><br>
+<input type="text" id="name1" name="name" value="$s_name"><br>
 <label for="email1">Your Email Address</label><br>
-<input type="text" id="email1" name="email"><br><br>
-<textarea name="msg" placeholder="Enter Message"></textarea><br>
+<input type="text" id="email1" name="email" value="$s_email"><br><br>
+<textarea name="msg" placeholder="Enter Message">$s_msg</textarea><br>
 <input type="hidden" name="member" value="steve">
-<div class="g-recaptcha" data-sitekey="6Ld5KVAeAAAAAB1sLfDrZl6PvuU0e_P4hD6xIOcP"></div>
+<div class="g-recaptcha" data-sitekey="$key"></div>
 <button type="submit">Submit</button>
 </form><br>
 <hr>
@@ -204,12 +238,12 @@ Office Phone: (252) 675-9595<br>
 <h3>Send Jana an Email</h3>
 <form action="contactus.php" method="post">
 <label for="name2">Your name</label><br>
-<input type="text" id="name2" name="name"><br>
+<input type="text" id="name2" name="name" value="$j_name"><br>
 <label for="email2">Your Email Address</label><br>
-<input type="text" id="email2" name="email"><br><br>
-<textarea name="msg" placeholder="Enter Message"></textarea><br>
+<input type="text" id="email2" name="email" value="$j_email"><br><br>
+<textarea name="msg" placeholder="Enter Message">$j_msg</textarea><br>
 <input type="hidden" name="member" value="jana">
-<div class="g-recaptcha" data-sitekey="{$recaptcha['siteKey']}"></div>
+<div class="g-recaptcha" data-sitekey="$key"></div>
 <button type="submit">Submit</button>
 </form><br>
 <hr>
@@ -224,12 +258,12 @@ Office Phone: (252) 675-9595<br>
 <h3>Send Kristi an Email</h3>
 <form method="post">
 <label for="name3">Your name</label><br>
-<input type="text" required id="name3" name="name"><br>
+<input type="text" required id="name3" name="name" value="$k_name"><br>
 <label for="email2">Your Email Address</label><br>
-<input type="text" required id="email3" name="email"><br><br>
-<textarea name="msg" required placeholder="Enter Message"></textarea><br>
+<input type="text" required id="email3" name="email" value="$k_email"><br><br>
+<textarea name="msg" required placeholder="Enter Message">$k_msg</textarea><br>
 <input type="hidden" name="member" value="kristie">
-<div class="g-recaptcha" data-sitekey={$recaptcha['siteKey']}></div>
+<div class="g-recaptcha" data-sitekey="$key"></div>
 <button type="submit">Submit</button>
 </form>
 <br>
