@@ -19,6 +19,7 @@ if(str_contains($siteClass, "pdo")) {
 $help = getVersion();
 
 [$top, $footer] = $S->getPageTopBottom();
+
 echo <<<EOF
 $top
 <hr>
