@@ -162,8 +162,10 @@ if($_POST) {
   $verify = empty($retAr['success']) ? false : true; // BLP 2023-02-01 - could be empty rather than 1 or zero.
   $reason = $retAr['error-codes'][0];
 
+  $ver = $verify === true ? 1 : 0;
+  
   $S->sql("insert into $S->masterdb.contact_emails (site, ip, agent, subject, message, verify, reason, created, lasttime) ".
-            "values('$S->siteName', '$S->ip', '$agent', '$subject', '$msgStr', $verify, '$reason', now(), now())");
+            "values('$S->siteName', '$S->ip', '$agent', '$subject', '$msgStr', $ver, '$reason', now(), now())");
   
   if($verify !== true) {
     $err = <<<EOF
