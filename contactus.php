@@ -32,6 +32,8 @@ CREATE TABLE `contact_emails` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci */
 
+use SendGrid\Mail\Mail; // Use SendGrid for emails
+
 $_site = require_once(getenv("SITELOADNAME"));
 $S = new $_site->className($_site);
 
@@ -90,7 +92,14 @@ if($_POST) {
   $j_name = $j_email = $j_msg = '';
   $k_name = $k_email = $k_msg = '';
 
+
   extract($_POST);
+  // $name
+  // $email
+  // $msg
+  // $member
+  // $g-recaptcha-response
+
 
   switch($member) {
     case "steve":
@@ -144,10 +153,9 @@ if($_POST) {
 
   $ret = file_get_contents("https://www.google.com/recaptcha/api/siteverify", false, $context);
   $retAr = json_decode($ret, true);
-
-  //vardump("retAr", $retAr);
-
-  //error_log("tysonweb/contactus.php: " . print_r($retAr, true));
+  $verify = empty($retAr['success']) ? false : true; // BLP 2023-02-01 - could be empty rather than 1 or zero.
+  $reason = $retAr['error-codes'][0];
+  $ver = $verify === true ? 1 : 0;
 
   $agent = $S->agent; //substr($S->agent, 0, 254); // keep it small
 
@@ -157,13 +165,6 @@ if($_POST) {
 
   $msg = "Name: $name<br>Email: $email<br>Message: $msg";
 
-  //echo "msg=$msg, msgStr=$msgStr<br>";
-  
-  $verify = empty($retAr['success']) ? false : true; // BLP 2023-02-01 - could be empty rather than 1 or zero.
-  $reason = $retAr['error-codes'][0];
-
-  $ver = $verify === true ? 1 : 0;
-  
   $S->sql("insert into $S->masterdb.contact_emails (site, ip, agent, subject, message, verify, reason, created, lasttime) ".
             "values('$S->siteName', '$S->ip', '$agent', '$subject', '$msgStr', $ver, '$reason', now(), now())");
   
@@ -175,13 +176,32 @@ EOF;
     goto POST_END;
   }
 
-  $header = "From: TysonGroup@newbern-nc.info\r\nBcc: bartonphillips@gmail.com\r\n";
-  $header .= "MIME-Version: 1.0\r\n";
-  $header .= "Content-type: text/html; charset=UTF-8\r\n";
+  $mail = new Mail();
 
   //$address = "bartonphillips@gmail.com";
   
-  mail($address, $subject, $msgEmail, $header, "-fbarton@bartonphillips.com");
+  $mail->setFrom("Info@newbern-nc.info");
+  $mail->setSubject($subject);
+  $mail->addTo($address);
+  
+  $mail->addBcc("bartonphillips@gmail.com");
+  //$mail->addCc("barton@bartonphillips.com");
+  
+  $mail->addContent("text/plain", 'View this in HTML mode');
+  $mail->addContent("text/html", $msgEmail);
+
+  $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+
+  $response = $sendgrid->send($mail);
+
+  if($response->statusCode() > 299) {
+    print $response->statusCode() . "<br><pre>";
+    print_r($response->headers());
+    print "</pre>Body: <pre>";
+    print_r(json_decode($response->body()));
+    print "</pre>";
+    exit();
+  }  
 
   header( "refresh:5;url=index.php" );
 

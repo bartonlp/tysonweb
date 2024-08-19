@@ -8,13 +8,13 @@
   "siteName": "Tysonweb",
   "mainTitle": "",  // NO mainTitle. Banner is set in
                     // individual files.
-  "path": "/var/www/tysonweb",
+  "path": "/var/www/tysonweb/rivertownrentals",
   "className": "SiteClass",
   //"base": "https://www.bartonphillips.org/tysonweb",
   "copyright": "Tyson Group",
   "author": "Steve Tyson and Barton Phillips",
   "title": "The Tyson Group", // BLP 2022-02-07 -- add title and desc as they are always the same.
-  "desc": "Tyson Group Realtors and Property Managment",
+  "desc": "Tyson Group Rivertownrntals",
   "masterdb": "barton",
   "dbinfo": { // if we start doing anything complex we will change this to 'tysonweb' maybe
     "host": "localhost",
@@ -31,19 +31,20 @@
     "noHtml": false,
     "noOutput": false
   },
-  "defaultCss": "https://newbern-nc.info/css/tyson.css", // The symlink below uses 'defaultCss' as the css to use
+  //"defaultCss": "https://newbern-nc.info/css/tyson.css", // The
+  //symlink below uses 'defaultCss' as the css to use
+  //"defaultCss": false,
   "headFile": "/var/www/bartonphillips.com/includes/head.i.php", // use standard head
-  "bannerFile": "/var/www/tysonweb/includes/banner.i.php", // NOTE: the *File must NOT HAVE a preceeding slash
-  "footerFile": "/var/www/tysonweb/includes/footer.i.php", // because they are file_get_contents() loaded
-  // and that would mean they are in the ROOT directory. They would
-  // need a full path like /var/www/tysonweb/ to work.
+  "bannerFile": "/var/www/tysonweb/rivertownrentals/includes/banner.i.php", // special for rivertownrentals
+  "footerFile": "/var/www/tysonweb/rivertownrentals/includes/footer.i.php", // special for rivertownrentals
   "count": true,
   //"noGeo" : true, // BLP 2022-01-28 -- new
   "favicon": "/favicon.ico", // we can specify a favicon here or $h->favicon
-  "ctrmsg": "Counter Reset: June 13, 2023",
-  "trackerImg1": "https://www.newbern-nc.info/images/tysongroup-logo.jpg", // Full url for the image under tysonweb
+  //"ctrmsg": "Counter Reset: June 13, 2023",
+  "trackerImg1": "https://www.newbern-nc.info/rivertownrentals/rivertownlogo.webp", // Full url for the image under tysonweb/rivertownrentals
   // the trackerImg should have a slash before or a full url.
   "trackerImg2": null, // will use the default 1px image for 'normal'
+  //
   "EMAILADDRESS": "bartonphillips@gmail.com", // NEED to change to tyson group.
   "EMAILRETURN": "bartonphillips@gmail.com",
   "EMAILFROM": "bartonphillips@gmail.com"

@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-$_site = require_once(getenv("SITELOADNAME"));
+$_site = require_once '/var/www/vendor/bartonlp/site-class/includes/siteload.php';
 
 $path = $_site->path; //getcwd();
 //error_log("path: $path");

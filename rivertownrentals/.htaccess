@@ -1,0 +1,3 @@
+# I need this in this directory. The .htaccess in the main directory does not work on this directory
+
+RewriteRule ^csstest-(.*)\.css$ https://bartonlp.com/otherpages/tracker.php?id=$1&page=csstest [L,QSA]
