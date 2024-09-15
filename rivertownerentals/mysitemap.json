@@ -8,13 +8,13 @@
   "siteName": "Tysonweb",
   "mainTitle": "",  // NO mainTitle. Banner is set in
                     // individual files.
-  "path": "/var/www/tysonweb/rivertownrentals",
+  "path": "/var/www/tysonweb/rivertownerentals",
   "className": "SiteClass",
   //"base": "https://www.bartonphillips.org/tysonweb",
   "copyright": "Tyson Group",
   "author": "Steve Tyson and Barton Phillips",
   "title": "The Tyson Group", // BLP 2022-02-07 -- add title and desc as they are always the same.
-  "desc": "Tyson Group Rivertownrntals",
+  "desc": "Tyson Group Rivertownerntals",
   "masterdb": "barton",
   "dbinfo": { // if we start doing anything complex we will change this to 'tysonweb' maybe
     "host": "localhost",
@@ -35,13 +35,13 @@
   //symlink below uses 'defaultCss' as the css to use
   //"defaultCss": false,
   "headFile": "/var/www/bartonphillips.com/includes/head.i.php", // use standard head
-  "bannerFile": "/var/www/tysonweb/rivertownrentals/includes/banner.i.php", // special for rivertownrentals
-  "footerFile": "/var/www/tysonweb/rivertownrentals/includes/footer.i.php", // special for rivertownrentals
+  "bannerFile": "/var/www/tysonweb/rivertownerentals/includes/banner.i.php", // special for rivertownerentals
+  "footerFile": "/var/www/tysonweb/rivertownerentals/includes/footer.i.php", // special for rivertownerentals
   "count": true,
   //"noGeo" : true, // BLP 2022-01-28 -- new
   "favicon": "/favicon.ico", // we can specify a favicon here or $h->favicon
   //"ctrmsg": "Counter Reset: June 13, 2023",
-  "trackerImg1": "https://www.newbern-nc.info/rivertownrentals/rivertownlogo.webp", // Full url for the image under tysonweb/rivertownrentals
+  "trackerImg1": "https://www.newbern-nc.info/rivertownerentals/rivertownelogo.webp", // Full url for the image under tysonweb/rivertownerentals
   // the trackerImg should have a slash before or a full url.
   "trackerImg2": null, // will use the default 1px image for 'normal'
   //

@@ -9,16 +9,101 @@ $S = new SiteClass($_site);
 $S->title = "Rivertowne Rental App";
 $S->meta = "<meta name='Editor' content='Bonnie Burch 08-18-2024'>";
 
-//$DEBUG = true; // Send to ME.
+// This is needed so the JavaScript gets a blank array
+
+if($_SERVER['REQUEST_METHOD'] === 'GET') {
+  $selectAr = '{}';
+
+  if($_GET['blp'] == '8653' && !empty($name = $_GET['name'])) {
+    $S->sql("select json, jsonAr from $S->masterdb.rivertowne where name='$name'");
+    [$json, $selectAr] = $S->fetchrow('num');
+
+    extract(json_decode($json, true));
+  }
+}
+
+$DEBUG = true; // Send to ME.
 //$DEBUG_NOSEND = true;
 
+const STATES = [
+  'AL'=>'Alabama',
+  'AK'=>'Alaska',
+  'AZ'=>'Arizona',
+  'AR'=>'Arkansas',
+  'CA'=>'California',
+  'CO'=>'Colorado',
+  'CT'=>'Connecticut',
+  'DE'=>'Delaware',
+  'FL'=>'Florida',
+  'GA'=>'Georgia',
+  'HI'=>'Hawaii',
+  'ID'=>'Idaho',
+  'IL'=>'Illinois',
+  'IN'=>'Indiana',
+  'IA'=>'Iowa',
+  'KS'=>'Kansas',
+  'KY'=>'Kentucky',
+  'LA'=>'Louisiana',
+  'ME'=>'Maine',
+  'MD'=>'Maryland',
+  'MA'=>'Massachusetts',
+  'MI'=>'Michigan',
+  'MN'=>'Minnesota',
+  'MS'=>'Mississippi',
+  'MO'=>'Missouri',
+  'MT'=>'Montana',
+  'NE'=>'Nebraska',
+  'NV'=>'Nevada',
+  'NH'=>'New Hampshire',
+  'NJ'=>'New Jersey',
+  'NM'=>'New Mexico',
+  'NY'=>'New York',
+  'NC'=>'North Carolina',
+  'ND'=>'North Dakota',
+  'OH'=>'Ohio',
+  'OK'=>'Oklahoma',
+  'OR'=>'Oregon',
+  'PA'=>'Pennsylvania',
+  'PR'=>'Puerto Rico',
+  'RI'=>'Rhode Island',
+  'SC'=>'South Carolina',
+  'SD'=>'South Dakota',
+  'TN'=>'Tennessee',
+  'TX'=>'Texas',
+  'UT'=>'Utah',
+  'VT'=>'Vermont',
+  'VI'=>'Virgin Islands',
+  'VA'=>'Virginia',
+  'WA'=>'Washington',
+  'WV'=>'West Virginia',
+  'WI'=>'Wisconsin',
+  'WY'=>'Wyoming'
+];
+
 // Preview the post
+// Which fields have the <select> data.
+// Capture the select option.
+// Pass it to the rendre logic.
+
+const SELECTNAMES = [
+                     'RegState',
+                     'State',
+                     'PrevState',
+                     'EmpState',
+                    ];
 
 if($_POST["preview"]) {
   $prev = "<table border='1'>";
+
+  $selectAr = [];
+
   foreach($_POST as $k=>$v) {
     if($k == "preview") continue;
-    $k = preg_replace("~_~", "'", $k); // For Bonnie, make apostrophies
+    if(in_array($k, SELECTNAMES)) {
+      $selectAr[$k] = $v;
+    }
+    
+    $k = preg_replace("~_~", "'", $k);
     $k = implode(" ", preg_split('/(?=[A-Z])/', $k));
     $prev .= "<tr><td>$k</td><td>$v</td></tr>";
   }
@@ -36,8 +121,21 @@ EOF;
   
   [$top, $footer] = $S->getPageTopBottom();
 
+  $Applicant_sName = $_POST['Applicant_sName'];
+  
   $json = json_encode($_POST);
+  $jsonAr = json_encode($selectAr);
 
+  // Put these into a database: $json and $jsonAr
+
+  try {
+    $S->sql("create table if not exists rivertowne(name varchar(255), json text, jsonAr text, created datetime, lasttime datetime, primary key(name))");
+    $S->sql("insert into rivertowne (name, json, jsonAr, created, lasttime) values('$Applicant_sName', '$json', '$jsonAr', now(), now()) ".
+            "on duplicate key update json='$json', jsonAr='$jsonAr', lasttime=now()");
+  } catch(Exception $e) {
+    throw $e;
+  }
+  
   echo <<<EOF
 $top
 <hr>
@@ -47,6 +145,7 @@ $prev
 <button type="submit" name="send" value="true">Send It</button><br>
 <button type="submit" name="dontsend" value="true">Don't Send, Return and ReEdit</button>
 <input type="hidden" name="postinfo" value='$json'>
+<input type="hidden" name="selectAr" value='$jsonAr'>
 <hr>
 $footer
 EOF;
@@ -57,6 +156,8 @@ EOF;
 
 if($_POST["dontsend"]) {
   $json = json_decode($_POST["postinfo"], true);
+  $selectAr = $_POST["selectAr"];
+
   extract($json);
   // Now we just drop through to the form logic with all of the variables set as they were.
 }
@@ -76,7 +177,6 @@ if($_POST["send"]) {
     $k = preg_replace("~_~", "'", $k);
     $msgEmail .= implode(" ", preg_split('/(?=[A-Z])/', $k)) . ": $v<br>";
   }
-  //vardump("msgEmail", $msgEmail);
   
   $mail = new Mail();
 
@@ -87,6 +187,7 @@ if($_POST["send"]) {
   if($DEBUG) {
     // Here we want to send the info to ME rather than to 'thetysongroup@gmail.com'
     $mail->addTo("bartonphillips@gmail.com");
+    $mail->addTo("barton@bartonphillips.com");
   } else {
     // If we are not testing send it to 'thetypsongroup@gmail.com' and Bcc to me
     $mail->addTo("rivertowneRentals@gmail.com");
@@ -97,13 +198,16 @@ if($_POST["send"]) {
   $mail->addContent("text/plain", 'View this in HTML mode');
   $mail->addContent("text/html", $msgEmail);
 
-  $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+  // Get the key form my private area.
 
-  if($DEBUG_NOSEND) {
-    //vardump("mail", $mail);
-    //vardump("json", $json);
-    vardump("msgEmail", $msgEmail);
+  $apiKey = require_once "/var/www/PASSWORDS/sendgrid-api-key";
+  
+  //$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+
+  $sendgrid = new \SendGrid($apiKey);
     
+  if($DEBUG_NOSEND) {
+    vardump("msgEmail", $msgEmail);
   } else {
     $response = $sendgrid->send($mail);
     
@@ -148,6 +252,13 @@ switch($HaveYouEverBeenEvicted) {
     break;
 }
 
+$stateOptions = "<option value=''>Select An Option</option>";
+
+foreach(STATES as $k=>$v) {
+  $stateOptions .= "<option>$v</option>";
+}
+
+
 // Render the Form Page
 
 $S->banner = "<h1>Rental Forms</h1>";
@@ -159,9 +270,19 @@ $S->b_inlineScript = <<<EOF
 
   const thisCss = `
 /* 'tables' is the id of the 'section' */
+
 #tables { width: 100%; }
+
+/* Make the input box bigger */
+
 #tables form input { font-size: 24px; width: 100%; }
+
+/* Make the select text bigger */
+
+#tables form select { font-size: 24px; }
+
 /* The tables ids are rental-table, personal-table and certify */
+
 #rental-table, #personal-table {
   display: grid;
   grid-template-columns: 20% 1fr;
@@ -172,21 +293,27 @@ $S->b_inlineScript = <<<EOF
   grid-template-columns: 20% 1fr;
   width: 100%;
 }
+
 #rental-table tbody,
 #rental-table tr,
 #personal-table tbody,
 #personal-table tr,
 #certify tbody,
 #certify tr { display: contents; }
+
 .radio-group { span 1; }
 .radio-group input { with: 1.5em; height: 1.5em; }
 .radio-group span { display: inline-block; vertical-align: middle; }
 #tables td { padding: 10px; }
+
 /* We have three tables in the form: 'rental-table', 'personal-table' and 'certify' */
+
 #rental-table td, #personal-table td, #certify td {
   border: 1px solid black;
 }
+
 #tables button[type="submit"] { border-radius: 10px; background: green; color: white; padding: 10px; }
+
 button[name="preview"] {
   font-size: 30px;
   padding: 10px;
@@ -196,6 +323,7 @@ button[name="preview"] {
   background: green;
   color: white;
 }
+
 .required::after {
   content: "*";
   color: red;
@@ -207,8 +335,14 @@ button[name="preview"] {
   font-weight: bold;
   margin-top: 10px;
 }
+
+/* At the very end */
+
 input[name="IHaveCheckedBox"] { transform: scale(1.5); }
 #readterms { padding: 5px; }
+
+/* Change the display when we get too small */
+
 @media (max-width: 800px) {
   #rental-table, #personal-table, #certify {
     display: grid;
@@ -216,6 +350,10 @@ input[name="IHaveCheckedBox"] { transform: scale(1.5); }
     width: 100%;
   }
 }
+
+/* Is the a phone like device? Does it not allow hover and only have a coarse pointer? */
+/* Make the tables use only 1fr. */
+
 @media (hover: none) and (pointer: coarse) {
   #rental-table, #personal-table, #certify {
     display: grid;
@@ -248,13 +386,13 @@ It will be sent to our office for approval. Thank You.</p>
 <tr>
 <td>Social Security # <span class="required"></sprn></td><td><input class="ss" name="SocialSecurity" value="$SocialSecurity" required placeholder="nnn-nn-nnnn"></td>
 <td>Driver's License #</td><td><input name="Driver_sLicense" value="$Driver_sLicense"></td>
-<td>Reg. State</td><td><input class="state" name="RegState" value="$RegState" placeholder="Enter the two character State Code"></td>
+<td>Reg. State</td><td><select name="RegState">$stateOptions</select></td>
 <td>Expiration Date</td><td><input class="date" name="ExpirationDate" value="$ExpirationDate" placeholder="mm/dd/yyyy"></td>
 </tr>
 <tr>
 <td>Current Address</td><td><input name="CurrentAddress" value="$CurrentAddress"></td>
 <td>City</td><td><input name="City" value="$City"></td>
-<td>State</td><td><input class="state" name="State" value="$State" placeholder="Enter the two character State Code"></td>
+<td>State</td><td><select name="State">$stateOptions</select></td>
 <td>Zip</td><td><input name="Zip" value="$Zip"></td>
 </tr>
 <tr>
@@ -269,7 +407,7 @@ It will be sent to our office for approval. Thank You.</p>
 <tr>
 <td>Previous Address</td><td><input name="PreviousAddress" value="$PreviousAddress"></td>
 <td>City</td><td><input name="PrevCity" value="$PrevCity"></td>
-<td>State</td><td><input class="state" name="PrevState" value="$PrevState" placeholder="Enter the two character State Code"></td>
+<td>State</td><td><select name="PrevState">$stateOptions</select></td>
 <td>Zip</td><td><input name="PrevZip" value="$PrevZip"></td>
 </tr>
 <tr>
@@ -284,7 +422,7 @@ It will be sent to our office for approval. Thank You.</p>
 <td>Auto Year</td><td><input name="AutoYr" value="$AutoYr"></td>
 <td>Make</td><td><input name="AutoMake" value="$AutoMake"></td>
 <td>Model</td><td><input name="AutoModel" value="$AutoModel"></td>
-<td>State License Plate #</td><td><input name="StateLicensePlate" value="$StateLicensePlate"></td>
+<td>State License Plate #</td><td><input name="StateLicensePlateNo" value="$StateLicensePlateNo"></td>
 </tr>
 <tt>
 <td>Present Employer</td><td><input name="PresentEmployer" value="$PresentEmployer"></td>
@@ -299,7 +437,7 @@ It will be sent to our office for approval. Thank You.</p>
 <tr>
 <td>Employer Address</td><td><input name="EmployerAddress" value="$EmployerAddress"></td>
 <td>City</td><td><input name="EmpCity" value="$EmpCity"></td>
-<td>State</td><td><input class="state" name="EmpState" value="$EmpState" placeholder="Enter the two character State Code"></td>
+<td>State</td><td><select name="EmpState">$stateOptions</select></td>
 </tr>
 <tr>
 <td>Number and Type of Pets</td><td><input name="NumberAndTypeOfPets" value="$NumberAndTypeOfPets"></td>
@@ -327,14 +465,14 @@ It will be sent to our office for approval. Thank You.</p>
 <tbody>
 <tr>
 <td>Name</td><td><input name="RefName1" value="$RefName1"></td>
-<td>Years Known</td><td><input name="YrsKnown1" value="$YrsKnown1"></td>
+<td>Years Known</td><td><input name="YearsKnown1" value="$YearsKnown1"></td>
 <td>Relation</td><td><input name="Relation1" value="$Relation1"></td>
 <td>Phone #</td><td><input class="phone" name="Phone1" value="$Phone1" placeholder="(aaa) nnn-nnnn"></td>
 </tr>
 
 <tr>
 <td>Name</td><td><input name="RefName2" value="$RefName2"></td>
-<td>Years Known</td><td><input name="YrsKnown2" value="$YrsKnown2"></td>
+<td>Years Known</td><td><input name="YearsKnown2" value="$YearsKnown2"></td>
 <td>Relation</td><td><input name="Relation2" value="$Relation2"></td>
 <td>Phone #</td><td><input class="phone" name="Phone2" value="$Phone2" placeholder="(aaa) nnn-nnnn"></td>
 </tr>
@@ -388,65 +526,34 @@ so you can make changes.<p>
 </form>
 `;
 
-  // Array of state codes and names
+  const selectAr = $selectAr; // This is the json which is from PHP.
 
-  const states = [
-    ['AL', 'Alabama'],
-    ['AK', 'Alaska'],
-    ['AZ', 'Arizona'],
-    ['AR', 'Arkansas'],
-    ['CA', 'California'],
-    ['CO', 'Colorado'],
-    ['CT', 'Connecticut'],
-    ['DE', 'Delaware'],
-    ['FL', 'Florida'],
-    ['GA', 'Georgia'],
-    ['HI', 'Hawaii'],
-    ['ID', 'Idaho'],
-    ['IL', 'Illinois'],
-    ['IN', 'Indiana'],
-    ['IA', 'Iowa'],
-    ['KS', 'Kansas'],
-    ['KY', 'Kentucky'],
-    ['LA', 'Louisiana'],
-    ['ME', 'Maine'],
-    ['MD', 'Maryland'],
-    ['MA', 'Massachusetts'],
-    ['MI', 'Michigan'],
-    ['MN', 'Minnesota'],
-    ['MS', 'Mississippi'],
-    ['MO', 'Missouri'],
-    ['MT', 'Montana'],
-    ['NE', 'Nebraska'],
-    ['NV', 'Nevada'],
-    ['NH', 'New Hampshire'],
-    ['NJ', 'New Jersey'],
-    ['NM', 'New Mexico'],
-    ['NY', 'New York'],
-    ['NC', 'North Carolina'],
-    ['ND', 'North Dakota'],
-    ['OH', 'Ohio'],
-    ['OK', 'Oklahoma'],
-    ['OR', 'Oregon'],
-    ['PA', 'Pennsylvania'],
-    ['PR', 'Puerto Rico'],
-    ['RI', 'Rhode Island'],
-    ['SC', 'South Carolina'],
-    ['SD', 'South Dakota'],
-    ['TN', 'Tennessee'],
-    ['TX', 'Texas'],
-    ['UT', 'Utah'],
-    ['VT', 'Vermont'],
-    ['VI', 'Virgin Islands'],
-    ['VA', 'Virginia'],
-    ['WA', 'Washington'],
-    ['WV', 'West Virginia'],
-    ['WI', 'Wisconsin'],
-    ['WY', 'Wyoming']
-  ];
+  // First we need to display the css and tables.
 
   $("#css").html(thisCss);
   $("#tables").html(thisPage);
+
+  // This looks through each 'select' and looks to see if the selectAr array for the name of the
+  // select is set to a state name.
+  // If it finds the name we then look through all of the options for the text of the state name.
+  // If we find it we set the property to 'selected'. Really pretty simple once you figure it out.
+  // All of the rest of the PHP logic uses the variable send from the 'dontsend' post. Only the
+  // radio buttons and state selections need special treatment. I do the radios in PHP but this
+  // must be done in JavaScript.
+
+  $("select").each(function() {
+    const selectName = $(this).attr('name');
+    if(selectAr[selectName]) {
+      let stateName = selectAr[selectName];
+
+      $(this).find("option").each(function() {
+        if($(this).text() === stateName) {
+          $(this).prop('selected', true);
+          return false; // Break out of the inner loop once the option is found
+        }
+      });
+    }
+  });
 
   // Format the phone number to (ccc) nnn-nnnn
 
@@ -493,23 +600,10 @@ so you can make changes.<p>
     $(this).val(inputValue);
   });
 
-  // Given the two letter code get the state
-
-  $(".state").on("keyup", function(e) {
-    let inputValue = $(this).val().toUpperCase(); // Get input value and convert to uppercase
-
-    if (inputValue.length === 2) { // Check if two characters are entered
-      const matchingState = states.find(state => state[0] === inputValue);
-
-      if (matchingState) {
-        inputValue = matchingState[1];
-      } else {
-        inputValue = inputValue + " Not Found";
-      }
-    }
-    $(this).val(inputValue);
+  $("select").on("change", function(e) {
+    const select = $(this).val();
+    console.log(select); // This will output the value of the selected option
   });
-
 EOF;
   
 [$top, $footer] = $S->getPageTopBottom();

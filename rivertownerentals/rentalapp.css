@@ -1,0 +1,123 @@
+/* Css for rentalapp.php and createtable.php */
+
+/* I don't understand the 'tt' tag */
+
+tt { font-family: 'Font Face'; }
+
+.invalid { background: red; color: white; }
+
+.errorMessage {
+  display: none;
+  width: fit-content;
+  margin-top: 20px;
+  background: red;
+  color: white;
+  padding: 20px;
+  border: 10px solid black;
+}
+
+/* 'tables' is the id of the 'section' */
+
+#tables { width: 100%; }
+
+/* Make the input box bigger */
+
+#tables form input { font-size: 24px; width: 100%; }
+
+/* Make the select text bigger */
+
+#tables form select { font-size: 24px; }
+
+/* The tables ids are rental-table, personal-table and certify */
+
+#rental-table, #personal-table {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  width: 100%;
+}
+#certify {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  width: 100%;
+}
+
+#rental-table tbody, #rental-table tr,
+#personal-table tbody, #personal-table tr,
+#certify tbody, #certify tr {
+  display: contents;
+}
+
+/* I scale the radio button so it is bigger */
+
+.radio-group input[type="radio"] {
+  scale: 1.5;
+}
+
+.radio-group label { display: flex; align-items: center; }
+.radio-group span { margin: 5px; /*vertical-align: super;*/ }
+
+#tables td { padding: 10px; }
+
+/* We have four tables in the form: 'rental-table', 'personal-table' and 'certify' */
+
+#rental-table td, #personal-table td, #certify td {
+  border: 1px solid black;
+}
+
+#tables button[type="submit"] { border-radius: 10px; background: green; color: white; padding: 10px; }
+
+button[name="preview"] {
+  font-size: 30px;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px; 
+  border-radius: 10px;
+  background: green;
+  color: white;
+}
+
+/* The required astrix after the first td */
+.required::after {
+  content: "*";
+  color: red;
+}
+
+/* The required text */
+
+.required-text::after {
+  content: "* required information";
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* At the very end */
+
+#readterms { padding: 5px; }
+
+/* The div with the I Agree text */
+
+#iagree { border: 10px solid red; padding: 10px 20px; width: fit-content; }
+
+/* The input checkbox for I Agree. Make it 25px */
+
+#iagree label input[type="checkbox"] { width: 25px; height: 25px; vertical-align: middle; }
+
+@media (max-width: 800px) {
+  #rental-table, #personal-table, #certify {
+    display: grid;
+    grid-template-columns: 1fr; 
+    width: 100%;
+  }
+}
+
+/* Is the a phone like device? Does it not allow hover and only have a coarse pointer? */
+/* Make the tables use only 1fr. */
+
+@media (hover: none) and (pointer: coarse) {
+  #rental-table, #personal-table, #certify {
+    display: grid;
+    grid-template-columns: 1fr; 
+    width: 100%;
+  }
+}
