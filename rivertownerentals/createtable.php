@@ -27,9 +27,15 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
 
   if($_GET['blp'] == '8653' && !empty($name = $_GET['name'])) {
     $mode = $_GET['mode'] ?? "preview";
-    
+
     if($S->sql("select json, jsonAr from $S->masterdb.rivertowne where name='$name' and mode='$mode'")) {
-      [$json, $selectAr] = $S->fetchrow('num');
+      [$json, $select] = $S->fetchrow('num');
+
+      if($select) {
+        $selectAr = $select;
+      } 
+
+      $json = urldecode($json);
 
       extract(json_decode($json, true));
     }
@@ -38,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 $DEBUG = true; // Send to ME.
 $DEBUG_NOGOTO = true;
-//$DEBUG_NOSEND = true;
+$DEBUG_NOSEND = true;
 
 const STATES = [
   'AL'=>'Alabama',
@@ -109,7 +115,7 @@ const SELECTNAMES = [
 
 if($_POST["preview"]) {
   unset($_POST['preview']);
-
+  
   $prev = "<table border='1'>";
 
   $selectAr = [];
@@ -138,19 +144,28 @@ EOF;
   [$top, $footer] = $S->getPageTopBottom();
 
   $Applicant_sName = $_POST['Applicant_sName'];
-  
+
+  foreach($_POST as $k=>$v) {
+    $encoded[$k] = htmlentities(urlencode($v));
+  }
+  $encoded = json_encode($encoded);
   $json = json_encode($_POST);
   $jsonAr = json_encode($selectAr);
 
-  // Put these into a database: $json and $jsonAr
+//  vardump('jsonAr', $jsonAr);
+//  vardump("json", $json);
 
+  // Put these into a database: $json and $jsonAr
+  
   try {
-    $S->sql("create table if not exists rivertowne(name varchar(255), json text, jsonAr text, created datetime, lasttime datetime, primary key(name))");
-    $S->sql("insert into rivertowne (name, json, jsonAr, mode, created, lasttime) values('$Applicant_sName', '$json', '$jsonAr', 'preview', now(), now()) ".
-            "on duplicate key update json='$json', jsonAr='$jsonAr', lasttime=now()");
+    $S->sql("create table if not exists $S->masterdb.rivertowne(name varchar(255), json text, jsonAr text, created datetime, lasttime datetime, primary key(name))");
+    $S->sql("insert into $S->masterdb.rivertowne (name, json, jsonAr, mode, created, lasttime) values('$Applicant_sName', '$encoded', '$jsonAr', 'preview', now(), now()) ".
+            "on duplicate key update json='$encoded', jsonAr='$jsonAr', lasttime=now()");
   } catch(Exception $e) {
     throw $e;
   }
+
+  $json = preg_replace("/'/", '~', $json);
   
   echo <<<EOF
 $top
@@ -162,6 +177,7 @@ $prev
 <button type="submit" name="dontsend" value="true">Don't Send, Return and ReEdit</button>
 <input type="hidden" name="postinfo" value='$json'>
 <input type="hidden" name="selectAr" value='$jsonAr'>
+<input type="hidden" name="encoded" value='$encoded'>
 <hr>
 $footer
 EOF;
@@ -171,7 +187,15 @@ EOF;
 // Don't send the post. Keep all of the variables to fill in the form.
 
 if($_POST["dontsend"]) {
+  //vardump('POST', $_POST);
   $json = json_decode($_POST["postinfo"], true);
+  foreach($json as $k=>$v) {
+    $v = preg_replace("/~/", "'", $v);
+    $x[$k] = $v;
+  }
+  $json = $x;
+  
+  //vardump('json', $json);
   $selectAr = $_POST["selectAr"];
 
   extract($json);
@@ -183,14 +207,17 @@ if($_POST["dontsend"]) {
 if($_POST["send"]) {
   $json = $_POST['postinfo'];
   $jsonAr = json_decode($json, true);
-
+  $encoded = $_POST['encoded'];
+  $selectAr = $_POST['selectAr'];
+  
   $applicant = $jsonAr['Applicant_sName'];
 
   try {
     // For send we don't need jsonAr.
     
-    $S->sql("insert into rivertowne (name, json, mode, created, lasttime) values('$applicant', '$json', 'sent', now(), now()) ".
-            "on duplicate key update json='$json', lasttime=now()");
+    $S->sql("insert into $S->masterdb.rivertowne (name, json, jsonAr, mode, created, lasttime) ".
+            "values('$applicant', '$selectAr', '$encoded', 'sent', now(), now()) ".
+            "on duplicate key update json='$encoded', jsonAr='$selectAr', lasttime=now()");
   } catch(Exception $e) {
     throw $e;
   }
@@ -211,15 +238,17 @@ if($_POST["send"]) {
   $mail->setReplyTo("rivertownerentals@gmail.com", "Rivertowne Rentals");
   
   if($DEBUG) {
+    $addTo = "bartonphillips@gmail.com";
     // Here we want to send the info to ME rather than to 'thetysongroup@gmail.com'
-    $mail->addTo("bartonphillips@gmail.com");
+    $mail->addTo($addTo);
   } else {
+    $addTo = "rivertownerentals@gmail.com";
     // If we are not testing send it to 'thetypsongroup@gmail.com' and Bcc to me
-    $mail->addTo("rivertowneRentals@gmail.com");
+    $mail->addTo($addTo);
     $mail->addBcc("thetysongroup@gmail.com");
     $mail->addBcc("bartonphillips@gmail.com");
   }
-  
+
   $mail->addContent("text/plain", 'View this in HTML mode');
   $mail->addContent("text/html", $msgEmail);
 
@@ -232,18 +261,22 @@ if($_POST["send"]) {
     $response = $sendgrid->send($mail);
     
     if($response->statusCode() > 299) {
-      print $response->statusCode() . "<br><pre>";
-      print_r($response->headers());
-      print "</pre>Body: <pre>";
-      print_r(json_decode($response->body()));
-      print "</pre>";
+      $err = json_decode($response->body(), true)['errors'][0];
+
+      $errorMsg = "<div style='text-align: left;'>SendGrid: ".$response->statusCode()."<br><pre>".
+                  print_r($response->headers(), true)."<br>Body:<br>{$err['message']}<br>{$err['field']}<br>{$err['help']}</pre></div>";
+
+      throw new Exception($errorMsg);
       exit();
-    }
+    }  
+
     if($DEBUG_NOGOTO !== true) {
       header("refresh:5;url=https: //rivertownerentals.com");
     }
   }
 
+  error_log("rivertownerentals/createtable.php: addTo=$addTo<br>" . print_r($msgEmail, true));
+  
   $S->banner = "<h1>Information Sent</h1>";
 
   [$top, $footer] = $S->getPageTopBottom();
@@ -259,6 +292,8 @@ EOF;
   
   exit();
 }
+
+/* Start of the GET section. */
 
 // Handle the Radio button
 
@@ -287,7 +322,6 @@ $S->banner = "<h1>Rental Forms</h1>";
 // The Java Script sets up the CSS and the main part of the page
 
 $S->b_inlineScript = <<<EOF
-
   const selectAr = $selectAr;
   
   // Set up the form
@@ -310,13 +344,13 @@ It will be sent to our office for approval. Thank You.</p>
 <tr>
 <td class="required">Applicant's Full Name</td></span></td><td><input type="text" name="Applicant_sName" value="$Applicant_sName" required autofocus></td>
 <td class="required">Phone #</td><td><input class="phone" type="phone" name="Phone" value="$Phone" required placeholder="Enter number"></td>
-<td class="required">Date of Birth (mm/dd/yyyy)</td><td><input class="date" type="text" name="DateOfBirth" value="$DateOfBirth" required placeholder="Enter number"></td>
+<td class="required">Date of Birth (mm/dd/yyyy)</td><td><input class="date" type="text" when="before" name="DateOfBirth" value="$DateOfBirth" required placeholder="Enter number"></td>
 </tr>
 <tr>
 <td class="required">Social Security #</td><td><input class="ss" name="SocialSecurity" value="$SocialSecurity" required placeholder="Enter number"></td>
 <td>Driver's License #</td><td><input name="Driver_sLicense" value="$Driver_sLicense"></td>
 <td>Reg. State</td><td><select name="RegState">$stateOptions</select></td>
-<td>Expiration Date (mm/dd/yyyy)</td><td><input class="date" name="ExpirationDate" value="$ExpirationDate" placeholder="Enter number"></td>
+<td>Expiration Date (mm/dd/yyyy)</td><td><input class="date" when="after" name="ExpirationDate" value="$ExpirationDate" placeholder="Enter number"></td>
 </tr>
 <tr>
 <td>Current Address</td><td><input name="CurrentAddress" value="$CurrentAddress"></td>
@@ -348,7 +382,7 @@ It will be sent to our office for approval. Thank You.</p>
 <td>Reason for Leaving</td><td><input name="ReasonForLeavingPrev" value="$ReasonForLeavingPrev"></td>
 </tr>
 </tr>
-<td>Auto Year</td><td><input class="autoYr" name="AutoYr" value="$AutoYr"></td>
+<td>Auto Year</td><td><input class="autoYr" name="AutoYr" value="$AutoYr" placeholder="Enter Yr.(1900 to current+1)"></td>
 <td>Make</td><td><input name="AutoMake" value="$AutoMake"></td>
 <td>Model</td><td><input name="AutoModel" value="$AutoModel"></td>
 <td>State License Plate #</td><td><input name="StateLicensePlateNo" value="$StateLicensePlateNo"></td>
@@ -370,13 +404,15 @@ It will be sent to our office for approval. Thank You.</p>
 </tr>
 <tr>
 <td>Number and Type of Pets</td><td><input name="NumberAndTypeOfPets" value="$NumberAndTypeOfPets"></td>
-<td>Have You Ever Been Party to an Eviction?</td>
+<td class="required">Have You Ever Been Party to an Eviction?</td>
 <td>
 <div class="radio-group">
+<label for="yes">Yes&nbsp;&nbsp;
 <span><input type="radio" id="yes" name="HaveYouEverBeenEvicted" value="yes" $checkedyes required></span>
-<label for="yes">&nbsp;&nbsp;Yes</label><br>
+</label>
+<label for="no">No&nbsp;&nbsp;&nbsp;
 <span><input type="radio" id="no" name="HaveYouEverBeenEvicted" value="no" $checkedno></span>
-<label for="no">&nbsp;&nbsp;No</label>
+</label>
 </div>
 </td>
 </tr>
@@ -435,7 +471,7 @@ This permission will survive the expiration of my tenancy when accessed for a le
 <tbody>
 <tr>
 <td class="required">Signature</td><td><input name="Signature" value="$Signature" required></td>
-<td class="required">Date (mm/dd/yyyy)</td><td><input class="date" name="SigDate" value="$SigDate" required placeholder="Enter number"></td>
+<td class="required">Date (mm/dd/yyyy)</td><td><input class="date" when="current" name="SigDate" value="$SigDate" required placeholder="Enter number"></td>
 </tr>
 <tr>
 <td class="required">Email Address</td><td colspan="3"><input type="email" name="SigEmail" value="$SigEmail" required></td>
@@ -463,11 +499,12 @@ so you can make changes.<p>
 EOF;
 
 $S->h_script =<<<EOF
+<script src='./maskfunction.js'></script>
 <script src='./rentalapp.js'></script>
 EOF;
 
 $S->link = "<link rel='stylesheet' href='./rentalapp.css'>";
-
+  
 [$top, $footer] = $S->getPageTopBottom();
 
 // Render the full page with CSS and the form.
@@ -475,8 +512,6 @@ $S->link = "<link rel='stylesheet' href='./rentalapp.css'>";
 echo <<<EOF
 $top
 <hr>
-<!-- The JavaScript prepaired css goes here in id 'css' -->
-<style id="css"></style>
 <!-- The JavaScript prepaired section goes into the 'tables' section -->
 <section id="tables"></section>
 <hr>

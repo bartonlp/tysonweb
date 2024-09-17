@@ -131,8 +131,8 @@ EOF;
   // Put these into a database: $json and $jsonAr
   
   try {
-    $S->sql("create table if not exists rivertowne(name varchar(255), json text, jsonAr text, created datetime, lasttime datetime, primary key(name))");
-    $S->sql("insert into rivertowne (name, json, jsonAr, mode, created, lasttime) values('$Applicant_sName', '$encoded', '$jsonAr', 'preview', now(), now()) ".
+    $S->sql("create table if not exists $S->masterdb.rivertowne(name varchar(255), json text, jsonAr text, created datetime, lasttime datetime, primary key(name))");
+    $S->sql("insert into $S->masterdb.rivertowne (name, json, jsonAr, mode, created, lasttime) values('$Applicant_sName', '$encoded', '$jsonAr', 'preview', now(), now()) ".
             "on duplicate key update json='$encoded', jsonAr='$jsonAr', lasttime=now()");
   } catch(Exception $e) {
     throw $e;
@@ -181,14 +181,16 @@ if($_POST["send"]) {
   $json = $_POST['postinfo'];
   $jsonAr = json_decode($json, true);
   $encoded = $_POST['encoded'];
+  $selectAr = $_POST['selectAr'];
   
   $applicant = $jsonAr['Applicant_sName'];
 
   try {
     // For send we don't need jsonAr.
     
-    $S->sql("insert into rivertowne (name, json, mode, created, lasttime) values('$applicant', '$encoded', 'sent', now(), now()) ".
-            "on duplicate key update json='$encoded', lasttime=now()");
+    $S->sql("insert into $S->masterdb.rivertowne (name, json, jsonAr, mode, created, lasttime) ".
+            "values('$applicant', '$selectAr', '$encoded', 'sent', now(), now()) ".
+            "on duplicate key update json='$encoded', jsonAr='$selectAr', lasttime=now()");
   } catch(Exception $e) {
     throw $e;
   }
@@ -209,11 +211,13 @@ if($_POST["send"]) {
   $mail->setReplyTo("rivertownerentals@gmail.com", "Rivertowne Rentals");
   
   if($DEBUG) {
+    $addTo = "bartonphillips@gmail.com";
     // Here we want to send the info to ME rather than to 'thetysongroup@gmail.com'
-    $mail->addTo("bartonphillips@gmail.com");
+    $mail->addTo($addTo);
   } else {
+    $addTo = "rivertownerentals@gmail.com";
     // If we are not testing send it to 'thetypsongroup@gmail.com' and Bcc to me
-    $mail->addTo("rivertowneRentals@gmail.com");
+    $mail->addTo($addTo);
     $mail->addBcc("thetysongroup@gmail.com");
     $mail->addBcc("bartonphillips@gmail.com");
   }
@@ -244,6 +248,8 @@ if($_POST["send"]) {
     }
   }
 
+  error_log("rivertownerentals/createtable.php: addTo=$addTo<br>" . print_r($msgEmail, true));
+  
   $S->banner = "<h1>Information Sent</h1>";
 
   [$top, $footer] = $S->getPageTopBottom();
