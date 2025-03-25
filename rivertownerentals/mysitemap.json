@@ -8,7 +8,7 @@
   "siteName": "Tysonweb",
   "mainTitle": "",  // NO mainTitle. Banner is set in
                     // individual files.
-  "path": "/var/www/tysonweb/rivertownerentals",
+  "path": "/var/www/newbern-nc.info/rivertownerentals",
   "className": "SiteClass",
   //"base": "https://www.bartonphillips.org/tysonweb",
   "copyright": "Tyson Group",
@@ -31,12 +31,9 @@
     "noHtml": false,
     "noOutput": false
   },
-  //"defaultCss": "https://newbern-nc.info/css/tyson.css", // The
-  //symlink below uses 'defaultCss' as the css to use
-  //"defaultCss": false,
   "headFile": "/var/www/bartonphillips.com/includes/head.i.php", // use standard head
-  "bannerFile": "/var/www/tysonweb/rivertownerentals/includes/banner.i.php", // special for rivertownerentals
-  "footerFile": "/var/www/tysonweb/rivertownerentals/includes/footer.i.php", // special for rivertownerentals
+  "bannerFile": "/var/www/newbern-nc.info/rivertownerentals/includes/banner.i.php", // special for rivertownerentals
+  "footerFile": "/var/www/newbern-nc.info/rivertownerentals/includes/footer.i.php", // special for rivertownerentals
   "count": true,
   //"noGeo" : true, // BLP 2022-01-28 -- new
   "favicon": "/favicon.ico", // we can specify a favicon here or $h->favicon

@@ -275,7 +275,8 @@ if($_POST["send"]) {
     }
   }
 
-  error_log("rivertownerentals/createtable.php: addTo=$addTo<br>" . print_r($msgEmail, true));
+  // For debugging remove the // below
+  //error_log("rivertownerentals/createtable.php: addTo=$addTo<br>" . print_r($msgEmail, true));
   
   $S->banner = "<h1>Information Sent</h1>";
 

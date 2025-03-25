@@ -8,9 +8,8 @@
   "siteName": "Tysonweb",
   "mainTitle": "",  // NO mainTitle. Banner is set in
                     // individual files.
-  "path": "/var/www/tysonweb",
+  "path": "/var/www/newbern-nc.info",
   "className": "SiteClass",
-  //"base": "https://www.bartonphillips.org/tysonweb",
   "copyright": "Tyson Group",
   "author": "Steve Tyson and Barton Phillips",
   "title": "The Tyson Group", // BLP 2022-02-07 -- add title and desc as they are always the same.
@@ -27,21 +26,21 @@
                          // If development is true then noEmail will be
                          // set to true unless noEmail is set to false!
                          // Only false not null or just missing.
-    "noEmail": false, //null,   // Set it to null will not affect the true above which sets it to true also.
+    "noEmail": true, //null,   // Set it to null will not affect the true above which sets it to true also.
     "noHtml": false,
     "noOutput": false
   },
   "defaultCss": "https://newbern-nc.info/css/tyson.css", // The symlink below uses 'defaultCss' as the css to use
   "headFile": "/var/www/bartonphillips.com/includes/head.i.php", // use standard head
-  "bannerFile": "/var/www/tysonweb/includes/banner.i.php", // NOTE: the *File must NOT HAVE a preceeding slash
-  "footerFile": "/var/www/tysonweb/includes/footer.i.php", // because they are file_get_contents() loaded
+  "bannerFile": "/var/www/newbern-nc.info/includes/banner.i.php", // NOTE: the *File must NOT HAVE a preceeding slash
+  "footerFile": "/var/www/newbern-nc.info/includes/footer.i.php", // because they are file_get_contents() loaded
   // and that would mean they are in the ROOT directory. They would
   // need a full path like /var/www/tysonweb/ to work.
   "count": true,
   //"noGeo" : true, // BLP 2022-01-28 -- new
   "favicon": "/favicon.ico", // we can specify a favicon here or $h->favicon
   "ctrmsg": "Counter Reset: June 13, 2023",
-  "trackerImg1": "https://www.newbern-nc.info/images/tysongroup-logo.jpg", // Full url for the image under tysonweb
+  "trackerImg1": "https://newbern-nc.info/images/tysongroup-logo.jpg", // Full url for the image under tysonweb
   // the trackerImg should have a slash before or a full url.
   "trackerImg2": null, // will use the default 1px image for 'normal'
   "EMAILADDRESS": "bartonphillips@gmail.com", // NEED to change to tyson group.
